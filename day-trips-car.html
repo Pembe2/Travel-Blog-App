@@ -321,6 +321,10 @@
     .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
     .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
     .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
@@ -340,6 +344,7 @@
         <a href="trips-plane.html" class="">Trips by Plane</a>
         <a href="trips-car.html" class="">Trips by Car</a>
         <a href="trips-train.html" class="">Trips by Train</a>
+        <a href="future-destinations.html" class="">Future Destinations</a>
       </div>
       <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
     </aside>
@@ -372,143 +377,17 @@
     
 
       <article class="card">
-        <a href="destinations/heidelberg-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg/900px-K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg" alt="Heidelberg hillside and river" loading="lazy" decoding="async" />
+        <a href="destinations/saarbrucken-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ludwigskirche.jpg/900px-Ludwigskirche.jpg" alt="Ludwigskirche church in Saarbrucken" loading="lazy" decoding="async" />
         </a>
         <div class="card-body">
-          <div class="tag">Drive | 1h 20m</div>
-          <h3><a href="destinations/heidelberg-germany.html">Heidelberg, Germany</a></h3>
-          <p class="summary">Castle views and a riverside old town.</p>
+          <div class="tag">Drive | 1h 05m / Train | 45m</div>
+          <h3><a href="destinations/saarbrucken-germany.html">Saarbrucken, Germany</a></h3>
+          <p class="summary">Riverside capital with parks, a market square, and easy family walks.</p>
           <ul class="facts">
             <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>Heidelberg Castle, old town, river cruise</li>
-            <li><span>Best for</span>Scenic views and history</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/luxembourg-city-luxembourg.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Luxembourg_Grand_Ducal_Palace_01.jpg/900px-Luxembourg_Grand_Ducal_Palace_01.jpg" alt="Grand Ducal Palace in Luxembourg City" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 1h 10m</div>
-          <h3><a href="destinations/luxembourg-city-luxembourg.html">Luxembourg City, Luxembourg</a></h3>
-          <p class="summary">Compact capital with parks and stone bridges.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>old town, casemates, park trails</li>
-            <li><span>Best for</span>Easy walks and viewpoints</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/baden-baden-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Baden-Baden_10-2015_img05_View_from_Merkur.jpg/900px-Baden-Baden_10-2015_img05_View_from_Merkur.jpg" alt="Baden-Baden view from Merkur" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 1h 25m</div>
-          <h3><a href="destinations/baden-baden-germany.html">Baden-Baden, Germany</a></h3>
-          <p class="summary">Spa town with parks, playgrounds, and cable car views.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>Merkur funicular, Lichtentaler Allee, parks</li>
-            <li><span>Best for</span>Relaxed family pace</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/saarburg-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Wasserfall-Saarburg-Amueseum-2016.jpg/900px-Wasserfall-Saarburg-Amueseum-2016.jpg" alt="Waterfall in Saarburg" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 55m</div>
-          <h3><a href="destinations/saarburg-germany.html">Saarburg, Germany</a></h3>
-          <p class="summary">Small town with a waterfall in the center.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>waterfall, river cafe, chairlift</li>
-            <li><span>Best for</span>Short, easy outings</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/burg-eltz-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg/900px-Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg" alt="Burg Eltz castle" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 1h 35m</div>
-          <h3><a href="destinations/burg-eltz-germany.html">Burg Eltz, Germany</a></h3>
-          <p class="summary">Fairytale castle in the forest with scenic walks.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>castle tour, forest trails, photo overlooks</li>
-            <li><span>Best for</span>Castle lovers</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/cochem-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cochem_and_Reichsburg.jpg/900px-Cochem_and_Reichsburg.jpg" alt="Cochem and Reichsburg Castle" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 1h 20m</div>
-          <h3><a href="destinations/cochem-germany.html">Cochem, Germany</a></h3>
-          <p class="summary">Mosel river town with castle views and riverside stops.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>Reichsburg Castle, river walk, chairlift</li>
-            <li><span>Best for</span>Riverside towns</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/speyer-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Speyer_Dom_Luft.jpg/900px-Speyer_Dom_Luft.jpg" alt="Speyer Cathedral aerial view" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 1h 10m</div>
-          <h3><a href="destinations/speyer-germany.html">Speyer, Germany</a></h3>
-          <p class="summary">Cathedral city with museums and riverside parks.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>cathedral, Technik Museum, river paths</li>
-            <li><span>Best for</span>Museum lovers</li>
+            <li><span>Family highlights</span>Ludwigskirche and historic center, Saarbrucken Castle complex, St. Johanner Markt</li>
+            <li><span>Best for</span>Easy walking and park breaks</li>
           </ul>
           <div class="cta">
             <span>Guide coming soon</span>

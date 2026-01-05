@@ -42,6 +42,10 @@ EXTRA_CSS = """
     .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
     .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
     .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
@@ -58,6 +62,7 @@ NAV_ITEMS = [
     ("../trips-plane.html", "Trips by Plane"),
     ("../trips-car.html", "Trips by Car"),
     ("../trips-train.html", "Trips by Train"),
+    ("../future-destinations.html", "Future Destinations"),
 ]
 
 LIST_NAV_ITEMS = [
@@ -67,6 +72,7 @@ LIST_NAV_ITEMS = [
     ("trips-plane.html", "Trips by Plane"),
     ("trips-car.html", "Trips by Car"),
     ("trips-train.html", "Trips by Train"),
+    ("future-destinations.html", "Future Destinations"),
 ]
 
 
@@ -141,9 +147,16 @@ def map_section(map_cfg):
         <h2>Map: family-friendly points of interest</h2>
         <div class="map-card">
           <div id="trierMap" aria-label="Map of destination points"></div>
-          <div class="map-legend">
-            <strong>Layers:</strong> {legend}
-            {legend_extra}
+        </div>
+        <div class="map-legend">
+          <strong>Layers:</strong> {legend}
+          {legend_extra}
+          <div class="layer-legend" aria-label="Map layers">
+            <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="parking" checked /> <span class="layer-swatch" style="background:#f4b942;"></span> Parking garages</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
           </div>
         </div>
       </section>
@@ -202,13 +215,24 @@ def map_section(map_cfg):
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
-      L.control.layers(null, {
-        "Points of interest": poiLayer,
-        "Parking garages": parkingLayer,
-        "Recommended restaurants": restaurantLayer,
-        "Family-friendly restaurants": familyRestaurantLayer,
-        "Indoor attractions": indoorLayer
-      }, { collapsed: false }).addTo(map);
+      restaurantLayer.addTo(map);
+      familyRestaurantLayer.addTo(map);
+      indoorLayer.addTo(map);
+
+      var toggles = document.querySelectorAll(".layer-toggle input");
+      toggles.forEach(function(toggle){
+        toggle.addEventListener("change", function(){
+          var key = toggle.getAttribute("data-layer");
+          var layer = null;
+          if (key === "poi") layer = poiLayer;
+          if (key === "parking") layer = parkingLayer;
+          if (key === "restaurants") layer = restaurantLayer;
+          if (key === "family") layer = familyRestaurantLayer;
+          if (key === "indoor") layer = indoorLayer;
+          if (!layer) return;
+          if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+        });
+      });
 
       var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
@@ -401,9 +425,11 @@ def pill_for_list(dest, mode, day_trip):
     return ""
 
 
-def build_list_page(destinations, title, lede, active_href, mode, day_trip, styles):
+def build_list_page(destinations, title, lede, active_href, mode, day_trip, styles, groomed_only=True):
     cards = []
     for dest in destinations:
+        if groomed_only and not dest.get("groomed"):
+            continue
         dest_modes = dest.get("modes", [])
         if mode not in dest_modes:
             continue
@@ -414,6 +440,53 @@ def build_list_page(destinations, title, lede, active_href, mode, day_trip, styl
         cards.append(list_card_html(dest, pill_for_list(dest, mode, day_trip)))
 
     cards_html = "\n".join(cards)
+    nav = make_list_nav(active_href)
+
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <style>
+{styles}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Category navigation">
+      <div class="brand">KMC Exploration</div>
+      <div class="nav">
+{nav}
+      </div>
+      <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
+    </aside>
+    <main class="content">
+      <header>
+        <h1>{title.split('|')[-1].strip()}</h1>
+        <p class="lede">{lede}</p>
+      </header>
+      <section class="grid" aria-label="{title}">
+{cards_html}
+      </section>
+      <footer>
+        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
+"""
+
+
+def build_future_page(destinations, title, lede, active_href, styles):
+    cards = []
+    for dest in destinations:
+        if dest.get("groomed"):
+            continue
+        cards.append(list_card_html(dest, "Research pending"))
+
+    cards_html = "\n".join(cards) if cards else '<div class="notice"><strong>All set:</strong> No future destinations queued yet.</div>'
     nav = make_list_nav(active_href)
 
     return f"""<!doctype html>
@@ -524,10 +597,20 @@ def main():
             page["mode"],
             page["day_trip"],
             styles,
+            groomed_only=True,
         )
         (ROOT / page["filename"]).write_text(html, encoding="utf-8")
 
-    print(f"Generated {len(data)} destination pages and {len(list_pages)} list pages")
+    future_page = build_future_page(
+        data,
+        "KMC Exploration | Future Destinations",
+        "Places we want to research next. These cards stay here until we finish field notes.",
+        "future-destinations.html",
+        styles,
+    )
+    (ROOT / "future-destinations.html").write_text(future_page, encoding="utf-8")
+
+    print(f"Generated {len(data)} destination pages and {len(list_pages) + 1} list pages")
 
 
 if __name__ == "__main__":
