@@ -366,6 +366,8 @@ def build_page(dest, template, styles):
 def list_card_html(dest, pill_label):
     highlights = ", ".join(dest["highlights"][:3])
     pill = f'<span class="pill">{pill_label}</span>' if pill_label else ""
+    groomed = bool(dest.get("groomed", False))
+    guide_label = "" if groomed else "<span>Guide coming soon</span>"
     return f"""
       <article class="card">
         <a href="destinations/{dest['slug']}.html">
@@ -381,7 +383,7 @@ def list_card_html(dest, pill_label):
             <li><span>Best for</span>{dest['best_for']}</li>
           </ul>
           <div class="cta">
-            <span>Guide coming soon</span>
+            {guide_label}
             {pill}
           </div>
         </div>
