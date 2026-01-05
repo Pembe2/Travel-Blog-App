@@ -957,24 +957,183 @@
     "title": "Saarbrucken, Germany",
     "category_page": "day-trips-train.html",
     "category_label": "Day Trips by Train",
-    "summary": "Compact city with river walks and cafes.",
+    "summary": "Riverside capital with parks, a market square, and easy family walks.",
     "length": "1 day",
-    "tag": "Train | 45m",
+    "tag": "Drive | 1h 05m / Train | 45m",
     "highlights": [
-      "old town",
-      "river walk",
-      "city square"
+      "Ludwigskirche and historic center",
+      "Saarbrucken Castle complex",
+      "St. Johanner Markt",
+      "Deutsch-Franzoesischer Garten",
+      "Saarbrucken Zoo"
     ],
-    "best_for": "Short rail rides",
+    "best_for": "Easy walking and park breaks",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ludwigskirche.jpg/900px-Ludwigskirche.jpg",
     "alt": "Ludwigskirche church in Saarbrucken",
     "tips": [
-      "Pair river walks with a cafe stop.",
-      "Keep the day light and flexible.",
-      "Stay near the center for easy walking."
+      "Start near the old town so everything stays walkable.",
+      "Use the river promenade for a mid-day break.",
+      "Pair the zoo or garden with a shorter museum stop."
     ],
+    "indoor_attractions": [
+      "Saarland Museum (Moderne Galerie)",
+      "Historisches Museum Saar",
+      "Saarbrucken Castle museum rooms",
+      "Stadtgalerie Saarbrucken"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Ludwigskirche",
+          "lat": 49.2364,
+          "lon": 6.9927
+        },
+        {
+          "name": "Saarbrucken Castle",
+          "lat": 49.2346,
+          "lon": 6.9966
+        },
+        {
+          "name": "St. Johanner Markt",
+          "lat": 49.2342,
+          "lon": 7.0006
+        },
+        {
+          "name": "Deutsch-Franzoesischer Garten",
+          "lat": 49.2256,
+          "lon": 6.9666
+        },
+        {
+          "name": "Saarbrucken Zoo",
+          "lat": 49.2218,
+          "lon": 7.0306
+        }
+      ],
+      "parking": [
+        {
+          "name": "Parkhaus Am Schloss",
+          "lat": 49.235,
+          "lon": 6.9953
+        },
+        {
+          "name": "Parkhaus Rathaus",
+          "lat": 49.2348,
+          "lon": 6.9994
+        },
+        {
+          "name": "Parkhaus Europa-Galerie",
+          "lat": 49.2384,
+          "lon": 6.9913
+        },
+        {
+          "name": "Parkhaus Bahnhofstrasse",
+          "lat": 49.2361,
+          "lon": 6.9983
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Brauhaus Zum Stiefel",
+          "lat": 49.2339,
+          "lon": 7.0017
+        },
+        {
+          "name": "St. Johanner Markt cafes",
+          "lat": 49.2342,
+          "lon": 7.0006
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Saarbrucker Zoo Restaurant",
+          "lat": 49.2219,
+          "lon": 7.0302
+        },
+        {
+          "name": "Deutsch-Franzoesischer Garten Bistro",
+          "lat": 49.2259,
+          "lon": 6.9669
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Saarland Museum (Moderne Galerie)",
+          "lat": 49.2355,
+          "lon": 7.0044
+        },
+        {
+          "name": "Historisches Museum Saar",
+          "lat": 49.2341,
+          "lon": 6.9964
+        },
+        {
+          "name": "Stadtgalerie Saarbrucken",
+          "lat": 49.2351,
+          "lon": 6.9936
+        }
+      ]
+    },
+    "groomed": true,
     "modes": [
-      "train"
+      "train",
+      "car"
+    ],
+    "description": "Saarbrucken is a compact riverside capital where families can mix historic sites with park time. The old town, castle district, and St. Johanner Markt are close together, and the river promenade plus large gardens keep the day relaxed for kids.",
+    "itinerary": [
+      {
+        "title": "Morning",
+        "text": "Start at Ludwigskirche, then walk through the old town to Saarbrucken Castle."
+      },
+      {
+        "title": "Midday",
+        "text": "Lunch around St. Johanner Markt and a short riverside stroll."
+      },
+      {
+        "title": "Afternoon",
+        "text": "Pick either the Saarbrucken Zoo or Deutsch-Franzoesischer Garten for a longer family stop."
+      },
+      {
+        "title": "Late afternoon",
+        "text": "Finish with a quick museum visit or a relaxed walk along the Saar."
+      }
+    ],
+    "recommended_stops": [
+      "Ludwigskirche and the historic center",
+      "Saarbrucken Castle and terrace views",
+      "St. Johanner Markt square",
+      "Deutsch-Franzoesischer Garten",
+      "Saarbrucken Zoo",
+      "Saar river promenade (Staden)"
+    ],
+    "lodging": [
+      "Hotel Am Triller",
+      "Mercure Hotel Saarbrucken City",
+      "Victor's Residenz-Hotel Saarbrucken",
+      "B&B Hotel Saarbrucken-Hbf"
+    ],
+    "access_note": "Saarbrucken is easy by train or car. From Saarbrucken Hbf, the old town and St. Johanner Markt are a 10 to 15 minute walk or a short bus ride. If driving, use the A6 or A620 and park near the castle or city center garages.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ludwigskirche.jpg/1600px-Ludwigskirche.jpg",
+        "alt": "Ludwigskirche in Saarbrucken"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Schloss_Saarbr%C3%BCcken.jpg/1600px-Schloss_Saarbr%C3%BCcken.jpg",
+        "alt": "Saarbrucken Castle"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/St._Johanner_Markt_Saarbr%C3%BCcken.jpg/1600px-St._Johanner_Markt_Saarbr%C3%BCcken.jpg",
+        "alt": "St. Johanner Markt"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Saarbr%C3%BCcken_Staden.jpg/1600px-Saarbr%C3%BCcken_Staden.jpg",
+        "alt": "Saar river promenade in Saarbrucken"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Deutsch-Franz%C3%B6sischer_Garten_Saarbr%C3%BCcken.jpg/1600px-Deutsch-Franz%C3%B6sischer_Garten_Saarbr%C3%BCcken.jpg",
+        "alt": "Deutsch-Franzoesischer Garten"
+      }
     ]
   },
   {
