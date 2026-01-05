@@ -165,6 +165,19 @@ def map_section(map_cfg):
     def js_array(items):
         return json.dumps(items, ensure_ascii=True)
 
+    def pick_center(cfg, fallback):
+        if "center" in cfg and cfg["center"]:
+            return cfg["center"]
+        for key in ("poi", "parking", "restaurants", "family_restaurants", "indoor"):
+            items = cfg.get(key) or []
+            if items:
+                first = items[0]
+                if "lat" in first and "lon" in first:
+                    return {"lat": first["lat"], "lon": first["lon"]}
+        return fallback
+
+    center = pick_center(map_cfg, {"lat": 49.7566, "lon": 6.6420})
+
     js = """
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
@@ -172,7 +185,7 @@ def map_section(map_cfg):
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([49.7566, 6.6420], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView(__CENTER__, 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -245,6 +258,7 @@ def map_section(map_cfg):
     js = js.replace("__RESTAURANTS__", js_array(map_cfg.get("restaurants", [])))
     js = js.replace("__FAMILY_RESTAURANTS__", js_array(map_cfg.get("family_restaurants", [])))
     js = js.replace("__INDOOR__", js_array(map_cfg.get("indoor", [])))
+    js = js.replace("__CENTER__", json.dumps([center["lat"], center["lon"]], ensure_ascii=True))
 
     return html, js
 
@@ -429,8 +443,12 @@ def pill_for_list(dest, mode, day_trip):
 
 def build_list_page(destinations, title, lede, active_href, mode, day_trip, styles, groomed_only=True):
     cards = []
+    seen = set()
     for dest in destinations:
         if groomed_only and not dest.get("groomed"):
+            continue
+        slug = dest.get("slug")
+        if slug in seen:
             continue
         dest_modes = dest.get("modes", [])
         if mode not in dest_modes:
@@ -439,6 +457,7 @@ def build_list_page(destinations, title, lede, active_href, mode, day_trip, styl
             continue
         if not day_trip and dest["length"] == "1 day":
             continue
+        seen.add(slug)
         cards.append(list_card_html(dest, pill_for_list(dest, mode, day_trip)))
 
     cards_html = "\n".join(cards)
