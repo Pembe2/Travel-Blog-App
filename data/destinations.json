@@ -1,0 +1,1005 @@
+[
+  {
+    "slug": "paris-france",
+    "title": "Paris, France",
+    "category_page": "trips-train.html",
+    "category_label": "Trips by Train",
+    "summary": "Big-icon city with parks, boat rides, and kid-friendly museums.",
+    "length": "4 to 5 days",
+    "tag": "Train | 2h 40m",
+    "highlights": [
+      "Seine cruise",
+      "Tuileries Gardens",
+      "Cite des Sciences"
+    ],
+    "best_for": "Culture, playgrounds, easy transit",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/900px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+    "alt": "Eiffel Tower view over Paris",
+    "tips": [
+      "Start mornings early to avoid crowds at the big sights.",
+      "Use parks for mid-day breaks and playground time.",
+      "Stay near a central metro line to keep transit simple."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "amsterdam-netherlands",
+    "title": "Amsterdam, Netherlands",
+    "category_page": "trips-train.html",
+    "category_label": "Trips by Train",
+    "summary": "Compact city with canals, bikes, and hands-on museums.",
+    "length": "4 days",
+    "tag": "Train | 4h 00m",
+    "highlights": [
+      "NEMO Science Museum",
+      "canal cruise",
+      "Vondelpark"
+    ],
+    "best_for": "Easy walking, short hops",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/900px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png",
+    "alt": "Canals of Amsterdam",
+    "tips": [
+      "Use the canal cruise as a break from walking.",
+      "Parks are easy to reach and stroller-friendly.",
+      "Reserve museum times ahead when possible."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "prague-czechia",
+    "title": "Prague, Czechia",
+    "category_page": "trips-train.html",
+    "category_label": "Trips by Train",
+    "summary": "Storybook architecture and river walks with low travel stress.",
+    "length": "4 days",
+    "tag": "Train | 6h 30m",
+    "highlights": [
+      "Castle district",
+      "Petrin Hill",
+      "river cruise"
+    ],
+    "best_for": "Historic charm and value",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/900px-Prague_%286365119737%29.jpg",
+    "alt": "Old Town Prague",
+    "tips": [
+      "Pick a central hotel to keep walks short.",
+      "Use tram rides to reduce uphill walks.",
+      "Carry coins for public restrooms."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "vienna-austria",
+    "title": "Vienna, Austria",
+    "category_page": "trips-train.html",
+    "category_label": "Trips by Train",
+    "summary": "Imperial parks, easy transit, and kid-friendly museums.",
+    "length": "4 to 5 days",
+    "tag": "Train | 7h 30m",
+    "highlights": [
+      "Schonbrunn zoo",
+      "Prater park",
+      "Haus der Musik"
+    ],
+    "best_for": "Culture with green space",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Schoenbrunn_philharmoniker_2012.jpg/900px-Schoenbrunn_philharmoniker_2012.jpg",
+    "alt": "Schonbrunn Palace in Vienna",
+    "tips": [
+      "Prater park is great for a low-cost fun day.",
+      "Public transit is easy and stroller-friendly.",
+      "Plan palace visits early in the day."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "copenhagen-denmark",
+    "title": "Copenhagen, Denmark",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Harbor city with castles, playgrounds, and easy day trips.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Tivoli Gardens",
+      "Nyhavn",
+      "Experimentarium"
+    ],
+    "best_for": "Safe city breaks and bike paths",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Christiansborg_fra_Nikolaj_Kirken.jpg/900px-Christiansborg_fra_Nikolaj_Kirken.jpg",
+    "alt": "Copenhagen skyline",
+    "tips": [
+      "Bike lanes are everywhere, but walking works fine too.",
+      "Pack a light jacket for coastal breezes.",
+      "Tivoli is great for an evening visit."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "budapest-hungary",
+    "title": "Budapest, Hungary",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "River city with thermal baths and big views.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 35m",
+    "highlights": [
+      "Margaret Island",
+      "castle hill",
+      "river cruise"
+    ],
+    "best_for": "Food, views, budget stays",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg/900px-View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg",
+    "alt": "Danube River in Budapest",
+    "tips": [
+      "Pick a hotel near the river for easier sightseeing.",
+      "Leave time for a short cruise at sunset.",
+      "Use island parks for downtime."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "venice-italy",
+    "title": "Venice, Italy",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Canals, islands, and a one-of-a-kind city layout.",
+    "length": "4 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Vaporetto rides",
+      "Murano day trip",
+      "Lido beach"
+    ],
+    "best_for": "Unique scenery and easy exploring",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Venezia_aerial_view.jpg/900px-Venezia_aerial_view.jpg",
+    "alt": "Aerial view of Venice",
+    "tips": [
+      "Use the water bus as your main transport.",
+      "Plan a Lido beach afternoon for kids.",
+      "Avoid heavy luggage and use central lodging."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "florence-italy",
+    "title": "Florence, Italy",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Art, gelato, and day trips into Tuscany.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 35m",
+    "highlights": [
+      "Boboli Gardens",
+      "piazzas",
+      "Pisa day trip"
+    ],
+    "best_for": "Art lovers and food adventures",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/FirenzeDec092023_01.jpg/900px-FirenzeDec092023_01.jpg",
+    "alt": "Florence skyline",
+    "tips": [
+      "Choose shaded parks for mid-day breaks.",
+      "Book galleries early or plan shorter visits.",
+      "Consider a short Pisa day trip."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "rome-italy",
+    "title": "Rome, Italy",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Ancient history with plenty of open plazas and parks.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 50m",
+    "highlights": [
+      "Colosseum",
+      "Villa Borghese",
+      "gelato stops"
+    ],
+    "best_for": "History with a big-city buzz",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/900px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+    "alt": "Trevi Fountain in Rome",
+    "tips": [
+      "Plan early entry for major sights.",
+      "Use parks for breaks and shade.",
+      "Keep walking days short for kids."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "barcelona-spain",
+    "title": "Barcelona, Spain",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Beach plus city with huge parks and food markets.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 2h 05m",
+    "highlights": [
+      "Barceloneta beach",
+      "Park Guell",
+      "aquarium"
+    ],
+    "best_for": "City and beach combo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg/900px-Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg",
+    "alt": "Barcelona aerial view",
+    "tips": [
+      "Balance beach time with city sights.",
+      "Book popular attractions in advance.",
+      "Choose lodging near transit lines."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "nice-france",
+    "title": "Nice, France",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Mediterranean coast with beaches and easy day trips.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Promenade",
+      "pebble beaches",
+      "Monaco day trip"
+    ],
+    "best_for": "Seaside summer breaks",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/%C3%88ze_und_Cap_Ferrat-Grande_Corniche.jpg/900px-%C3%88ze_und_Cap_Ferrat-Grande_Corniche.jpg",
+    "alt": "French Riviera coast",
+    "tips": [
+      "Bring water shoes for pebble beaches.",
+      "Schedule a short Monaco day trip.",
+      "Stay near the promenade for easy access."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "dubrovnik-croatia",
+    "title": "Dubrovnik, Croatia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Walled city with clear water and island day trips.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 2h 00m",
+    "highlights": [
+      "Old walls walk",
+      "Lokrum island",
+      "beaches"
+    ],
+    "best_for": "Sun and sea with history",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg/900px-The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg",
+    "alt": "Dubrovnik old city and walls",
+    "tips": [
+      "Walk the walls early for cooler temps.",
+      "Take a short boat to Lokrum island.",
+      "Carry sun protection for midday."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "mallorca-spain",
+    "title": "Mallorca, Spain",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Island beaches, easy resorts, and warm water.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 2h 05m",
+    "highlights": [
+      "Cala beaches",
+      "Palma old town",
+      "boat tours"
+    ],
+    "best_for": "Beach-first family trips",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Kathedrale_von_Palma.jpg/900px-Kathedrale_von_Palma.jpg",
+    "alt": "Cathedral of Palma de Mallorca",
+    "tips": [
+      "Choose a family-friendly beach cove.",
+      "Plan a short old-town stroll in Palma.",
+      "Use boats for easy water days."
+    ],
+    "modes": [
+      "plane"
+    ]
+  },
+  {
+    "slug": "lake-garda-italy",
+    "title": "Lake Garda, Italy",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Lake towns, swimming spots, and mountain views.",
+    "length": "4 to 5 days",
+    "tag": "Drive | 6 to 7 hours",
+    "highlights": [
+      "Beach towns",
+      "boat rides",
+      "Gardaland"
+    ],
+    "best_for": "Water days and relaxed pace",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg/900px-La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg",
+    "alt": "Lake Garda shoreline",
+    "tips": [
+      "Pick one lake town as a base.",
+      "Pack swim gear for lakeside afternoons.",
+      "Plan a Gardaland day if kids want rides."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "salzburg-austria",
+    "title": "Salzburg, Austria",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Mountain foothills, lakes, and sound-of-music vibes.",
+    "length": "4 days",
+    "tag": "Drive | 5 to 6 hours",
+    "highlights": [
+      "Fortress",
+      "lake swims",
+      "alpine cable cars"
+    ],
+    "best_for": "Scenic drives and nature breaks",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Salzburg_%2848489551981%29.jpg/900px-Salzburg_%2848489551981%29.jpg",
+    "alt": "Salzburg old town",
+    "tips": [
+      "Plan a lake day outside the city.",
+      "Use cable cars for easy views.",
+      "Stay near the old town to avoid driving."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "trier-germany",
+    "title": "Trier, Germany",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Roman sites, a compact old town, and riverside views that are easy to do in one day.",
+    "length": "1 day",
+    "tag": "Drive | 1h 15m / Train | 1h 20m",
+    "highlights": [
+      "Porta Nigra and Simeonstiftplatz",
+      "Trier Cathedral and Liebfrauenkirche",
+      "Basilica of Constantine",
+      "Kaiserthermen or Roman Amphitheatre",
+      "Mosel river promenade"
+    ],
+    "best_for": "History and easy walking",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Trier-Blick-vom_Weishaus.JPG/900px-Trier-Blick-vom_Weishaus.JPG",
+    "alt": "City view of Trier",
+    "tips": [
+      "Park at a central garage to keep the day walkable.",
+      "Bring hats and sunscreen for outdoor Roman sites.",
+      "Use the Hauptmarkt area for a simple lunch stop."
+    ],
+    "indoor_attractions": [
+      "Rheinisches Landesmuseum Trier",
+      "Karl Marx House",
+      "Trier Toy Museum (Spielzeugmuseum)",
+      "Stadtmuseum Simeonstift"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, or family-friendly restaurants.",
+      "source_label": "Family-friendly source",
+      "source_url": "https://www.trier-info.de/trier-fuer-kinder/kindefreundliche-restaurants",
+      "poi": [
+        {
+          "name": "Porta Nigra",
+          "lat": 49.7597,
+          "lon": 6.6439
+        },
+        {
+          "name": "Trier Cathedral",
+          "lat": 49.7593,
+          "lon": 6.6449
+        },
+        {
+          "name": "Liebfrauenkirche",
+          "lat": 49.7592,
+          "lon": 6.6447
+        },
+        {
+          "name": "Basilica of Constantine",
+          "lat": 49.7596,
+          "lon": 6.6374
+        },
+        {
+          "name": "Kaiserthermen",
+          "lat": 49.7486,
+          "lon": 6.6481
+        },
+        {
+          "name": "Roman Amphitheatre",
+          "lat": 49.7492,
+          "lon": 6.6527
+        }
+      ],
+      "parking": [
+        {
+          "name": "City Parkhaus",
+          "lat": 49.7566128,
+          "lon": 6.6365245
+        },
+        {
+          "name": "Parkhaus Hauptmarkt",
+          "lat": 49.7582549,
+          "lon": 6.6391086
+        },
+        {
+          "name": "Parkhaus Am Bahnhof",
+          "lat": 49.7597195,
+          "lon": 6.6541111
+        },
+        {
+          "name": "Parkhaus Porta Nigra",
+          "lat": 49.7609321,
+          "lon": 6.6443565
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Restaurant Kartoffel Kiste",
+          "lat": 49.7535423,
+          "lon": 6.6389391
+        },
+        {
+          "name": "Weinstube Kesselstatt",
+          "lat": 49.7556823,
+          "lon": 6.6422995
+        },
+        {
+          "name": "Pizzeria Restaurant Frankenturm",
+          "lat": 49.7569627,
+          "lon": 6.640003
+        },
+        {
+          "name": "Donna Mia Trier",
+          "lat": 49.7547753,
+          "lon": 6.6388274
+        },
+        {
+          "name": "Burger House Trier",
+          "lat": 49.75427,
+          "lon": 6.642024
+        },
+        {
+          "name": "Zuppa",
+          "lat": 49.7578438,
+          "lon": 6.6457142
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Burgeramt",
+          "lat": 49.753609,
+          "lon": 6.6383669
+        },
+        {
+          "name": "Christis",
+          "lat": 49.7565376,
+          "lon": 6.6418301
+        },
+        {
+          "name": "Eiscafe Calchera",
+          "lat": 49.7586558,
+          "lon": 6.6428234
+        },
+        {
+          "name": "Dinea Galeria Restaurant",
+          "lat": 49.7585272,
+          "lon": 6.6421956
+        },
+        {
+          "name": "Donna Mia",
+          "lat": 49.7547753,
+          "lon": 6.6388274
+        },
+        {
+          "name": "Hans im Gluck",
+          "lat": 49.7591294,
+          "lon": 6.6432345
+        },
+        {
+          "name": "Hannahs Kreativcafe",
+          "lat": 49.7574426,
+          "lon": 6.640865
+        },
+        {
+          "name": "L'Osteria",
+          "lat": 49.7555653,
+          "lon": 6.6376961
+        },
+        {
+          "name": "Ristorante Pizzeria Hotel Frankenturm",
+          "lat": 49.7569627,
+          "lon": 6.640003
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Rheinisches Landesmuseum",
+          "lat": 49.7515591,
+          "lon": 6.6442414
+        },
+        {
+          "name": "Karl-Marx-Haus",
+          "lat": 49.7539008,
+          "lon": 6.6357225
+        },
+        {
+          "name": "Spielzeugmuseum",
+          "lat": 49.7569643,
+          "lon": 6.6405237
+        },
+        {
+          "name": "Stadtmuseum Simeonstift",
+          "lat": 49.7597859,
+          "lon": 6.6435635
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "car",
+      "train"
+    ],
+    "description": "Germany's oldest city blends Roman ruins with a compact old town that is easy for families to explore. Kids can walk the Porta Nigra, climb the amphitheater, and still have time for a riverside stroll along the Mosel.",
+    "itinerary": [
+      {
+        "title": "Morning",
+        "text": "Start at Porta Nigra, then walk to the Cathedral and Liebfrauenkirche."
+      },
+      {
+        "title": "Midday",
+        "text": "Lunch around Hauptmarkt, then a quick stop at Karl Marx House or the Toy Museum."
+      },
+      {
+        "title": "Afternoon",
+        "text": "Visit the Basilica of Constantine and Kaiserthermen, then head to the amphitheater."
+      },
+      {
+        "title": "Late afternoon",
+        "text": "Finish with a Mosel river promenade stroll and an easy return to KMC."
+      }
+    ],
+    "recommended_stops": [
+      "Porta Nigra and Simeonstiftplatz",
+      "Trier Cathedral and Liebfrauenkirche",
+      "Aula Palatina (Basilica of Constantine)",
+      "Kaiserthermen and Roman Amphitheater",
+      "Hauptmarkt square",
+      "Mosel river promenade",
+      "Restaurant Kartoffel Kiste",
+      "Zuppa"
+    ],
+    "lodging": [
+      "Park Plaza Trier",
+      "Mercure Hotel Trier Porta Nigra",
+      "Holiday Inn Express Trier",
+      "Hotel Deutscher Hof"
+    ],
+    "access_note": "Trier is easy by car or regional train. From Trier Hbf, the old town is a 15 to 20 minute walk or a short bus ride. If driving, use City Parkhaus or Parkhaus Hauptmarkt and walk into the center.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Trier-Blick-vom_Weishaus.JPG/1600px-Trier-Blick-vom_Weishaus.JPG",
+        "alt": "Trier city view"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Porta_Nigra_morgens_%28100MP%29.jpg/1600px-Porta_Nigra_morgens_%28100MP%29.jpg",
+        "alt": "Porta Nigra"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Trier_Dom_BW_1.JPG/1600px-Trier_Dom_BW_1.JPG",
+        "alt": "Trier Cathedral"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Trier_-_Aula_Palatina.JPG/1600px-Trier_-_Aula_Palatina.JPG",
+        "alt": "Aula Palatina"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Trier_Kaiserthermen_BW_1.JPG/1600px-Trier_Kaiserthermen_BW_1.JPG",
+        "alt": "Kaiserthermen"
+      }
+    ]
+  },
+  {
+    "slug": "heidelberg-germany",
+    "title": "Heidelberg, Germany",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Castle views and a riverside old town.",
+    "length": "1 day",
+    "tag": "Drive | 1h 20m",
+    "highlights": [
+      "Heidelberg Castle",
+      "old town",
+      "river cruise"
+    ],
+    "best_for": "Scenic views and history",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg/900px-K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg",
+    "alt": "Heidelberg hillside and river",
+    "tips": [
+      "Take the funicular for easy castle access.",
+      "Stroll the old town early to beat crowds.",
+      "Plan a river walk for a calmer afternoon."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "luxembourg-city-luxembourg",
+    "title": "Luxembourg City, Luxembourg",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Compact capital with parks and stone bridges.",
+    "length": "1 day",
+    "tag": "Drive | 1h 10m",
+    "highlights": [
+      "old town",
+      "casemates",
+      "park trails"
+    ],
+    "best_for": "Easy walks and viewpoints",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Luxembourg_Grand_Ducal_Palace_01.jpg/900px-Luxembourg_Grand_Ducal_Palace_01.jpg",
+    "alt": "Grand Ducal Palace in Luxembourg City",
+    "tips": [
+      "Use park trails to connect viewpoints.",
+      "Keep time for the casemates if open.",
+      "Stick to the upper city for easy walking."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "baden-baden-germany",
+    "title": "Baden-Baden, Germany",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Spa town with parks, playgrounds, and cable car views.",
+    "length": "1 day",
+    "tag": "Drive | 1h 25m",
+    "highlights": [
+      "Merkur funicular",
+      "Lichtentaler Allee",
+      "parks"
+    ],
+    "best_for": "Relaxed family pace",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Baden-Baden_10-2015_img05_View_from_Merkur.jpg/900px-Baden-Baden_10-2015_img05_View_from_Merkur.jpg",
+    "alt": "Baden-Baden view from Merkur",
+    "tips": [
+      "Ride the funicular for easy views.",
+      "Parks are great for picnic breaks.",
+      "Keep the day light and flexible."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "saarburg-germany",
+    "title": "Saarburg, Germany",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Small town with a waterfall in the center.",
+    "length": "1 day",
+    "tag": "Drive | 55m",
+    "highlights": [
+      "waterfall",
+      "river cafe",
+      "chairlift"
+    ],
+    "best_for": "Short, easy outings",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Wasserfall-Saarburg-Amueseum-2016.jpg/900px-Wasserfall-Saarburg-Amueseum-2016.jpg",
+    "alt": "Waterfall in Saarburg",
+    "tips": [
+      "Plan a short walk along the river.",
+      "Use the chairlift for quick views.",
+      "Bring a light snack for the promenade."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "burg-eltz-germany",
+    "title": "Burg Eltz, Germany",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Fairytale castle in the forest with scenic walks.",
+    "length": "1 day",
+    "tag": "Drive | 1h 35m",
+    "highlights": [
+      "castle tour",
+      "forest trails",
+      "photo overlooks"
+    ],
+    "best_for": "Castle lovers",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg/900px-Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg",
+    "alt": "Burg Eltz castle",
+    "tips": [
+      "Wear comfortable shoes for forest paths.",
+      "Arrive early for parking.",
+      "Pack a light snack for the hike."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "cochem-germany",
+    "title": "Cochem, Germany",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Mosel river town with castle views and riverside stops.",
+    "length": "1 day",
+    "tag": "Drive | 1h 20m",
+    "highlights": [
+      "Reichsburg Castle",
+      "river walk",
+      "chairlift"
+    ],
+    "best_for": "Riverside towns",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cochem_and_Reichsburg.jpg/900px-Cochem_and_Reichsburg.jpg",
+    "alt": "Cochem and Reichsburg Castle",
+    "tips": [
+      "Ride the chairlift for quick views.",
+      "Walk the river promenade after lunch.",
+      "Plan a short castle visit early."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "speyer-germany",
+    "title": "Speyer, Germany",
+    "category_page": "day-trips-car.html",
+    "category_label": "Day Trips by Car",
+    "summary": "Cathedral city with museums and riverside parks.",
+    "length": "1 day",
+    "tag": "Drive | 1h 10m",
+    "highlights": [
+      "cathedral",
+      "Technik Museum",
+      "river paths"
+    ],
+    "best_for": "Museum lovers",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Speyer_Dom_Luft.jpg/900px-Speyer_Dom_Luft.jpg",
+    "alt": "Speyer Cathedral aerial view",
+    "tips": [
+      "Pair the cathedral with museum time.",
+      "Use the river paths for breaks.",
+      "Keep the day simple and walkable."
+    ],
+    "modes": [
+      "car"
+    ]
+  },
+  {
+    "slug": "mainz-germany",
+    "title": "Mainz, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "Riverside city with a compact old town.",
+    "length": "1 day",
+    "tag": "Train | 1h 20m",
+    "highlights": [
+      "cathedral",
+      "river promenade",
+      "old town"
+    ],
+    "best_for": "Easy rail day",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Mainzer_Dom_Blaue_Stunde_%2837539430014%29.jpg/900px-Mainzer_Dom_Blaue_Stunde_%2837539430014%29.jpg",
+    "alt": "Mainz Cathedral at dusk",
+    "tips": [
+      "Stay near the station for short walks.",
+      "Use the river promenade for breaks.",
+      "Keep your day pace relaxed."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "wiesbaden-germany",
+    "title": "Wiesbaden, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "Parks, cafes, and a walkable center.",
+    "length": "1 day",
+    "tag": "Train | 1h 30m",
+    "highlights": [
+      "Kurpark",
+      "city center",
+      "playgrounds"
+    ],
+    "best_for": "Relaxed afternoons",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Wiesbaden_BW_2017-04-24_20-51-36.jpg/900px-Wiesbaden_BW_2017-04-24_20-51-36.jpg",
+    "alt": "Wiesbaden city center",
+    "tips": [
+      "Plan a park break near the center.",
+      "Pick a cafe for a longer lunch stop.",
+      "Use flat routes for easy walking."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "koblenz-germany",
+    "title": "Koblenz, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "River confluence with cable car views.",
+    "length": "1 day",
+    "tag": "Train | 1h 45m",
+    "highlights": [
+      "Deutsches Eck",
+      "cable car",
+      "fortress"
+    ],
+    "best_for": "River scenery",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Koblenz_im_Buga-Jahr_2011_-_Deutsches_Eck_01.jpg/900px-Koblenz_im_Buga-Jahr_2011_-_Deutsches_Eck_01.jpg",
+    "alt": "Deutsches Eck in Koblenz",
+    "tips": [
+      "Use the cable car for easy views.",
+      "Walk the river promenade after lunch.",
+      "Keep the day flexible for weather."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "cologne-germany",
+    "title": "Cologne, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "Big city day with cathedral views and parks.",
+    "length": "1 day",
+    "tag": "Train | 2h 20m",
+    "highlights": [
+      "cathedral",
+      "Rhine promenade",
+      "zoo"
+    ],
+    "best_for": "Urban day trips",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg/900px-Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg",
+    "alt": "Cologne riverfront architecture",
+    "tips": [
+      "Visit the cathedral early in the day.",
+      "Use the zoo or park for kid breaks.",
+      "Keep the route centered near the river."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "frankfurt-germany",
+    "title": "Frankfurt, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "Museums, river walks, and skyline views.",
+    "length": "1 day",
+    "tag": "Train | 1h 30m",
+    "highlights": [
+      "museum riverbank",
+      "Palmengarten",
+      "old town"
+    ],
+    "best_for": "Culture and parks",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Frankfurt_Main_August_2020_1.jpg/900px-Frankfurt_Main_August_2020_1.jpg",
+    "alt": "Frankfurt skyline",
+    "tips": [
+      "Pick one museum area to keep it simple.",
+      "Use Palmengarten for open space breaks.",
+      "Plan skyline photos near the river."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "mannheim-germany",
+    "title": "Mannheim, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "Grid city with big parks and family attractions.",
+    "length": "1 day",
+    "tag": "Train | 1h 10m",
+    "highlights": [
+      "Luisenpark",
+      "Wasserturm",
+      "play areas"
+    ],
+    "best_for": "Park days",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Altes_Rathaus_und_Sankt_Sebastianskirche_auf_dem_Mannheimer_Marktplatz.jpg/900px-Altes_Rathaus_und_Sankt_Sebastianskirche_auf_dem_Mannheimer_Marktplatz.jpg",
+    "alt": "Mannheim market square",
+    "tips": [
+      "Plan a long stop at Luisenpark.",
+      "Keep a relaxed pace for kids.",
+      "Use the water tower area for photos."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "saarbrucken-germany",
+    "title": "Saarbrucken, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "Compact city with river walks and cafes.",
+    "length": "1 day",
+    "tag": "Train | 45m",
+    "highlights": [
+      "old town",
+      "river walk",
+      "city square"
+    ],
+    "best_for": "Short rail rides",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ludwigskirche.jpg/900px-Ludwigskirche.jpg",
+    "alt": "Ludwigskirche church in Saarbrucken",
+    "tips": [
+      "Pair river walks with a cafe stop.",
+      "Keep the day light and flexible.",
+      "Stay near the center for easy walking."
+    ],
+    "modes": [
+      "train"
+    ]
+  },
+  {
+    "slug": "bingen-am-rhein-germany",
+    "title": "Bingen am Rhein, Germany",
+    "category_page": "day-trips-train.html",
+    "category_label": "Day Trips by Train",
+    "summary": "Rhine valley views and riverfront walks.",
+    "length": "1 day",
+    "tag": "Train | 1h 35m",
+    "highlights": [
+      "riverfront",
+      "castle views",
+      "boat rides"
+    ],
+    "best_for": "Rhine scenery",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bingen_above.jpg/900px-Bingen_above.jpg",
+    "alt": "Bingen am Rhein river view",
+    "tips": [
+      "Plan a short boat ride if available.",
+      "Bring a light jacket for river breezes.",
+      "Keep the route along the riverfront."
+    ],
+    "modes": [
+      "train"
+    ]
+  }
+]
