@@ -321,6 +321,10 @@
     .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
     .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
     .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
@@ -340,6 +344,7 @@
         <a href="trips-plane.html" class="">Trips by Plane</a>
         <a href="trips-car.html" class="">Trips by Car</a>
         <a href="trips-train.html" class="active">Trips by Train</a>
+        <a href="future-destinations.html" class="">Future Destinations</a>
       </div>
       <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
     </aside>
@@ -350,89 +355,6 @@
       </header>
       <section class="grid" aria-label="KMC Exploration | Trips by Train">
 
-      <article class="card">
-        <a href="destinations/paris-france.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/900px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg" alt="Eiffel Tower view over Paris" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 2h 40m</div>
-          <h3><a href="destinations/paris-france.html">Paris, France</a></h3>
-          <p class="summary">Big-icon city with parks, boat rides, and kid-friendly museums.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Seine cruise, Tuileries Gardens, Cite des Sciences</li>
-            <li><span>Best for</span>Culture, playgrounds, easy transit</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Rail friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/amsterdam-netherlands.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/900px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png" alt="Canals of Amsterdam" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 4h 00m</div>
-          <h3><a href="destinations/amsterdam-netherlands.html">Amsterdam, Netherlands</a></h3>
-          <p class="summary">Compact city with canals, bikes, and hands-on museums.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 days</li>
-            <li><span>Family highlights</span>NEMO Science Museum, canal cruise, Vondelpark</li>
-            <li><span>Best for</span>Easy walking, short hops</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Rail friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/prague-czechia.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/900px-Prague_%286365119737%29.jpg" alt="Old Town Prague" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 6h 30m</div>
-          <h3><a href="destinations/prague-czechia.html">Prague, Czechia</a></h3>
-          <p class="summary">Storybook architecture and river walks with low travel stress.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 days</li>
-            <li><span>Family highlights</span>Castle district, Petrin Hill, river cruise</li>
-            <li><span>Best for</span>Historic charm and value</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Rail friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/vienna-austria.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Schoenbrunn_philharmoniker_2012.jpg/900px-Schoenbrunn_philharmoniker_2012.jpg" alt="Schonbrunn Palace in Vienna" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 7h 30m</div>
-          <h3><a href="destinations/vienna-austria.html">Vienna, Austria</a></h3>
-          <p class="summary">Imperial parks, easy transit, and kid-friendly museums.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Schonbrunn zoo, Prater park, Haus der Musik</li>
-            <li><span>Best for</span>Culture with green space</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Rail friendly</span>
-          </div>
-        </div>
-      </article>
-    
       </section>
       <footer>
         Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.

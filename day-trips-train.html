@@ -321,6 +321,10 @@
     .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
     .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
     .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
@@ -340,6 +344,7 @@
         <a href="trips-plane.html" class="">Trips by Plane</a>
         <a href="trips-car.html" class="">Trips by Car</a>
         <a href="trips-train.html" class="">Trips by Train</a>
+        <a href="future-destinations.html" class="">Future Destinations</a>
       </div>
       <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
     </aside>
@@ -372,132 +377,6 @@
     
 
       <article class="card">
-        <a href="destinations/mainz-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Mainzer_Dom_Blaue_Stunde_%2837539430014%29.jpg/900px-Mainzer_Dom_Blaue_Stunde_%2837539430014%29.jpg" alt="Mainz Cathedral at dusk" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 1h 20m</div>
-          <h3><a href="destinations/mainz-germany.html">Mainz, Germany</a></h3>
-          <p class="summary">Riverside city with a compact old town.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>cathedral, river promenade, old town</li>
-            <li><span>Best for</span>Easy rail day</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/wiesbaden-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Wiesbaden_BW_2017-04-24_20-51-36.jpg/900px-Wiesbaden_BW_2017-04-24_20-51-36.jpg" alt="Wiesbaden city center" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 1h 30m</div>
-          <h3><a href="destinations/wiesbaden-germany.html">Wiesbaden, Germany</a></h3>
-          <p class="summary">Parks, cafes, and a walkable center.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>Kurpark, city center, playgrounds</li>
-            <li><span>Best for</span>Relaxed afternoons</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/koblenz-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Koblenz_im_Buga-Jahr_2011_-_Deutsches_Eck_01.jpg/900px-Koblenz_im_Buga-Jahr_2011_-_Deutsches_Eck_01.jpg" alt="Deutsches Eck in Koblenz" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 1h 45m</div>
-          <h3><a href="destinations/koblenz-germany.html">Koblenz, Germany</a></h3>
-          <p class="summary">River confluence with cable car views.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>Deutsches Eck, cable car, fortress</li>
-            <li><span>Best for</span>River scenery</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/cologne-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg/900px-Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg" alt="Cologne riverfront architecture" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 2h 20m</div>
-          <h3><a href="destinations/cologne-germany.html">Cologne, Germany</a></h3>
-          <p class="summary">Big city day with cathedral views and parks.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>cathedral, Rhine promenade, zoo</li>
-            <li><span>Best for</span>Urban day trips</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/frankfurt-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Frankfurt_Main_August_2020_1.jpg/900px-Frankfurt_Main_August_2020_1.jpg" alt="Frankfurt skyline" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 1h 30m</div>
-          <h3><a href="destinations/frankfurt-germany.html">Frankfurt, Germany</a></h3>
-          <p class="summary">Museums, river walks, and skyline views.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>museum riverbank, Palmengarten, old town</li>
-            <li><span>Best for</span>Culture and parks</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/mannheim-germany.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Altes_Rathaus_und_Sankt_Sebastianskirche_auf_dem_Mannheimer_Marktplatz.jpg/900px-Altes_Rathaus_und_Sankt_Sebastianskirche_auf_dem_Mannheimer_Marktplatz.jpg" alt="Mannheim market square" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Train | 1h 10m</div>
-          <h3><a href="destinations/mannheim-germany.html">Mannheim, Germany</a></h3>
-          <p class="summary">Grid city with big parks and family attractions.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>1 day</li>
-            <li><span>Family highlights</span>Luisenpark, Wasserturm, play areas</li>
-            <li><span>Best for</span>Park days</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Day trip</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
         <a href="destinations/saarbrucken-germany.html">
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Ludwigskirche.jpg/900px-Ludwigskirche.jpg" alt="Ludwigskirche church in Saarbrucken" loading="lazy" decoding="async" />
         </a>
@@ -509,6 +388,7 @@
             <li><span>Ideal length</span>1 day</li>
             <li><span>Family highlights</span>Ludwigskirche and historic center, Saarbrucken Castle complex, St. Johanner Markt</li>
             <li><span>Best for</span>Easy walking and park breaks</li>
+<<<<<<< HEAD
           </ul>
           <div class="cta">
             
@@ -530,6 +410,8 @@
             <li><span>Ideal length</span>1 day</li>
             <li><span>Family highlights</span>riverfront, castle views, boat rides</li>
             <li><span>Best for</span>Rhine scenery</li>
+=======
+>>>>>>> 33bf98bb6f337b9956b7cbb375a2b224fd2b9d45
           </ul>
           <div class="cta">
             <span>Guide coming soon</span>

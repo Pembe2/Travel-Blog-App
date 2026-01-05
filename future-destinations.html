@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KMC Exploration | Future Destinations</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
+
+    :root{
+      --sand:#f8f6f2;
+      --oat:#f1ece4;
+      --sea:#2e3434;
+      --sea-dark:#1c2020;
+      --sun:#c45a3a;
+      --ink:#1c1b18;
+      --muted:#6a6762;
+      --card:#ffffff;
+      --line:rgba(28,27,24,.12);
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 12% -10%, rgba(196,90,58,.12), transparent 60%),
+        radial-gradient(900px 600px at 90% -10%, rgba(28,27,24,.08), transparent 55%),
+        var(--sand);
+    }
+
+    a{color:inherit; text-decoration:none;}
+
+    .layout{
+      display:grid;
+      grid-template-columns: 250px 1fr;
+      min-height:100vh;
+    }
+
+    .sidebar{
+      padding:26px 20px;
+      border-right:1px solid var(--line);
+      background:rgba(249,247,242,.9);
+      backdrop-filter: blur(6px);
+      position:sticky;
+      top:0;
+      height:100vh;
+    }
+
+    .brand{
+      font-family:"Fraunces", "Times New Roman", serif;
+      font-size:18px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--sea-dark);
+      margin-bottom:12px;
+    }
+
+    .nav{
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .nav a{
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid transparent;
+      background:transparent;
+      font-weight:600;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--sea-dark);
+      transition: background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+
+    .nav a:hover{
+      background:rgba(196,90,58,.08);
+      border-color:rgba(196,90,58,.3);
+      transform: translateX(2px);
+    }
+
+    .nav a.active{
+      background:var(--sea-dark);
+      border-color:var(--sea-dark);
+      color:white;
+    }
+
+    .sidebar .note{
+      margin-top:18px;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.4;
+    }
+
+    .content{
+      max-width:1120px;
+      margin:0 auto;
+      padding:28px 24px 64px;
+    }
+
+    header{
+      display:grid;
+      gap:16px;
+      padding:10px 4px 22px;
+      border-bottom:1px solid var(--line);
+    }
+
+    h1{
+      font-family:"Fraunces", "Times New Roman", serif;
+      font-size:clamp(30px, 4vw, 46px);
+      margin:0;
+      letter-spacing:.2px;
+    }
+
+    .lede{
+      font-size:16px;
+      color:var(--muted);
+      max-width:72ch;
+      margin:0;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--oat);
+      border:1px solid var(--line);
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--sea-dark);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 16px 34px rgba(28,27,24,.08);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-body{
+      padding:14px 14px 16px;
+      display:grid;
+      gap:10px;
+      flex:1;
+    }
+
+    .card h3{
+      font-family:"Fraunces", "Times New Roman", serif;
+      font-size:20px;
+      margin:0;
+    }
+
+    .card .summary{
+      color:var(--muted);
+      font-size:13px;
+      margin:0;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:rgba(196,90,58,.12);
+      color:var(--accent-dark, #8e3c24);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.03em;
+    }
+
+    .facts{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .facts span{
+      display:block;
+      color:var(--ink);
+      font-weight:700;
+      font-size:12px;
+      margin-bottom:2px;
+    }
+
+    .cta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-top:auto;
+      border-top:1px dashed var(--line);
+      padding-top:10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .pill{
+      padding:6px 10px;
+      border-radius:10px;
+      background:var(--sun);
+      color:white;
+      font-weight:700;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .category-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+    }
+
+    .category-card{
+      background:rgba(255,255,255,.84);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      display:grid;
+      gap:10px;
+      box-shadow:0 12px 26px rgba(28,27,24,.08);
+      min-height:140px;
+    }
+
+    .category-card h3{
+      font-family:"Fraunces", "Times New Roman", serif;
+      margin:0;
+      font-size:20px;
+    }
+
+    .category-card p{
+      margin:0;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .category-card .link{
+      align-self:end;
+      font-weight:700;
+      color:var(--sea-dark);
+    }
+
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .layout{grid-template-columns: 1fr;}
+      .sidebar{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line);}
+      .nav{grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));}
+      .content{padding-top:18px;}
+    }
+
+    @media (max-width: 640px){
+      .grid{ grid-template-columns: 1fr; }
+      .content{padding:20px 16px 48px;}
+      .nav a{font-size:10px;}
+    }
+
+    @media (max-width: 720px){
+      header{gap:12px;}
+      .card img{height:170px;}
+    }
+
+.hero{ display:grid; gap:14px; }
+    .hero img{ width:100%; height:320px; object-fit:cover; border-radius:18px; border:1px solid var(--line); box-shadow:0 14px 30px rgba(28,27,24,.12); }
+    .slideshow{ border-radius:18px; overflow:hidden; border:1px solid var(--line); box-shadow:0 14px 30px rgba(28,27,24,.12); }
+    .slide{ display:none; }
+    .slide.active{ display:block; }
+    .slide img{ width:100%; height:360px; object-fit:cover; display:block; }
+    .meta-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-top:10px; }
+    .meta-card{ background:rgba(255,255,255,.76); border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
+    .meta-card h4{ margin:0 0 6px; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.4px; }
+    .meta-card p{ margin:0; font-weight:700; font-size:14px; }
+    .section{ margin-top:22px; padding-top:6px; }
+    .section h2{ font-family:"Fraunces", Georgia, serif; font-size:22px; margin:0 0 10px; }
+    .list{ margin:0; padding-left:18px; color:var(--muted); font-size:14px; }
+    .list li{ margin-bottom:6px; }
+    .itinerary{ display:grid; gap:10px; }
+    .day{ background:rgba(255,255,255,.76); border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
+    .day h3{ margin:0 0 6px; font-size:15px; }
+    .breadcrumb{ font-size:12px; color:var(--muted); }
+    .notice{ margin-top:14px; padding:12px 14px; border-radius:14px; border:1px dashed var(--line); background:rgba(255,255,255,.7); color:var(--muted); font-size:13px; }
+    .notice strong{ color:var(--ink); }
+    #trierMap{ width:100%; height:360px; }
+    .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
+    .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+    .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
+    .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
+    .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
+    @media (max-width: 900px){ .hero img{ height:260px; } }
+    @media (max-width: 600px){ .hero img{ height:220px; } }
+    @media (max-width: 900px){ .slide img{ height:300px; } }
+    @media (max-width: 600px){ .slide img{ height:220px; } }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Category navigation">
+      <div class="brand">KMC Exploration</div>
+      <div class="nav">
+        <a href="index.html" class="">Home</a>
+        <a href="day-trips-car.html" class="">Day Trips by Car</a>
+        <a href="day-trips-train.html" class="">Day Trips by Train</a>
+        <a href="trips-plane.html" class="">Trips by Plane</a>
+        <a href="trips-car.html" class="">Trips by Car</a>
+        <a href="trips-train.html" class="">Trips by Train</a>
+        <a href="future-destinations.html" class="active">Future Destinations</a>
+      </div>
+      <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
+    </aside>
+    <main class="content">
+      <header>
+        <h1>Future Destinations</h1>
+        <p class="lede">Places we want to research next. These cards stay here until we finish field notes.</p>
+      </header>
+      <section class="grid" aria-label="KMC Exploration | Future Destinations">
+
+      <article class="card">
+        <a href="destinations/paris-france.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/900px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg" alt="Eiffel Tower view over Paris" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 2h 40m</div>
+          <h3><a href="destinations/paris-france.html">Paris, France</a></h3>
+          <p class="summary">Big-icon city with parks, boat rides, and kid-friendly museums.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Seine cruise, Tuileries Gardens, Cite des Sciences</li>
+            <li><span>Best for</span>Culture, playgrounds, easy transit</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/amsterdam-netherlands.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/900px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png" alt="Canals of Amsterdam" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 4h 00m</div>
+          <h3><a href="destinations/amsterdam-netherlands.html">Amsterdam, Netherlands</a></h3>
+          <p class="summary">Compact city with canals, bikes, and hands-on museums.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 days</li>
+            <li><span>Family highlights</span>NEMO Science Museum, canal cruise, Vondelpark</li>
+            <li><span>Best for</span>Easy walking, short hops</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/prague-czechia.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/900px-Prague_%286365119737%29.jpg" alt="Old Town Prague" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 6h 30m</div>
+          <h3><a href="destinations/prague-czechia.html">Prague, Czechia</a></h3>
+          <p class="summary">Storybook architecture and river walks with low travel stress.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 days</li>
+            <li><span>Family highlights</span>Castle district, Petrin Hill, river cruise</li>
+            <li><span>Best for</span>Historic charm and value</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/vienna-austria.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Schoenbrunn_philharmoniker_2012.jpg/900px-Schoenbrunn_philharmoniker_2012.jpg" alt="Schonbrunn Palace in Vienna" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 7h 30m</div>
+          <h3><a href="destinations/vienna-austria.html">Vienna, Austria</a></h3>
+          <p class="summary">Imperial parks, easy transit, and kid-friendly museums.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Schonbrunn zoo, Prater park, Haus der Musik</li>
+            <li><span>Best for</span>Culture with green space</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/copenhagen-denmark.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Christiansborg_fra_Nikolaj_Kirken.jpg/900px-Christiansborg_fra_Nikolaj_Kirken.jpg" alt="Copenhagen skyline" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 1h 30m</div>
+          <h3><a href="destinations/copenhagen-denmark.html">Copenhagen, Denmark</a></h3>
+          <p class="summary">Harbor city with castles, playgrounds, and easy day trips.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Tivoli Gardens, Nyhavn, Experimentarium</li>
+            <li><span>Best for</span>Safe city breaks and bike paths</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/budapest-hungary.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg/900px-View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg" alt="Danube River in Budapest" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 1h 35m</div>
+          <h3><a href="destinations/budapest-hungary.html">Budapest, Hungary</a></h3>
+          <p class="summary">River city with thermal baths and big views.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Margaret Island, castle hill, river cruise</li>
+            <li><span>Best for</span>Food, views, budget stays</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/venice-italy.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Venezia_aerial_view.jpg/900px-Venezia_aerial_view.jpg" alt="Aerial view of Venice" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 1h 30m</div>
+          <h3><a href="destinations/venice-italy.html">Venice, Italy</a></h3>
+          <p class="summary">Canals, islands, and a one-of-a-kind city layout.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 days</li>
+            <li><span>Family highlights</span>Vaporetto rides, Murano day trip, Lido beach</li>
+            <li><span>Best for</span>Unique scenery and easy exploring</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/florence-italy.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/FirenzeDec092023_01.jpg/900px-FirenzeDec092023_01.jpg" alt="Florence skyline" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 1h 35m</div>
+          <h3><a href="destinations/florence-italy.html">Florence, Italy</a></h3>
+          <p class="summary">Art, gelato, and day trips into Tuscany.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Boboli Gardens, piazzas, Pisa day trip</li>
+            <li><span>Best for</span>Art lovers and food adventures</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/rome-italy.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/900px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg" alt="Trevi Fountain in Rome" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 1h 50m</div>
+          <h3><a href="destinations/rome-italy.html">Rome, Italy</a></h3>
+          <p class="summary">Ancient history with plenty of open plazas and parks.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Colosseum, Villa Borghese, gelato stops</li>
+            <li><span>Best for</span>History with a big-city buzz</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/barcelona-spain.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg/900px-Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg" alt="Barcelona aerial view" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 2h 05m</div>
+          <h3><a href="destinations/barcelona-spain.html">Barcelona, Spain</a></h3>
+          <p class="summary">Beach plus city with huge parks and food markets.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Barceloneta beach, Park Guell, aquarium</li>
+            <li><span>Best for</span>City and beach combo</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/nice-france.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/%C3%88ze_und_Cap_Ferrat-Grande_Corniche.jpg/900px-%C3%88ze_und_Cap_Ferrat-Grande_Corniche.jpg" alt="French Riviera coast" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 1h 30m</div>
+          <h3><a href="destinations/nice-france.html">Nice, France</a></h3>
+          <p class="summary">Mediterranean coast with beaches and easy day trips.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Promenade, pebble beaches, Monaco day trip</li>
+            <li><span>Best for</span>Seaside summer breaks</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/dubrovnik-croatia.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg/900px-The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg" alt="Dubrovnik old city and walls" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 2h 00m</div>
+          <h3><a href="destinations/dubrovnik-croatia.html">Dubrovnik, Croatia</a></h3>
+          <p class="summary">Walled city with clear water and island day trips.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Old walls walk, Lokrum island, beaches</li>
+            <li><span>Best for</span>Sun and sea with history</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/mallorca-spain.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Kathedrale_von_Palma.jpg/900px-Kathedrale_von_Palma.jpg" alt="Cathedral of Palma de Mallorca" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Fly | 2h 05m</div>
+          <h3><a href="destinations/mallorca-spain.html">Mallorca, Spain</a></h3>
+          <p class="summary">Island beaches, easy resorts, and warm water.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Cala beaches, Palma old town, boat tours</li>
+            <li><span>Best for</span>Beach-first family trips</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/lake-garda-italy.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg/900px-La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg" alt="Lake Garda shoreline" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 6 to 7 hours</div>
+          <h3><a href="destinations/lake-garda-italy.html">Lake Garda, Italy</a></h3>
+          <p class="summary">Lake towns, swimming spots, and mountain views.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 to 5 days</li>
+            <li><span>Family highlights</span>Beach towns, boat rides, Gardaland</li>
+            <li><span>Best for</span>Water days and relaxed pace</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/salzburg-austria.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Salzburg_%2848489551981%29.jpg/900px-Salzburg_%2848489551981%29.jpg" alt="Salzburg old town" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 5 to 6 hours</div>
+          <h3><a href="destinations/salzburg-austria.html">Salzburg, Austria</a></h3>
+          <p class="summary">Mountain foothills, lakes, and sound-of-music vibes.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>4 days</li>
+            <li><span>Family highlights</span>Fortress, lake swims, alpine cable cars</li>
+            <li><span>Best for</span>Scenic drives and nature breaks</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/heidelberg-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg/900px-K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg" alt="Heidelberg hillside and river" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 1h 20m</div>
+          <h3><a href="destinations/heidelberg-germany.html">Heidelberg, Germany</a></h3>
+          <p class="summary">Castle views and a riverside old town.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>Heidelberg Castle, old town, river cruise</li>
+            <li><span>Best for</span>Scenic views and history</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/luxembourg-city-luxembourg.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Luxembourg_Grand_Ducal_Palace_01.jpg/900px-Luxembourg_Grand_Ducal_Palace_01.jpg" alt="Grand Ducal Palace in Luxembourg City" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 1h 10m</div>
+          <h3><a href="destinations/luxembourg-city-luxembourg.html">Luxembourg City, Luxembourg</a></h3>
+          <p class="summary">Compact capital with parks and stone bridges.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>old town, casemates, park trails</li>
+            <li><span>Best for</span>Easy walks and viewpoints</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/baden-baden-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Baden-Baden_10-2015_img05_View_from_Merkur.jpg/900px-Baden-Baden_10-2015_img05_View_from_Merkur.jpg" alt="Baden-Baden view from Merkur" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 1h 25m</div>
+          <h3><a href="destinations/baden-baden-germany.html">Baden-Baden, Germany</a></h3>
+          <p class="summary">Spa town with parks, playgrounds, and cable car views.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>Merkur funicular, Lichtentaler Allee, parks</li>
+            <li><span>Best for</span>Relaxed family pace</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/saarburg-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Wasserfall-Saarburg-Amueseum-2016.jpg/900px-Wasserfall-Saarburg-Amueseum-2016.jpg" alt="Waterfall in Saarburg" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 55m</div>
+          <h3><a href="destinations/saarburg-germany.html">Saarburg, Germany</a></h3>
+          <p class="summary">Small town with a waterfall in the center.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>waterfall, river cafe, chairlift</li>
+            <li><span>Best for</span>Short, easy outings</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/burg-eltz-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg/900px-Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg" alt="Burg Eltz castle" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 1h 35m</div>
+          <h3><a href="destinations/burg-eltz-germany.html">Burg Eltz, Germany</a></h3>
+          <p class="summary">Fairytale castle in the forest with scenic walks.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>castle tour, forest trails, photo overlooks</li>
+            <li><span>Best for</span>Castle lovers</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/cochem-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Cochem_and_Reichsburg.jpg/900px-Cochem_and_Reichsburg.jpg" alt="Cochem and Reichsburg Castle" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 1h 20m</div>
+          <h3><a href="destinations/cochem-germany.html">Cochem, Germany</a></h3>
+          <p class="summary">Mosel river town with castle views and riverside stops.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>Reichsburg Castle, river walk, chairlift</li>
+            <li><span>Best for</span>Riverside towns</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/speyer-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Speyer_Dom_Luft.jpg/900px-Speyer_Dom_Luft.jpg" alt="Speyer Cathedral aerial view" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Drive | 1h 10m</div>
+          <h3><a href="destinations/speyer-germany.html">Speyer, Germany</a></h3>
+          <p class="summary">Cathedral city with museums and riverside parks.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>cathedral, Technik Museum, river paths</li>
+            <li><span>Best for</span>Museum lovers</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/mainz-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Mainzer_Dom_Blaue_Stunde_%2837539430014%29.jpg/900px-Mainzer_Dom_Blaue_Stunde_%2837539430014%29.jpg" alt="Mainz Cathedral at dusk" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 1h 20m</div>
+          <h3><a href="destinations/mainz-germany.html">Mainz, Germany</a></h3>
+          <p class="summary">Riverside city with a compact old town.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>cathedral, river promenade, old town</li>
+            <li><span>Best for</span>Easy rail day</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/wiesbaden-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Wiesbaden_BW_2017-04-24_20-51-36.jpg/900px-Wiesbaden_BW_2017-04-24_20-51-36.jpg" alt="Wiesbaden city center" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 1h 30m</div>
+          <h3><a href="destinations/wiesbaden-germany.html">Wiesbaden, Germany</a></h3>
+          <p class="summary">Parks, cafes, and a walkable center.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>Kurpark, city center, playgrounds</li>
+            <li><span>Best for</span>Relaxed afternoons</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/koblenz-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Koblenz_im_Buga-Jahr_2011_-_Deutsches_Eck_01.jpg/900px-Koblenz_im_Buga-Jahr_2011_-_Deutsches_Eck_01.jpg" alt="Deutsches Eck in Koblenz" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 1h 45m</div>
+          <h3><a href="destinations/koblenz-germany.html">Koblenz, Germany</a></h3>
+          <p class="summary">River confluence with cable car views.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>Deutsches Eck, cable car, fortress</li>
+            <li><span>Best for</span>River scenery</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/cologne-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg/900px-Kranh%C3%A4user_Cologne%2C_April_2018_-01.jpg" alt="Cologne riverfront architecture" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 2h 20m</div>
+          <h3><a href="destinations/cologne-germany.html">Cologne, Germany</a></h3>
+          <p class="summary">Big city day with cathedral views and parks.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>cathedral, Rhine promenade, zoo</li>
+            <li><span>Best for</span>Urban day trips</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/frankfurt-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Frankfurt_Main_August_2020_1.jpg/900px-Frankfurt_Main_August_2020_1.jpg" alt="Frankfurt skyline" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 1h 30m</div>
+          <h3><a href="destinations/frankfurt-germany.html">Frankfurt, Germany</a></h3>
+          <p class="summary">Museums, river walks, and skyline views.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>museum riverbank, Palmengarten, old town</li>
+            <li><span>Best for</span>Culture and parks</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/mannheim-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Altes_Rathaus_und_Sankt_Sebastianskirche_auf_dem_Mannheimer_Marktplatz.jpg/900px-Altes_Rathaus_und_Sankt_Sebastianskirche_auf_dem_Mannheimer_Marktplatz.jpg" alt="Mannheim market square" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 1h 10m</div>
+          <h3><a href="destinations/mannheim-germany.html">Mannheim, Germany</a></h3>
+          <p class="summary">Grid city with big parks and family attractions.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>Luisenpark, Wasserturm, play areas</li>
+            <li><span>Best for</span>Park days</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+
+      <article class="card">
+        <a href="destinations/bingen-am-rhein-germany.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Bingen_above.jpg/900px-Bingen_above.jpg" alt="Bingen am Rhein river view" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Train | 1h 35m</div>
+          <h3><a href="destinations/bingen-am-rhein-germany.html">Bingen am Rhein, Germany</a></h3>
+          <p class="summary">Rhine valley views and riverfront walks.</p>
+          <ul class="facts">
+            <li><span>Ideal length</span>1 day</li>
+            <li><span>Family highlights</span>riverfront, castle views, boat rides</li>
+            <li><span>Best for</span>Rhine scenery</li>
+          </ul>
+          <div class="cta">
+            <span>Guide coming soon</span>
+            <span class="pill">Research pending</span>
+          </div>
+        </div>
+      </article>
+    
+      </section>
+      <footer>
+        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>

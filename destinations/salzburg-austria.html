@@ -321,6 +321,10 @@
     .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
     .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
     .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
@@ -340,6 +344,7 @@
         <a href="../trips-plane.html" class="">Trips by Plane</a>
         <a href="../trips-car.html" class="active">Trips by Car</a>
         <a href="../trips-train.html" class="">Trips by Train</a>
+        <a href="../future-destinations.html" class="">Future Destinations</a>
       </div>
       <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
     </aside>

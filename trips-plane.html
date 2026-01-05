@@ -321,6 +321,10 @@
     .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
     .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
     .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
@@ -340,6 +344,7 @@
         <a href="trips-plane.html" class="active">Trips by Plane</a>
         <a href="trips-car.html" class="">Trips by Car</a>
         <a href="trips-train.html" class="">Trips by Train</a>
+        <a href="future-destinations.html" class="">Future Destinations</a>
       </div>
       <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
     </aside>
@@ -350,194 +355,6 @@
       </header>
       <section class="grid" aria-label="KMC Exploration | Trips by Plane">
 
-      <article class="card">
-        <a href="destinations/copenhagen-denmark.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Christiansborg_fra_Nikolaj_Kirken.jpg/900px-Christiansborg_fra_Nikolaj_Kirken.jpg" alt="Copenhagen skyline" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 1h 30m</div>
-          <h3><a href="destinations/copenhagen-denmark.html">Copenhagen, Denmark</a></h3>
-          <p class="summary">Harbor city with castles, playgrounds, and easy day trips.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Tivoli Gardens, Nyhavn, Experimentarium</li>
-            <li><span>Best for</span>Safe city breaks and bike paths</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/budapest-hungary.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg/900px-View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg" alt="Danube River in Budapest" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 1h 35m</div>
-          <h3><a href="destinations/budapest-hungary.html">Budapest, Hungary</a></h3>
-          <p class="summary">River city with thermal baths and big views.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Margaret Island, castle hill, river cruise</li>
-            <li><span>Best for</span>Food, views, budget stays</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/venice-italy.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Venezia_aerial_view.jpg/900px-Venezia_aerial_view.jpg" alt="Aerial view of Venice" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 1h 30m</div>
-          <h3><a href="destinations/venice-italy.html">Venice, Italy</a></h3>
-          <p class="summary">Canals, islands, and a one-of-a-kind city layout.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 days</li>
-            <li><span>Family highlights</span>Vaporetto rides, Murano day trip, Lido beach</li>
-            <li><span>Best for</span>Unique scenery and easy exploring</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/florence-italy.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/FirenzeDec092023_01.jpg/900px-FirenzeDec092023_01.jpg" alt="Florence skyline" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 1h 35m</div>
-          <h3><a href="destinations/florence-italy.html">Florence, Italy</a></h3>
-          <p class="summary">Art, gelato, and day trips into Tuscany.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Boboli Gardens, piazzas, Pisa day trip</li>
-            <li><span>Best for</span>Art lovers and food adventures</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/rome-italy.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/900px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg" alt="Trevi Fountain in Rome" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 1h 50m</div>
-          <h3><a href="destinations/rome-italy.html">Rome, Italy</a></h3>
-          <p class="summary">Ancient history with plenty of open plazas and parks.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Colosseum, Villa Borghese, gelato stops</li>
-            <li><span>Best for</span>History with a big-city buzz</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/barcelona-spain.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg/900px-Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg" alt="Barcelona aerial view" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 2h 05m</div>
-          <h3><a href="destinations/barcelona-spain.html">Barcelona, Spain</a></h3>
-          <p class="summary">Beach plus city with huge parks and food markets.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Barceloneta beach, Park Guell, aquarium</li>
-            <li><span>Best for</span>City and beach combo</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/nice-france.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/%C3%88ze_und_Cap_Ferrat-Grande_Corniche.jpg/900px-%C3%88ze_und_Cap_Ferrat-Grande_Corniche.jpg" alt="French Riviera coast" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 1h 30m</div>
-          <h3><a href="destinations/nice-france.html">Nice, France</a></h3>
-          <p class="summary">Mediterranean coast with beaches and easy day trips.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Promenade, pebble beaches, Monaco day trip</li>
-            <li><span>Best for</span>Seaside summer breaks</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/dubrovnik-croatia.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg/900px-The_walls_of_the_fortress_and_View_of_the_old_city._panorama.jpg" alt="Dubrovnik old city and walls" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 2h 00m</div>
-          <h3><a href="destinations/dubrovnik-croatia.html">Dubrovnik, Croatia</a></h3>
-          <p class="summary">Walled city with clear water and island day trips.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Old walls walk, Lokrum island, beaches</li>
-            <li><span>Best for</span>Sun and sea with history</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/mallorca-spain.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Kathedrale_von_Palma.jpg/900px-Kathedrale_von_Palma.jpg" alt="Cathedral of Palma de Mallorca" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Fly | 2h 05m</div>
-          <h3><a href="destinations/mallorca-spain.html">Mallorca, Spain</a></h3>
-          <p class="summary">Island beaches, easy resorts, and warm water.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Cala beaches, Palma old town, boat tours</li>
-            <li><span>Best for</span>Beach-first family trips</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Flight friendly</span>
-          </div>
-        </div>
-      </article>
-    
       </section>
       <footer>
         Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.

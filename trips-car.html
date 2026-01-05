@@ -321,6 +321,10 @@
     .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
     .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
     .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
@@ -340,6 +344,7 @@
         <a href="trips-plane.html" class="">Trips by Plane</a>
         <a href="trips-car.html" class="active">Trips by Car</a>
         <a href="trips-train.html" class="">Trips by Train</a>
+        <a href="future-destinations.html" class="">Future Destinations</a>
       </div>
       <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
     </aside>
@@ -350,47 +355,6 @@
       </header>
       <section class="grid" aria-label="KMC Exploration | Trips by Car">
 
-      <article class="card">
-        <a href="destinations/lake-garda-italy.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg/900px-La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg" alt="Lake Garda shoreline" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 6 to 7 hours</div>
-          <h3><a href="destinations/lake-garda-italy.html">Lake Garda, Italy</a></h3>
-          <p class="summary">Lake towns, swimming spots, and mountain views.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 to 5 days</li>
-            <li><span>Family highlights</span>Beach towns, boat rides, Gardaland</li>
-            <li><span>Best for</span>Water days and relaxed pace</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Drive friendly</span>
-          </div>
-        </div>
-      </article>
-    
-
-      <article class="card">
-        <a href="destinations/salzburg-austria.html">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Salzburg_%2848489551981%29.jpg/900px-Salzburg_%2848489551981%29.jpg" alt="Salzburg old town" loading="lazy" decoding="async" />
-        </a>
-        <div class="card-body">
-          <div class="tag">Drive | 5 to 6 hours</div>
-          <h3><a href="destinations/salzburg-austria.html">Salzburg, Austria</a></h3>
-          <p class="summary">Mountain foothills, lakes, and sound-of-music vibes.</p>
-          <ul class="facts">
-            <li><span>Ideal length</span>4 days</li>
-            <li><span>Family highlights</span>Fortress, lake swims, alpine cable cars</li>
-            <li><span>Best for</span>Scenic drives and nature breaks</li>
-          </ul>
-          <div class="cta">
-            <span>Guide coming soon</span>
-            <span class="pill">Drive friendly</span>
-          </div>
-        </div>
-      </article>
-    
       </section>
       <footer>
         Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
