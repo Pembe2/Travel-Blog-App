@@ -1160,5 +1160,1142 @@
     "modes": [
       "train"
     ]
+  },
+  {
+    "slug": "ljubljana-slovenia",
+    "title": "Ljubljana, Slovenia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Compact capital with a riverside old town, parks, and easy day trips.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Ljubljana Castle",
+      "Tivoli Park",
+      "riverside old town"
+    ],
+    "best_for": "Walkable city base and low-stress days",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Ljubljana_Castle_Overview.jpg/900px-Ljubljana_Castle_Overview.jpg",
+    "alt": "Ljubljana Castle above the city",
+    "tips": [
+      "Use the riverbanks for easy stroller-friendly walks.",
+      "Plan castle time early to avoid crowds.",
+      "Build in a park break each afternoon."
+    ],
+    "indoor_attractions": [
+      "House of Experiments",
+      "National Museum of Slovenia",
+      "Museum of Illusions Ljubljana"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Preseren Square",
+          "lat": 46.0511,
+          "lon": 14.5051
+        },
+        {
+          "name": "Ljubljana Castle",
+          "lat": 46.0489,
+          "lon": 14.5083
+        },
+        {
+          "name": "Tivoli Park",
+          "lat": 46.0583,
+          "lon": 14.4977
+        },
+        {
+          "name": "Dragon Bridge",
+          "lat": 46.0517,
+          "lon": 14.5089
+        }
+      ],
+      "parking": [
+        {
+          "name": "Kongresni Trg Garage",
+          "lat": 46.051,
+          "lon": 14.5059
+        },
+        {
+          "name": "Kozolec Parking Garage",
+          "lat": 46.058,
+          "lon": 14.499
+        },
+        {
+          "name": "Nuk II Parking Garage",
+          "lat": 46.049,
+          "lon": 14.5065
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Druga Violina",
+          "lat": 46.0512,
+          "lon": 14.5066
+        },
+        {
+          "name": "Gostilna Sestica",
+          "lat": 46.0516,
+          "lon": 14.5054
+        },
+        {
+          "name": "Central Market Food Stalls",
+          "lat": 46.0522,
+          "lon": 14.5091
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Pop's Place",
+          "lat": 46.0521,
+          "lon": 14.5061
+        },
+        {
+          "name": "Hood Burger",
+          "lat": 46.0561,
+          "lon": 14.505
+        }
+      ],
+      "indoor": [
+        {
+          "name": "House of Experiments",
+          "lat": 46.0509,
+          "lon": 14.5099
+        },
+        {
+          "name": "National Museum of Slovenia",
+          "lat": 46.0532,
+          "lon": 14.5034
+        },
+        {
+          "name": "Museum of Illusions Ljubljana",
+          "lat": 46.0513,
+          "lon": 14.5067
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "plane"
+    ],
+    "description": "Ljubljana is a relaxed, walkable capital with riverfront cafes, small museums, and a castle overlooking the old town. Families can explore on foot, keep days short, and use nearby parks and playgrounds to reset.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Old town stroll from Preseren Square to Dragon Bridge, then a riverside dinner."
+      },
+      {
+        "title": "Day 2",
+        "text": "Castle funicular and views, then a long play break in Tivoli Park."
+      },
+      {
+        "title": "Day 3",
+        "text": "Hands-on museum stop and market lunch, then a slow river walk."
+      },
+      {
+        "title": "Day 4",
+        "text": "Easy day trip to Lake Bled or Postojna, return for an early night."
+      }
+    ],
+    "recommended_stops": [
+      "Preseren Square and the Triple Bridge",
+      "Ljubljana Castle",
+      "Tivoli Park",
+      "Central Market riverside",
+      "Dragon Bridge"
+    ],
+    "lodging": [
+      "City Hotel Ljubljana",
+      "Vander Urbani Resort",
+      "Hotel Park Ljubljana",
+      "Austria Trend Hotel Ljubljana"
+    ],
+    "access_note": "Fly into Ljubljana Joze Pucnik Airport and use a taxi or rental car to reach the city center in about 30 minutes. The old town is best explored on foot.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Ljubljana_Castle_Overview.jpg/1600px-Ljubljana_Castle_Overview.jpg",
+        "alt": "Ljubljana Castle and city skyline"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ljubljana_river.JPG/1600px-Ljubljana_river.JPG",
+        "alt": "Ljubljana riverfront"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dragon_Bridge_Ljubljana.JPG/1600px-Dragon_Bridge_Ljubljana.JPG",
+        "alt": "Dragon Bridge in Ljubljana"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tivoli_Park_Ljubljana.JPG/1600px-Tivoli_Park_Ljubljana.JPG",
+        "alt": "Tivoli Park in Ljubljana"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Preseren_Square_Ljubljana.JPG/1600px-Preseren_Square_Ljubljana.JPG",
+        "alt": "Preseren Square in Ljubljana"
+      }
+    ]
+  },
+  {
+    "slug": "lake-bled-slovenia",
+    "title": "Lake Bled, Slovenia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Iconic lake with an island church, castle views, and easy scenic walks.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "lakeside loop",
+      "Bled Castle",
+      "Bled Island boat ride"
+    ],
+    "best_for": "Classic family scenery and gentle walks",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lake_Bled_island.jpg/900px-Lake_Bled_island.jpg",
+    "alt": "Lake Bled with the island church",
+    "tips": [
+      "Walk the lakeside loop early for calmer paths.",
+      "Use the boat ride as a kid-friendly break.",
+      "Plan a short castle visit for views."
+    ],
+    "indoor_attractions": [
+      "Bled Castle Museum",
+      "Bled Parish Church"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Lake Bled Promenade",
+          "lat": 46.3683,
+          "lon": 14.1146
+        },
+        {
+          "name": "Bled Castle",
+          "lat": 46.369,
+          "lon": 14.1005
+        },
+        {
+          "name": "Bled Island",
+          "lat": 46.3625,
+          "lon": 14.0902
+        },
+        {
+          "name": "Vintgar Gorge",
+          "lat": 46.3932,
+          "lon": 14.079
+        },
+        {
+          "name": "Straza Bled",
+          "lat": 46.3617,
+          "lon": 14.124
+        }
+      ],
+      "parking": [
+        {
+          "name": "Bled Bus Station Parking",
+          "lat": 46.3698,
+          "lon": 14.1138
+        },
+        {
+          "name": "Velika Zaka Parking",
+          "lat": 46.364,
+          "lon": 14.0988
+        },
+        {
+          "name": "Bled Castle Parking",
+          "lat": 46.3707,
+          "lon": 14.1008
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Gostilna Murka",
+          "lat": 46.3692,
+          "lon": 14.1147
+        },
+        {
+          "name": "Restaurant Sova",
+          "lat": 46.3689,
+          "lon": 14.1139
+        },
+        {
+          "name": "Ostarija Peglez'n",
+          "lat": 46.3686,
+          "lon": 14.1144
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Pizzeria Rustika",
+          "lat": 46.3694,
+          "lon": 14.1133
+        },
+        {
+          "name": "Cafe Park",
+          "lat": 46.3695,
+          "lon": 14.1147
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Bled Castle Museum",
+          "lat": 46.369,
+          "lon": 14.1005
+        },
+        {
+          "name": "Bled Parish Church",
+          "lat": 46.3704,
+          "lon": 14.1159
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "plane"
+    ],
+    "description": "Lake Bled is a classic alpine lake destination with an easy lakeside loop, a boat ride to the island, and a castle that kids love. The town is compact, and most highlights are reachable on foot with short drives for nearby nature stops.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Lakeside loop and a relaxed dinner by the water."
+      },
+      {
+        "title": "Day 2",
+        "text": "Bled Castle visit and boat ride to the island."
+      },
+      {
+        "title": "Day 3",
+        "text": "Morning at Vintgar Gorge, afternoon at Straza Bled."
+      },
+      {
+        "title": "Day 4",
+        "text": "Optional day trip to Lake Bohinj or a slower lake day."
+      }
+    ],
+    "recommended_stops": [
+      "Lakeside promenade",
+      "Bled Island boat ride",
+      "Bled Castle viewpoints",
+      "Vintgar Gorge",
+      "Straza Bled summer toboggan"
+    ],
+    "lodging": [
+      "Hotel Park Bled",
+      "Rikli Balance Hotel",
+      "Hotel Kompas Bled",
+      "Grand Hotel Toplice"
+    ],
+    "access_note": "Fly into Ljubljana and drive about 35 to 45 minutes to Bled. The lake loop is easiest on foot once you park near the promenade.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lake_Bled_island.jpg/1600px-Lake_Bled_island.jpg",
+        "alt": "Lake Bled and island church"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Bled_Castle_Slovenia.jpg/1600px-Bled_Castle_Slovenia.jpg",
+        "alt": "Bled Castle"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Bled_Lake_walk.jpg/1600px-Bled_Lake_walk.jpg",
+        "alt": "Lakeside walk in Bled"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Vintgar_Gorge_Slovenia.jpg/1600px-Vintgar_Gorge_Slovenia.jpg",
+        "alt": "Vintgar Gorge"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bled_Island_boat.jpg/1600px-Bled_Island_boat.jpg",
+        "alt": "Boat on Lake Bled"
+      }
+    ]
+  },
+  {
+    "slug": "lake-bohinj-slovenia",
+    "title": "Lake Bohinj, Slovenia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Quieter alpine lake with easy hikes, waterfalls, and wide-open scenery.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Lake Bohinj shore",
+      "Savica Waterfall",
+      "Vogel cable car"
+    ],
+    "best_for": "Nature-forward families who want space",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lake_Bohinj.jpg/900px-Lake_Bohinj.jpg",
+    "alt": "Lake Bohinj and surrounding mountains",
+    "tips": [
+      "Start mornings early for the waterfall walk.",
+      "Use the lake for a long picnic break.",
+      "Pack layers for cooler alpine evenings."
+    ],
+    "indoor_attractions": [
+      "Bohinj House Visitor Center",
+      "St. John the Baptist Church"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Lake Bohinj Shore (Ribcev Laz)",
+          "lat": 46.2767,
+          "lon": 13.8856
+        },
+        {
+          "name": "Savica Waterfall",
+          "lat": 46.2848,
+          "lon": 13.8348
+        },
+        {
+          "name": "Vogel Cable Car",
+          "lat": 46.2687,
+          "lon": 13.883
+        },
+        {
+          "name": "Mostnica Gorge",
+          "lat": 46.293,
+          "lon": 13.892
+        }
+      ],
+      "parking": [
+        {
+          "name": "Ribcev Laz Parking",
+          "lat": 46.2765,
+          "lon": 13.8851
+        },
+        {
+          "name": "Ukanc Parking",
+          "lat": 46.2769,
+          "lon": 13.8536
+        },
+        {
+          "name": "Vogel Cable Car Parking",
+          "lat": 46.269,
+          "lon": 13.8835
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Gostilna Danica",
+          "lat": 46.2763,
+          "lon": 13.8837
+        },
+        {
+          "name": "Restavracija Tripic",
+          "lat": 46.2772,
+          "lon": 13.8859
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Picerija Bohinj",
+          "lat": 46.2771,
+          "lon": 13.8855
+        },
+        {
+          "name": "Camp Danica Restaurant",
+          "lat": 46.2758,
+          "lon": 13.8829
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Bohinj House Visitor Center",
+          "lat": 46.277,
+          "lon": 13.8852
+        },
+        {
+          "name": "St. John the Baptist Church",
+          "lat": 46.2761,
+          "lon": 13.885
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "plane"
+    ],
+    "description": "Lake Bohinj is a calmer alternative to Bled with a wide shoreline, easy trails, and a slower pace that works well for families. Kids can mix waterfall walks with cable car views and long lakeside afternoons.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Ribcev Laz lakeside loop and a picnic by the water."
+      },
+      {
+        "title": "Day 2",
+        "text": "Savica Waterfall in the morning, then a lake swim or paddle."
+      },
+      {
+        "title": "Day 3",
+        "text": "Vogel cable car for alpine views, easy hike at the top."
+      },
+      {
+        "title": "Day 4",
+        "text": "Mostnica Gorge walk and a relaxed afternoon by the lake."
+      }
+    ],
+    "recommended_stops": [
+      "Ribcev Laz shore and bridge",
+      "Savica Waterfall",
+      "Vogel cable car viewpoints",
+      "Mostnica Gorge",
+      "Ukanc lakeside coves"
+    ],
+    "lodging": [
+      "Hotel Jezero",
+      "Hotel Bohinj",
+      "Camp Bohinj",
+      "Apartments and chalets near Ribcev Laz"
+    ],
+    "access_note": "Fly into Ljubljana and drive about 1 hour 15 minutes to Bohinj. Once parked in Ribcev Laz, most of the lakefront is walkable.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lake_Bohinj.jpg/1600px-Lake_Bohinj.jpg",
+        "alt": "Lake Bohinj"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Savica_Waterfall.jpg/1600px-Savica_Waterfall.jpg",
+        "alt": "Savica Waterfall"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Vogel_Slovenia.jpg/1600px-Vogel_Slovenia.jpg",
+        "alt": "Vogel cable car area"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bohinj_Ribcev_Laz.jpg/1600px-Bohinj_Ribcev_Laz.jpg",
+        "alt": "Ribcev Laz by the lake"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Mostnica_Gorge.jpg/1600px-Mostnica_Gorge.jpg",
+        "alt": "Mostnica Gorge"
+      }
+    ]
+  },
+  {
+    "slug": "triglav-national-park-slovenia",
+    "title": "Triglav National Park, Slovenia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Alpine park with lakes, waterfalls, and family-friendly hikes.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Lake Jasna",
+      "Vrsic Pass",
+      "Pericnik Waterfall"
+    ],
+    "best_for": "Outdoor families and active kids",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Triglav_National_Park.jpg/900px-Triglav_National_Park.jpg",
+    "alt": "Alpine scenery in Triglav National Park",
+    "tips": [
+      "Choose short trails with big views for kids.",
+      "Pack rain layers and quick snacks.",
+      "Use cable cars or scenic drives to reduce hiking time."
+    ],
+    "indoor_attractions": [
+      "Slovenian Alpine Museum",
+      "Triglav National Park Information Center"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Lake Jasna",
+          "lat": 46.484,
+          "lon": 13.776
+        },
+        {
+          "name": "Vrsic Pass",
+          "lat": 46.4345,
+          "lon": 13.7445
+        },
+        {
+          "name": "Pericnik Waterfall",
+          "lat": 46.434,
+          "lon": 13.935
+        },
+        {
+          "name": "Zelenci Nature Reserve",
+          "lat": 46.495,
+          "lon": 13.7547
+        }
+      ],
+      "parking": [
+        {
+          "name": "Lake Jasna Parking",
+          "lat": 46.4836,
+          "lon": 13.7754
+        },
+        {
+          "name": "Vrsic Pass Parking",
+          "lat": 46.4342,
+          "lon": 13.7441
+        },
+        {
+          "name": "Pericnik Trailhead Parking",
+          "lat": 46.4329,
+          "lon": 13.9372
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Gostilna pri Martinu",
+          "lat": 46.4852,
+          "lon": 13.786
+        },
+        {
+          "name": "Lipa Restaurant",
+          "lat": 46.4855,
+          "lon": 13.7874
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Pizzeria Kotnik",
+          "lat": 46.4851,
+          "lon": 13.7852
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Slovenian Alpine Museum",
+          "lat": 46.4872,
+          "lon": 13.8304
+        },
+        {
+          "name": "Triglav National Park Information Center",
+          "lat": 46.2748,
+          "lon": 13.8842
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "plane"
+    ],
+    "description": "Triglav National Park delivers classic alpine scenery with viewpoints, lakes, and waterfalls that can be done in half-day bursts. Families can base in nearby towns, choose shorter trails, and still get the wow factor without long hikes.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Easy lakeside stop at Lake Jasna and a short riverside walk."
+      },
+      {
+        "title": "Day 2",
+        "text": "Drive the Vrsic Pass for viewpoints and a short ridge walk."
+      },
+      {
+        "title": "Day 3",
+        "text": "Pericnik Waterfall hike and a relaxed afternoon in Kranjska Gora."
+      },
+      {
+        "title": "Day 4",
+        "text": "Zelenci Nature Reserve boardwalks and a picnic stop."
+      }
+    ],
+    "recommended_stops": [
+      "Lake Jasna",
+      "Vrsic Pass viewpoints",
+      "Pericnik Waterfall",
+      "Zelenci Nature Reserve",
+      "Kranjska Gora village center"
+    ],
+    "lodging": [
+      "Hotel Kranjska Gora",
+      "Ramada Resort Kranjska Gora",
+      "Hotel Lipa",
+      "Family apartments in Kranjska Gora"
+    ],
+    "access_note": "Fly into Ljubljana and drive roughly 1 hour 20 minutes to Kranjska Gora for an easy base. Roads are mountain routes, so take it slow in bad weather.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Triglav_National_Park.jpg/1600px-Triglav_National_Park.jpg",
+        "alt": "Triglav National Park landscape"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lake_Jasna.jpg/1600px-Lake_Jasna.jpg",
+        "alt": "Lake Jasna"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Pericnik_Waterfall.jpg/1600px-Pericnik_Waterfall.jpg",
+        "alt": "Pericnik Waterfall"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Vrsic_Pass_Slovenia.jpg/1600px-Vrsic_Pass_Slovenia.jpg",
+        "alt": "Vrsic Pass road"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Zelenci_Slovenia.jpg/1600px-Zelenci_Slovenia.jpg",
+        "alt": "Zelenci Nature Reserve"
+      }
+    ]
+  },
+  {
+    "slug": "soca-valley-slovenia",
+    "title": "Soca Valley, Slovenia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Turquoise river scenery with adventure activities and easy riverside walks.",
+    "length": "4 to 5 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Soca River trail",
+      "Kozjak Waterfall",
+      "Tolmin Gorge"
+    ],
+    "best_for": "Active families and older kids",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Soca_River_Slovenia.jpg/900px-Soca_River_Slovenia.jpg",
+    "alt": "Soca River in Slovenia",
+    "tips": [
+      "Plan river time early for calmer water.",
+      "Choose short gorge walks instead of long hikes.",
+      "Keep a change of clothes for water play."
+    ],
+    "indoor_attractions": [
+      "Kobarid Museum",
+      "Tolmin Museum"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Soca River Trail (Bovec)",
+          "lat": 46.3383,
+          "lon": 13.552
+        },
+        {
+          "name": "Kozjak Waterfall",
+          "lat": 46.2475,
+          "lon": 13.5715
+        },
+        {
+          "name": "Tolmin Gorge",
+          "lat": 46.1832,
+          "lon": 13.733
+        },
+        {
+          "name": "Bovec Town Center",
+          "lat": 46.3388,
+          "lon": 13.5524
+        }
+      ],
+      "parking": [
+        {
+          "name": "Bovec Town Parking",
+          "lat": 46.3386,
+          "lon": 13.5527
+        },
+        {
+          "name": "Kobarid Parking",
+          "lat": 46.2472,
+          "lon": 13.5795
+        },
+        {
+          "name": "Tolmin Gorge Parking",
+          "lat": 46.1871,
+          "lon": 13.7261
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Gostilna in Pizzeria Letni Vrt",
+          "lat": 46.3381,
+          "lon": 13.5522
+        },
+        {
+          "name": "Gostilna Pri Mostu",
+          "lat": 46.2476,
+          "lon": 13.5791
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Pizzeria Bocca",
+          "lat": 46.3389,
+          "lon": 13.5529
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Kobarid Museum",
+          "lat": 46.247,
+          "lon": 13.579
+        },
+        {
+          "name": "Tolmin Museum",
+          "lat": 46.1844,
+          "lon": 13.7339
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "plane"
+    ],
+    "description": "The Soca Valley is all about turquoise water, short gorge walks, and outdoor adventures that older kids love. Families can mix easy trails with rafting or zip lines, then retreat to small town centers for low-key evenings.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive in Bovec, explore the river trail, and settle in."
+      },
+      {
+        "title": "Day 2",
+        "text": "Rafting or tubing in the morning, picnic lunch by the river."
+      },
+      {
+        "title": "Day 3",
+        "text": "Kozjak Waterfall hike and Kobarid Museum."
+      },
+      {
+        "title": "Day 4",
+        "text": "Tolmin Gorge loop and a relaxed afternoon swim."
+      }
+    ],
+    "recommended_stops": [
+      "Soca River Trail near Bovec",
+      "Kozjak Waterfall",
+      "Tolmin Gorge",
+      "Bovec town center",
+      "Kobarid Museum"
+    ],
+    "lodging": [
+      "Hotel Mangart",
+      "Hotel Bovec",
+      "Family apartments in Bovec",
+      "Campsites along the Soca"
+    ],
+    "access_note": "Fly into Ljubljana, then plan a 2 hour drive to the Soca Valley. Roads are scenic and winding, so allow extra time and plan breaks.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Soca_River_Slovenia.jpg/1600px-Soca_River_Slovenia.jpg",
+        "alt": "Soca River"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Kozjak_Waterfall.jpg/1600px-Kozjak_Waterfall.jpg",
+        "alt": "Kozjak Waterfall"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Tolmin_Gorge.jpg/1600px-Tolmin_Gorge.jpg",
+        "alt": "Tolmin Gorge"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bovec_Slovenia.jpg/1600px-Bovec_Slovenia.jpg",
+        "alt": "Bovec town in Soca Valley"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Soca_Valley.jpg/1600px-Soca_Valley.jpg",
+        "alt": "Soca Valley landscape"
+      }
+    ]
+  },
+  {
+    "slug": "postojna-slovenia",
+    "title": "Postojna and Predjama, Slovenia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Family favorite caves and a cliffside castle with short walks.",
+    "length": "4 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Postojna Cave",
+      "Predjama Castle",
+      "Proteus Vivarium"
+    ],
+    "best_for": "Indoor-friendly sightseeing and wow factor",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Postojna_Cave.jpg/900px-Postojna_Cave.jpg",
+    "alt": "Postojna Cave interior",
+    "tips": [
+      "Bring a light jacket for the cave temperature.",
+      "Book cave tickets early in peak season.",
+      "Combine the castle with a shorter town stop."
+    ],
+    "indoor_attractions": [
+      "Postojna Cave",
+      "Proteus Vivarium",
+      "Predjama Castle interior rooms"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Postojna Cave",
+          "lat": 45.7825,
+          "lon": 14.2047
+        },
+        {
+          "name": "Predjama Castle",
+          "lat": 45.8156,
+          "lon": 14.1267
+        },
+        {
+          "name": "Proteus Vivarium",
+          "lat": 45.782,
+          "lon": 14.2049
+        },
+        {
+          "name": "Postojna Cave Park",
+          "lat": 45.7827,
+          "lon": 14.2036
+        }
+      ],
+      "parking": [
+        {
+          "name": "Postojna Cave Parking",
+          "lat": 45.782,
+          "lon": 14.2055
+        },
+        {
+          "name": "Predjama Castle Parking",
+          "lat": 45.815,
+          "lon": 14.126
+        },
+        {
+          "name": "Postojna Town Parking",
+          "lat": 45.7745,
+          "lon": 14.213
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Jamski Dvorec",
+          "lat": 45.7832,
+          "lon": 14.2065
+        },
+        {
+          "name": "Pivka Jama",
+          "lat": 45.7818,
+          "lon": 14.2042
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Postojna Cave Park Cafe",
+          "lat": 45.7824,
+          "lon": 14.205
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Postojna Cave",
+          "lat": 45.7825,
+          "lon": 14.2047
+        },
+        {
+          "name": "Proteus Vivarium",
+          "lat": 45.782,
+          "lon": 14.2049
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "plane"
+    ],
+    "description": "Postojna is a family favorite thanks to the cave train ride, dramatic formations, and the nearby cliffside Predjama Castle. It is an easy base for a short visit with plenty of indoor options if the weather turns.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive and explore Postojna town center, early dinner."
+      },
+      {
+        "title": "Day 2",
+        "text": "Postojna Cave tour and Proteus Vivarium visit."
+      },
+      {
+        "title": "Day 3",
+        "text": "Predjama Castle and a short countryside walk."
+      },
+      {
+        "title": "Day 4",
+        "text": "Optional add-on: quick trip to Ljubljana or Piran."
+      }
+    ],
+    "recommended_stops": [
+      "Postojna Cave",
+      "Proteus Vivarium",
+      "Predjama Castle",
+      "Postojna Cave Park"
+    ],
+    "lodging": [
+      "Hotel Jama",
+      "Kras Hotel",
+      "Eco Hotel Center",
+      "Family guesthouses in Postojna"
+    ],
+    "access_note": "Postojna is about a 45 minute drive from Ljubljana Airport. The cave complex is easy to reach by car and has large parking areas.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Postojna_Cave.jpg/1600px-Postojna_Cave.jpg",
+        "alt": "Postojna Cave interior"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Predjama_Castle.jpg/1600px-Predjama_Castle.jpg",
+        "alt": "Predjama Castle"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Postojna_Cave_Train.jpg/1600px-Postojna_Cave_Train.jpg",
+        "alt": "Postojna Cave train ride"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Postojna_Park.jpg/1600px-Postojna_Park.jpg",
+        "alt": "Postojna Cave Park"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Postojna_Cave_Formations.jpg/1600px-Postojna_Cave_Formations.jpg",
+        "alt": "Cave formations in Postojna"
+      }
+    ]
+  },
+  {
+    "slug": "piran-slovenia",
+    "title": "Piran, Slovenia",
+    "category_page": "trips-plane.html",
+    "category_label": "Trips by Plane",
+    "summary": "Venetian-style coastal town with short walks and easy beach time.",
+    "length": "4 days",
+    "tag": "Fly | 1h 30m",
+    "highlights": [
+      "Tartini Square",
+      "Piran Walls",
+      "coastal walks"
+    ],
+    "best_for": "Relaxed seaside days and easy strolling",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Piran_Slovenia.jpg/900px-Piran_Slovenia.jpg",
+    "alt": "Piran old town on the Adriatic coast",
+    "tips": [
+      "Park outside the old town and walk in.",
+      "Plan a short wall walk before midday heat.",
+      "Use nearby Portoroz for sandy beach time."
+    ],
+    "indoor_attractions": [
+      "Maritime Museum Piran",
+      "Aquarium Piran"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Tartini Square",
+          "lat": 45.5289,
+          "lon": 13.5684
+        },
+        {
+          "name": "Piran Walls",
+          "lat": 45.528,
+          "lon": 13.565
+        },
+        {
+          "name": "St. George Church",
+          "lat": 45.5273,
+          "lon": 13.568
+        },
+        {
+          "name": "Piran Promenade",
+          "lat": 45.5283,
+          "lon": 13.5672
+        }
+      ],
+      "parking": [
+        {
+          "name": "Forance Garage",
+          "lat": 45.5302,
+          "lon": 13.5613
+        },
+        {
+          "name": "Portoroz Central Parking",
+          "lat": 45.5146,
+          "lon": 13.5927
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Fritolin pri Cantini",
+          "lat": 45.5286,
+          "lon": 13.568
+        },
+        {
+          "name": "Pavel",
+          "lat": 45.5285,
+          "lon": 13.5672
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Cacao Piran",
+          "lat": 45.5287,
+          "lon": 13.5676
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Maritime Museum Piran",
+          "lat": 45.5279,
+          "lon": 13.5682
+        },
+        {
+          "name": "Aquarium Piran",
+          "lat": 45.5281,
+          "lon": 13.5677
+        }
+      ]
+    },
+    "groomed": true,
+    "modes": [
+      "plane"
+    ],
+    "description": "Piran is a compact coastal town with a car-free core, sea views, and short walks that work well for families. Pair the old town with a beach afternoon in Portoroz to keep the pace relaxed.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Tartini Square and harbor walk, sunset gelato."
+      },
+      {
+        "title": "Day 2",
+        "text": "Piran Walls and St. George Church, then a beach stop."
+      },
+      {
+        "title": "Day 3",
+        "text": "Maritime Museum or Aquarium, slow seaside afternoon."
+      },
+      {
+        "title": "Day 4",
+        "text": "Optional day trip to nearby coastal towns or salt pans."
+      }
+    ],
+    "recommended_stops": [
+      "Tartini Square",
+      "Piran Walls viewpoint",
+      "St. George Church",
+      "Piran promenade",
+      "Portoroz beach"
+    ],
+    "lodging": [
+      "Hotel Piran",
+      "Hotel Tartini",
+      "Barbara Piran Beach Hotel",
+      "Family apartments in Piran old town"
+    ],
+    "access_note": "Fly into Ljubljana and drive about 1 hour 30 minutes to the coast. Park in a garage outside the old town and walk in to avoid narrow streets.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Piran_Slovenia.jpg/1600px-Piran_Slovenia.jpg",
+        "alt": "Piran coastline"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Tartini_Square_Piran.jpg/1600px-Tartini_Square_Piran.jpg",
+        "alt": "Tartini Square"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Piran_Walls.jpg/1600px-Piran_Walls.jpg",
+        "alt": "Piran Walls"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Church_of_St_George_Piran.jpg/1600px-Church_of_St_George_Piran.jpg",
+        "alt": "St. George Church in Piran"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Piran_Promenade.jpg/1600px-Piran_Promenade.jpg",
+        "alt": "Piran promenade by the sea"
+      }
+    ]
   }
 ]

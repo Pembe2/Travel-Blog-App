@@ -327,6 +327,15 @@
     .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
     .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
     .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
+    .notes{ border:1px dashed var(--line); border-radius:16px; padding:14px; background:rgba(255,255,255,.7); }
+    .notes-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .notes-header h2{ margin:0; font-size:18px; }
+    .notes-toggle{ border:1px solid var(--line); border-radius:999px; padding:8px 14px; background:#fff; font-size:12px; text-transform:uppercase; letter-spacing:.6px; cursor:pointer; }
+    .notes-body{ margin-top:12px; display:grid; gap:10px; }
+    .notes textarea{ width:100%; min-height:160px; resize:vertical; border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-family:inherit; font-size:14px; }
+    .notes-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+    .notes-actions button{ border:1px solid var(--line); border-radius:10px; padding:8px 12px; background:#fff; font-size:13px; cursor:pointer; }
+    .notes-status{ color:var(--muted); font-size:12px; }
     @media (max-width: 900px){ .hero img{ height:260px; } }
     @media (max-width: 600px){ .hero img{ height:220px; } }
     @media (max-width: 900px){ .slide img{ height:300px; } }
@@ -388,11 +397,89 @@
         <ul class="list"><li>Stay near the station for short walks.</li><li>Use the river promenade for breaks.</li><li>Keep your day pace relaxed.</li></ul>
       </section>
     
+      <section class="section notes" data-notes-slug="mainz-germany">
+        <div class="notes-header">
+          <h2>Admin notes</h2>
+          <button class="notes-toggle" type="button" aria-expanded="false">Show notes</button>
+        </div>
+        <div class="notes-body" hidden>
+          <p class="lede">Private notes stored in this browser only.</p>
+          <textarea placeholder="Add trip notes, ideas, and edits to apply later."></textarea>
+          <div class="notes-actions">
+            <button class="notes-save" type="button">Save now</button>
+            <button class="notes-clear" type="button">Clear</button>
+            <span class="notes-status" aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+    
       <footer>
         Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
       </footer>
     </main>
   </div>
 
+  <script>
+    (function(){
+      var section = document.querySelector(".notes");
+      if (!section) return;
+      var slug = section.getAttribute("data-notes-slug");
+      var key = "kmcNotes:" + slug;
+      var toggle = section.querySelector(".notes-toggle");
+      var body = section.querySelector(".notes-body");
+      var textarea = section.querySelector("textarea");
+      var status = section.querySelector(".notes-status");
+      var saveBtn = section.querySelector(".notes-save");
+      var clearBtn = section.querySelector(".notes-clear");
+      var saveTimer = null;
+
+      function setStatus(text){
+        if (!status) return;
+        status.textContent = text || "";
+      }
+
+      function loadNotes(){
+        var saved = localStorage.getItem(key) || "";
+        textarea.value = saved;
+        setStatus(saved ? "Loaded from this browser." : "No notes saved yet.");
+      }
+
+      function saveNotes(){
+        localStorage.setItem(key, textarea.value.trim());
+        setStatus("Saved.");
+      }
+
+      function scheduleSave(){
+        if (saveTimer) clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveNotes, 600);
+      }
+
+      toggle.addEventListener("click", function(){
+        var isOpen = !body.hasAttribute("hidden");
+        if (isOpen) {
+          body.setAttribute("hidden", "");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.textContent = "Show notes";
+        } else {
+          body.removeAttribute("hidden");
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.textContent = "Hide notes";
+        }
+      });
+
+      saveBtn.addEventListener("click", function(){
+        saveNotes();
+      });
+
+      clearBtn.addEventListener("click", function(){
+        textarea.value = "";
+        saveNotes();
+      });
+
+      textarea.addEventListener("input", scheduleSave);
+      loadNotes();
+    })();
+  </script>
+    
 </body>
 </html>

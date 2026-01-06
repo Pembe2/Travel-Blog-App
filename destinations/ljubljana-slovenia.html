@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KMC Exploration | Ljubljana, Slovenia</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
+
+    :root{
+      --sand:#f8f6f2;
+      --oat:#f1ece4;
+      --sea:#2e3434;
+      --sea-dark:#1c2020;
+      --sun:#c45a3a;
+      --ink:#1c1b18;
+      --muted:#6a6762;
+      --card:#ffffff;
+      --line:rgba(28,27,24,.12);
+    }
+
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: "Manrope", "Segoe UI", Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 12% -10%, rgba(196,90,58,.12), transparent 60%),
+        radial-gradient(900px 600px at 90% -10%, rgba(28,27,24,.08), transparent 55%),
+        var(--sand);
+    }
+
+    a{color:inherit; text-decoration:none;}
+
+    .layout{
+      display:grid;
+      grid-template-columns: 250px 1fr;
+      min-height:100vh;
+    }
+
+    .sidebar{
+      padding:26px 20px;
+      border-right:1px solid var(--line);
+      background:rgba(249,247,242,.9);
+      backdrop-filter: blur(6px);
+      position:sticky;
+      top:0;
+      height:100vh;
+    }
+
+    .brand{
+      font-family:"Fraunces", "Times New Roman", serif;
+      font-size:18px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--sea-dark);
+      margin-bottom:12px;
+    }
+
+    .nav{
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .nav a{
+      padding:10px 12px;
+      border-radius:10px;
+      border:1px solid transparent;
+      background:transparent;
+      font-weight:600;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--sea-dark);
+      transition: background .12s ease, border-color .12s ease, transform .12s ease;
+    }
+
+    .nav a:hover{
+      background:rgba(196,90,58,.08);
+      border-color:rgba(196,90,58,.3);
+      transform: translateX(2px);
+    }
+
+    .nav a.active{
+      background:var(--sea-dark);
+      border-color:var(--sea-dark);
+      color:white;
+    }
+
+    .sidebar .note{
+      margin-top:18px;
+      font-size:12px;
+      color:var(--muted);
+      line-height:1.4;
+    }
+
+    .content{
+      max-width:1120px;
+      margin:0 auto;
+      padding:28px 24px 64px;
+    }
+
+    header{
+      display:grid;
+      gap:16px;
+      padding:10px 4px 22px;
+      border-bottom:1px solid var(--line);
+    }
+
+    h1{
+      font-family:"Fraunces", "Times New Roman", serif;
+      font-size:clamp(30px, 4vw, 46px);
+      margin:0;
+      letter-spacing:.2px;
+    }
+
+    .lede{
+      font-size:16px;
+      color:var(--muted);
+      max-width:72ch;
+      margin:0;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--oat);
+      border:1px solid var(--line);
+      font-size:11px;
+      font-weight:600;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--sea-dark);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:18px;
+      margin-top:18px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 16px 34px rgba(28,27,24,.08);
+      display:flex;
+      flex-direction:column;
+      min-height:100%;
+    }
+
+    .card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-body{
+      padding:14px 14px 16px;
+      display:grid;
+      gap:10px;
+      flex:1;
+    }
+
+    .card h3{
+      font-family:"Fraunces", "Times New Roman", serif;
+      font-size:20px;
+      margin:0;
+    }
+
+    .card .summary{
+      color:var(--muted);
+      font-size:13px;
+      margin:0;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 10px;
+      border-radius:999px;
+      background:rgba(196,90,58,.12);
+      color:var(--accent-dark, #8e3c24);
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.03em;
+    }
+
+    .facts{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:8px;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .facts span{
+      display:block;
+      color:var(--ink);
+      font-weight:700;
+      font-size:12px;
+      margin-bottom:2px;
+    }
+
+    .cta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      margin-top:auto;
+      border-top:1px dashed var(--line);
+      padding-top:10px;
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .pill{
+      padding:6px 10px;
+      border-radius:10px;
+      background:var(--sun);
+      color:white;
+      font-weight:700;
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .category-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:16px;
+    }
+
+    .category-card{
+      background:rgba(255,255,255,.84);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      display:grid;
+      gap:10px;
+      box-shadow:0 12px 26px rgba(28,27,24,.08);
+      min-height:140px;
+    }
+
+    .category-card h3{
+      font-family:"Fraunces", "Times New Roman", serif;
+      margin:0;
+      font-size:20px;
+    }
+
+    .category-card p{
+      margin:0;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .category-card .link{
+      align-self:end;
+      font-weight:700;
+      color:var(--sea-dark);
+    }
+
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .layout{grid-template-columns: 1fr;}
+      .sidebar{position:static; height:auto; border-right:none; border-bottom:1px solid var(--line);}
+      .nav{grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));}
+      .content{padding-top:18px;}
+    }
+
+    @media (max-width: 640px){
+      .grid{ grid-template-columns: 1fr; }
+      .content{padding:20px 16px 48px;}
+      .nav a{font-size:10px;}
+    }
+
+    @media (max-width: 720px){
+      header{gap:12px;}
+      .card img{height:170px;}
+    }
+
+.hero{ display:grid; gap:14px; }
+    .hero img{ width:100%; height:320px; object-fit:cover; border-radius:18px; border:1px solid var(--line); box-shadow:0 14px 30px rgba(28,27,24,.12); }
+    .slideshow{ border-radius:18px; overflow:hidden; border:1px solid var(--line); box-shadow:0 14px 30px rgba(28,27,24,.12); }
+    .slide{ display:none; }
+    .slide.active{ display:block; }
+    .slide img{ width:100%; height:360px; object-fit:cover; display:block; }
+    .meta-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-top:10px; }
+    .meta-card{ background:rgba(255,255,255,.76); border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
+    .meta-card h4{ margin:0 0 6px; font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.4px; }
+    .meta-card p{ margin:0; font-weight:700; font-size:14px; }
+    .section{ margin-top:22px; padding-top:6px; }
+    .section h2{ font-family:"Fraunces", Georgia, serif; font-size:22px; margin:0 0 10px; }
+    .list{ margin:0; padding-left:18px; color:var(--muted); font-size:14px; }
+    .list li{ margin-bottom:6px; }
+    .itinerary{ display:grid; gap:10px; }
+    .day{ background:rgba(255,255,255,.76); border:1px solid var(--line); border-radius:14px; padding:12px 14px; }
+    .day h3{ margin:0 0 6px; font-size:15px; }
+    .breadcrumb{ font-size:12px; color:var(--muted); }
+    .notice{ margin-top:14px; padding:12px 14px; border-radius:14px; border:1px dashed var(--line); background:rgba(255,255,255,.7); color:var(--muted); font-size:13px; }
+    .notice strong{ color:var(--ink); }
+    #trierMap{ width:100%; height:360px; }
+    .map-card{ margin-top:10px; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.76); }
+    .map-legend{ padding:12px 14px; border-top:1px solid var(--line); font-size:13px; color:var(--muted); }
+    .map-legend strong{ color:var(--ink); }
+    .layer-legend{ display:grid; gap:8px; margin-top:10px; }
+    .layer-toggle{ display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .layer-toggle input{ width:14px; height:14px; }
+    .layer-swatch{ width:12px; height:12px; border-radius:50%; display:inline-block; border:1px solid rgba(0,0,0,.1); }
+    .pin{ width:18px; height:18px; border-radius:50% 50% 50% 0; position:relative; transform: rotate(-45deg); background: var(--sea); border:2px solid #ffffff; box-shadow:0 3px 6px rgba(0,0,0,.25); }
+    .pin::after{ content:""; width:6px; height:6px; background:#ffffff; position:absolute; top:5px; left:5px; border-radius:50%; }
+    .notes{ border:1px dashed var(--line); border-radius:16px; padding:14px; background:rgba(255,255,255,.7); }
+    .notes-header{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .notes-header h2{ margin:0; font-size:18px; }
+    .notes-toggle{ border:1px solid var(--line); border-radius:999px; padding:8px 14px; background:#fff; font-size:12px; text-transform:uppercase; letter-spacing:.6px; cursor:pointer; }
+    .notes-body{ margin-top:12px; display:grid; gap:10px; }
+    .notes textarea{ width:100%; min-height:160px; resize:vertical; border:1px solid var(--line); border-radius:12px; padding:10px 12px; font-family:inherit; font-size:14px; }
+    .notes-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; }
+    .notes-actions button{ border:1px solid var(--line); border-radius:10px; padding:8px 12px; background:#fff; font-size:13px; cursor:pointer; }
+    .notes-status{ color:var(--muted); font-size:12px; }
+    @media (max-width: 900px){ .hero img{ height:260px; } }
+    @media (max-width: 600px){ .hero img{ height:220px; } }
+    @media (max-width: 900px){ .slide img{ height:300px; } }
+    @media (max-width: 600px){ .slide img{ height:220px; } }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Category navigation">
+      <div class="brand">KMC Exploration</div>
+      <div class="nav">
+        <a href="../index.html" class="">Home</a>
+        <a href="../day-trips-car.html" class="">Day Trips by Car</a>
+        <a href="../day-trips-train.html" class="">Day Trips by Train</a>
+        <a href="../trips-plane.html" class="active">Trips by Plane</a>
+        <a href="../trips-car.html" class="">Trips by Car</a>
+        <a href="../trips-train.html" class="">Trips by Train</a>
+        <a href="../future-destinations.html" class="">Future Destinations</a>
+      </div>
+      <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
+    </aside>
+    <main class="content">
+      <header>
+        <h1>Ljubljana, Slovenia</h1>
+        <p class="lede">Ljubljana is a relaxed, walkable capital with riverfront cafes, small museums, and a castle overlooking the old town. Families can explore on foot, keep days short, and use nearby parks and playgrounds to reset.</p>
+      </header>
+
+      <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
+      
+      <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Ljubljana_Castle_Overview.jpg/1600px-Ljubljana_Castle_Overview.jpg" alt="Ljubljana Castle and city skyline" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ljubljana_river.JPG/1600px-Ljubljana_river.JPG" alt="Ljubljana riverfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dragon_Bridge_Ljubljana.JPG/1600px-Dragon_Bridge_Ljubljana.JPG" alt="Dragon Bridge in Ljubljana" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tivoli_Park_Ljubljana.JPG/1600px-Tivoli_Park_Ljubljana.JPG" alt="Tivoli Park in Ljubljana" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Preseren_Square_Ljubljana.JPG/1600px-Preseren_Square_Ljubljana.JPG" alt="Preseren Square in Ljubljana" loading="lazy" decoding="async" /></div></div>
+        
+        <div class="meta-grid">
+          <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
+          <div class="meta-card"><h4>Ideal length</h4><p>4 to 5 days</p></div>
+          <div class="meta-card"><h4>Season</h4><p>Summer</p></div>
+          <div class="meta-card"><h4>Family fit</h4><p>Walkable city base and low-stress days</p></div>
+        </div>
+      </div>
+
+      <section class="section">
+        <h2>Why families love it</h2>
+        <p class="lede">Ljubljana is a relaxed, walkable capital with riverfront cafes, small museums, and a castle overlooking the old town. Families can explore on foot, keep days short, and use nearby parks and playgrounds to reset.</p>
+        <ul class="list"><li>Ljubljana Castle</li><li>Tivoli Park</li><li>riverside old town</li></ul>
+      </section>
+
+      <section class="section">
+        <h2>Suggested 4 to 5 days plan</h2>
+        <div class="itinerary"><div class="day"><h3>Day 1</h3><p>Old town stroll from Preseren Square to Dragon Bridge, then a riverside dinner.</p></div><div class="day"><h3>Day 2</h3><p>Castle funicular and views, then a long play break in Tivoli Park.</p></div><div class="day"><h3>Day 3</h3><p>Hands-on museum stop and market lunch, then a slow river walk.</p></div><div class="day"><h3>Day 4</h3><p>Easy day trip to Lake Bled or Postojna, return for an early night.</p></div></div>
+      </section>
+    
+      <section class="section">
+        <h2>Map: family-friendly points of interest</h2>
+        <div class="map-card">
+          <div id="trierMap" aria-label="Map of destination points"></div>
+        </div>
+        <div class="map-legend">
+          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          
+          <div class="layer-legend" aria-label="Map layers">
+            <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="parking" checked /> <span class="layer-swatch" style="background:#f4b942;"></span> Parking garages</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+          </div>
+        </div>
+      </section>
+    
+      <section class="section">
+        <h2>Indoor attractions</h2>
+        <ul class="list"><li>House of Experiments</li><li>National Museum of Slovenia</li><li>Museum of Illusions Ljubljana</li></ul>
+      </section>
+        
+      <section class="section">
+        <h2>Recommended stops</h2>
+        <ul class="list"><li>Preseren Square and the Triple Bridge</li><li>Ljubljana Castle</li><li>Tivoli Park</li><li>Central Market riverside</li><li>Dragon Bridge</li></ul>
+      </section>
+        
+      <section class="section">
+        <h2>Where to stay</h2>
+        <ul class="list"><li>City Hotel Ljubljana</li><li>Vander Urbani Resort</li><li>Hotel Park Ljubljana</li><li>Austria Trend Hotel Ljubljana</li></ul>
+      </section>
+        
+      <section class="section">
+        <h2>Getting there</h2>
+        <p class="lede">Fly into Ljubljana Joze Pucnik Airport and use a taxi or rental car to reach the city center in about 30 minutes. The old town is best explored on foot.</p>
+      </section>
+        
+      <section class="section">
+        <h2>Family travel tips</h2>
+        <ul class="list"><li>Use the riverbanks for easy stroller-friendly walks.</li><li>Plan castle time early to avoid crowds.</li><li>Build in a park break each afternoon.</li></ul>
+      </section>
+    
+      <section class="section notes" data-notes-slug="ljubljana-slovenia">
+        <div class="notes-header">
+          <h2>Admin notes</h2>
+          <button class="notes-toggle" type="button" aria-expanded="false">Show notes</button>
+        </div>
+        <div class="notes-body" hidden>
+          <p class="lede">Private notes stored in this browser only.</p>
+          <textarea placeholder="Add trip notes, ideas, and edits to apply later."></textarea>
+          <div class="notes-actions">
+            <button class="notes-save" type="button">Save now</button>
+            <button class="notes-clear" type="button">Clear</button>
+            <span class="notes-status" aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+    
+      <footer>
+        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    (function(){
+      var mapEl = document.getElementById("trierMap");
+      if (!mapEl || !window.L) return;
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.0511, 14.5051], 13);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(map);
+
+      function mapLink(name){
+        var query = encodeURIComponent(name + " Trier Germany");
+        return "https://www.google.com/maps/search/?api=1&query=" + query;
+      }
+
+      function addPin(layer, p, color, link){
+        var icon = L.divIcon({
+          className: "",
+          html: '<div class="pin" style="background:' + color + ';"></div>',
+          iconSize: [18, 18],
+          iconAnchor: [9, 18],
+          popupAnchor: [0, -16]
+        });
+        var popup = link ? '<a href="' + link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
+        L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+      }
+
+      var poiLayer = L.layerGroup();
+      var parkingLayer = L.layerGroup();
+      var restaurantLayer = L.layerGroup();
+      var familyRestaurantLayer = L.layerGroup();
+      var indoorLayer = L.layerGroup();
+
+      var poiPoints = [{"name": "Preseren Square", "lat": 46.0511, "lon": 14.5051}, {"name": "Ljubljana Castle", "lat": 46.0489, "lon": 14.5083}, {"name": "Tivoli Park", "lat": 46.0583, "lon": 14.4977}, {"name": "Dragon Bridge", "lat": 46.0517, "lon": 14.5089}];
+      var parkingPoints = [{"name": "Kongresni Trg Garage", "lat": 46.051, "lon": 14.5059}, {"name": "Kozolec Parking Garage", "lat": 46.058, "lon": 14.499}, {"name": "Nuk II Parking Garage", "lat": 46.049, "lon": 14.5065}];
+      var restaurantPoints = [{"name": "Druga Violina", "lat": 46.0512, "lon": 14.5066}, {"name": "Gostilna Sestica", "lat": 46.0516, "lon": 14.5054}, {"name": "Central Market Food Stalls", "lat": 46.0522, "lon": 14.5091}];
+      var familyRestaurantPoints = [{"name": "Pop's Place", "lat": 46.0521, "lon": 14.5061}, {"name": "Hood Burger", "lat": 46.0561, "lon": 14.505}];
+      var indoorPoints = [{"name": "House of Experiments", "lat": 46.0509, "lon": 14.5099}, {"name": "National Museum of Slovenia", "lat": 46.0532, "lon": 14.5034}, {"name": "Museum of Illusions Ljubljana", "lat": 46.0513, "lon": 14.5067}];
+
+      poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
+      parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
+      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
+      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
+      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+
+      poiLayer.addTo(map);
+      parkingLayer.addTo(map);
+      restaurantLayer.addTo(map);
+      familyRestaurantLayer.addTo(map);
+      indoorLayer.addTo(map);
+
+      var toggles = document.querySelectorAll(".layer-toggle input");
+      toggles.forEach(function(toggle){
+        toggle.addEventListener("change", function(){
+          var key = toggle.getAttribute("data-layer");
+          var layer = null;
+          if (key === "poi") layer = poiLayer;
+          if (key === "parking") layer = parkingLayer;
+          if (key === "restaurants") layer = restaurantLayer;
+          if (key === "family") layer = familyRestaurantLayer;
+          if (key === "indoor") layer = indoorLayer;
+          if (!layer) return;
+          if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+        });
+      });
+
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      map.fitBounds(all.getBounds().pad(0.15));
+    })();
+  </script>
+    
+  <script>
+    (function(){
+      var section = document.querySelector(".notes");
+      if (!section) return;
+      var slug = section.getAttribute("data-notes-slug");
+      var key = "kmcNotes:" + slug;
+      var toggle = section.querySelector(".notes-toggle");
+      var body = section.querySelector(".notes-body");
+      var textarea = section.querySelector("textarea");
+      var status = section.querySelector(".notes-status");
+      var saveBtn = section.querySelector(".notes-save");
+      var clearBtn = section.querySelector(".notes-clear");
+      var saveTimer = null;
+
+      function setStatus(text){
+        if (!status) return;
+        status.textContent = text || "";
+      }
+
+      function loadNotes(){
+        var saved = localStorage.getItem(key) || "";
+        textarea.value = saved;
+        setStatus(saved ? "Loaded from this browser." : "No notes saved yet.");
+      }
+
+      function saveNotes(){
+        localStorage.setItem(key, textarea.value.trim());
+        setStatus("Saved.");
+      }
+
+      function scheduleSave(){
+        if (saveTimer) clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveNotes, 600);
+      }
+
+      toggle.addEventListener("click", function(){
+        var isOpen = !body.hasAttribute("hidden");
+        if (isOpen) {
+          body.setAttribute("hidden", "");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.textContent = "Show notes";
+        } else {
+          body.removeAttribute("hidden");
+          toggle.setAttribute("aria-expanded", "true");
+          toggle.textContent = "Hide notes";
+        }
+      });
+
+      saveBtn.addEventListener("click", function(){
+        saveNotes();
+      });
+
+      clearBtn.addEventListener("click", function(){
+        textarea.value = "";
+        saveNotes();
+      });
+
+      textarea.addEventListener("input", scheduleSave);
+      loadNotes();
+    })();
+  </script>
+    
+</body>
+</html>
