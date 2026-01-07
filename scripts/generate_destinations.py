@@ -404,6 +404,9 @@ def build_page(dest, template, styles):
     recommended_stops = dest.get("recommended_stops") or []
     lodging = dest.get("lodging") or []
     access_note = dest.get("access_note", "").strip()
+    tag_label = dest.get("tag", "")
+    tag_lower = tag_label.lower()
+    travel_label = "Travel time (from Landstuhl)" if ("train" in tag_lower or "drive" in tag_lower or "car" in tag_lower) else "Travel style"
 
     slideshow = slideshow_html(dest)
     hero_image = ""
@@ -417,7 +420,7 @@ def build_page(dest, template, styles):
         {slideshow}
         {hero_image}
         <div class="meta-grid">
-          <div class="meta-card"><h4>Travel style</h4><p>{dest['tag']}</p></div>
+          <div class="meta-card"><h4>{travel_label}</h4><p>{tag_label}</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>{dest['length']}</p></div>
           <div class="meta-card"><h4>Season</h4><p>Summer</p></div>
           <div class="meta-card"><h4>Family fit</h4><p>{dest['best_for']}</p></div>
@@ -642,7 +645,7 @@ def build_future_page(destinations, title, lede, active_href, styles):
 {cards_html}
       </section>
       <footer>
-        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+        Photos sourced from Wikimedia Commons. Travel times are approximate from Landstuhl.
       </footer>
     </main>
   </div>
@@ -651,16 +654,40 @@ def build_future_page(destinations, title, lede, active_href, styles):
 """
 
 
-def build_category_page(destinations, title, lede, active_href, category_page, styles, groomed_only=True):
+def build_resort_list(destinations, category_page, groomed_only=True):
     cards = []
     for dest in destinations:
         if groomed_only and not dest.get("groomed"):
             continue
         if dest.get("category_page") != category_page:
             continue
-        cards.append(list_card_html(dest, "Resort stay"))
+        highlights = ", ".join(dest.get("highlights", [])[:3])
+        cards.append(
+            f"""
+      <article class="card">
+        <a href="destinations/{dest['slug']}.html">
+          <img src="{dest['image']}" alt="{dest['alt']}" loading="lazy" decoding="async" />
+        </a>
+        <div class="card-body">
+          <div class="tag">Travel time from Landstuhl: {dest['tag']}</div>
+          <h3><a href="destinations/{dest['slug']}.html">{dest['title']}</a></h3>
+          <p class="summary">{dest['summary']}</p>
+          <ul class="facts">
+            <li><span>Signature highlights</span>{highlights}</li>
+          </ul>
+          <div class="cta">
+            <span>Resort guide available</span>
+          </div>
+        </div>
+      </article>
+    """
+        )
+    return "\n".join(cards)
 
-    cards_html = "\n".join(cards) if cards else '<div class="notice"><strong>Coming soon:</strong> More stays will be added.</div>'
+
+def build_category_page(destinations, title, lede, active_href, category_page, styles, groomed_only=True):
+    resorts_html = build_resort_list(destinations, category_page, groomed_only=groomed_only)
+    resorts_html = resorts_html or '<div class="notice"><strong>Coming soon:</strong> More stays will be added.</div>'
     nav = make_list_nav(active_href)
 
     return f"""<!doctype html>
@@ -687,11 +714,34 @@ def build_category_page(destinations, title, lede, active_href, category_page, s
         <h1>{title.split('|')[-1].strip()}</h1>
         <p class="lede">{lede}</p>
       </header>
-      <section class="grid" aria-label="{title}">
-{cards_html}
+      <section class="section">
+        <h2>What to expect</h2>
+        <p class="lede">Center Parcs resorts are built for low-stress family time with on-site dining, pools, and activities. Most villages are car-free once you park, which keeps kids roaming safely and makes it easy to split up for naps or pool time.</p>
+      </section>
+      <section class="section">
+        <h2>Typical stay setup</h2>
+        <ul class="list">
+          <li>Self-catering cottages with kitchens and patio space.</li>
+          <li>Market Dome hub for restaurants, cafes, and rainy-day play.</li>
+          <li>Aqua Mundo water park access included for most stays.</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Planning tips</h2>
+        <ul class="list">
+          <li>Book swim sessions early during school holidays.</li>
+          <li>Pack comfy shoes for car-free walks and bike loops.</li>
+          <li>Reserve a grocery delivery or shop on-site for easy meals.</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Resort locations near Landstuhl</h2>
+      </section>
+      <section class="grid" aria-label="{title} resort list">
+{resorts_html}
       </section>
       <footer>
-        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+        Photos sourced from Wikimedia Commons. Travel times are approximate from Landstuhl.
       </footer>
     </main>
   </div>
@@ -738,11 +788,27 @@ def build_category_hub_page(title, lede, active_href, styles, categories):
         <h1>{title.split('|')[-1].strip()}</h1>
         <p class="lede">{lede}</p>
       </header>
-      <section class="category-grid" aria-label="{title}" style="margin-top:18px;">
+      <section class="section">
+        <h2>Why families like resort brands</h2>
+        <ul class="list">
+          <li>On-site pools and play zones keep days flexible.</li>
+          <li>Cabins make naps and early bedtimes easier.</li>
+          <li>Walkable villages reduce driving and planning stress.</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>What to look for</h2>
+        <ul class="list">
+          <li>Indoor pools for rainy weeks.</li>
+          <li>Playgrounds near your cottage cluster.</li>
+          <li>Family dining that works with early schedules.</li>
+        </ul>
+      </section>
+      <section class="category-grid" aria-label="{title} brands" style="margin-top:18px;">
 {cards_html}
       </section>
       <footer>
-        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+        Photos sourced from Wikimedia Commons. Travel times are approximate from Landstuhl.
       </footer>
     </main>
   </div>
