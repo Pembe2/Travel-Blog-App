@@ -2297,5 +2297,65 @@
         "alt": "Piran promenade by the sea"
       }
     ]
+  },
+  {
+    "slug": "bolstalsee-germany",
+    "title": "Bolstalsee (Center Parcs), Germany",
+    "category_page": "center-parcs.html",
+    "category_label": "Center Parcs",
+    "summary": "Lake resort stay with cabins, indoor water park time, and easy on-site activities.",
+    "length": "3 to 4 days",
+    "tag": "Drive | 1h 20m",
+    "highlights": [
+      "Aqua Mundo indoor water park",
+      "Lakeside walks and beach zones",
+      "Family activities and bike loops"
+    ],
+    "best_for": "Resort stay, low-stress planning",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Bostalsee.jpg/900px-Bostalsee.jpg",
+    "alt": "Bolstalsee shoreline",
+    "tips": [
+      "Book pool time slots early during school holidays.",
+      "Bring bikes or reserve rentals for the lake loop.",
+      "Use the on-site supermarket for easy cabin meals."
+    ],
+    "indoor_attractions": [
+      "Aqua Mundo water park",
+      "Indoor play zones and activity hall"
+    ],
+    "groomed": true,
+    "modes": [
+      "car"
+    ],
+    "description": "Bolstalsee is a Center Parcs resort built around a calm lake, with car-free paths, play areas, and an indoor pool complex that keeps kids busy in any weather. Families can settle into a cottage, keep the schedule light, and mix pool time with easy lakeside walks.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive, settle into the cottage, and explore the Market Dome for dinner."
+      },
+      {
+        "title": "Day 2",
+        "text": "Morning Aqua Mundo time, then a relaxed lakeside walk and playground stop."
+      },
+      {
+        "title": "Day 3",
+        "text": "Bike loop around the lake, mini golf or kids activities in the afternoon."
+      },
+      {
+        "title": "Day 4",
+        "text": "Easy breakfast, pack up, and optional beach time before heading home."
+      }
+    ],
+    "recommended_stops": [
+      "Aqua Mundo water park",
+      "Market Dome dining area",
+      "Lakeside beach zone",
+      "Mini golf and outdoor play areas"
+    ],
+    "lodging": [
+      "Center Parcs Park Bostalsee cottages",
+      "Premium and VIP cottages on-site"
+    ],
+    "access_note": "Bolstalsee is about 1 hour 20 minutes from KMC by car. Follow A6/A62 toward Nohfelden; on-site parking is available at the resort."
   }
 ]

@@ -72,6 +72,7 @@ NAV_ITEMS = [
     ("../trips-plane.html", "Trips by Plane"),
     ("../trips-car.html", "Trips by Car"),
     ("../trips-train.html", "Trips by Train"),
+    ("../kinder-hotels.html", "Kinder Hotels"),
     ("../future-destinations.html", "Future Destinations"),
 ]
 
@@ -82,11 +83,18 @@ LIST_NAV_ITEMS = [
     ("trips-plane.html", "Trips by Plane"),
     ("trips-car.html", "Trips by Car"),
     ("trips-train.html", "Trips by Train"),
+    ("kinder-hotels.html", "Kinder Hotels"),
     ("future-destinations.html", "Future Destinations"),
 ]
 
+NAV_ACTIVE_ALIAS = {
+    "center-parcs.html": "kinder-hotels.html",
+    "../center-parcs.html": "../kinder-hotels.html",
+}
+
 
 def make_nav(active_href):
+    active_href = NAV_ACTIVE_ALIAS.get(active_href, active_href)
     out = []
     for href, label in NAV_ITEMS:
         cls = "active" if href == active_href else ""
@@ -95,6 +103,7 @@ def make_nav(active_href):
 
 
 def make_list_nav(active_href):
+    active_href = NAV_ACTIVE_ALIAS.get(active_href, active_href)
     out = []
     for href, label in LIST_NAV_ITEMS:
         cls = "active" if href == active_href else ""
@@ -642,6 +651,106 @@ def build_future_page(destinations, title, lede, active_href, styles):
 """
 
 
+def build_category_page(destinations, title, lede, active_href, category_page, styles, groomed_only=True):
+    cards = []
+    for dest in destinations:
+        if groomed_only and not dest.get("groomed"):
+            continue
+        if dest.get("category_page") != category_page:
+            continue
+        cards.append(list_card_html(dest, "Resort stay"))
+
+    cards_html = "\n".join(cards) if cards else '<div class="notice"><strong>Coming soon:</strong> More stays will be added.</div>'
+    nav = make_list_nav(active_href)
+
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <style>
+{styles}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Category navigation">
+      <div class="brand">KMC Exploration</div>
+      <div class="nav">
+{nav}
+      </div>
+      <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
+    </aside>
+    <main class="content">
+      <header>
+        <h1>{title.split('|')[-1].strip()}</h1>
+        <p class="lede">{lede}</p>
+      </header>
+      <section class="grid" aria-label="{title}">
+{cards_html}
+      </section>
+      <footer>
+        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
+"""
+
+
+def build_category_hub_page(title, lede, active_href, styles, categories):
+    cards = []
+    for cat in categories:
+        cards.append(
+            f"""        <a class="category-card" href="{cat['href']}">
+          <h3>{cat['title']}</h3>
+          <p>{cat['description']}</p>
+          <span class="link">{cat['link']}</span>
+        </a>"""
+        )
+
+    cards_html = "\n".join(cards) if cards else '<div class="notice"><strong>Coming soon:</strong> Subcategories will be added.</div>'
+    nav = make_list_nav(active_href)
+
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <style>
+{styles}
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Category navigation">
+      <div class="brand">KMC Exploration</div>
+      <div class="nav">
+{nav}
+      </div>
+      <p class="note">Built for military and support families in the Kaiserslautern Military Community.</p>
+    </aside>
+    <main class="content">
+      <header>
+        <h1>{title.split('|')[-1].strip()}</h1>
+        <p class="lede">{lede}</p>
+      </header>
+      <section class="category-grid" aria-label="{title}" style="margin-top:18px;">
+{cards_html}
+      </section>
+      <footer>
+        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
+"""
+
+
 def main():
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
     template = TEMPLATE_PATH.read_text(encoding="utf-8")
@@ -717,6 +826,33 @@ def main():
         )
         (ROOT / page["filename"]).write_text(html, encoding="utf-8")
 
+    kinder_hotels_page = build_category_hub_page(
+        "KMC Exploration | Kinder Hotels",
+        "Family-first resort brands with on-site activities, pools, and easy cabin stays.",
+        "kinder-hotels.html",
+        styles,
+        [
+            {
+                "title": "Center Parcs",
+                "description": "Forest resort villages with cabins, lakes, indoor water parks, and kid-focused activities.",
+                "href": "center-parcs.html",
+                "link": "Browse Center Parcs ->",
+            }
+        ],
+    )
+    (ROOT / "kinder-hotels.html").write_text(kinder_hotels_page, encoding="utf-8")
+
+    center_parcs_page = build_category_page(
+        data,
+        "KMC Exploration | Center Parcs",
+        "Resort villages with cottages, aqua domes, and family activities close to Germany.",
+        "center-parcs.html",
+        "center-parcs.html",
+        styles,
+        groomed_only=True,
+    )
+    (ROOT / "center-parcs.html").write_text(center_parcs_page, encoding="utf-8")
+
     future_page = build_future_page(
         data,
         "KMC Exploration | Future Destinations",
@@ -726,7 +862,7 @@ def main():
     )
     (ROOT / "future-destinations.html").write_text(future_page, encoding="utf-8")
 
-    print(f"Generated {len(data)} destination pages and {len(list_pages) + 1} list pages")
+    print(f"Generated {len(data)} destination pages and {len(list_pages) + 3} list pages")
 
 
 if __name__ == "__main__":
