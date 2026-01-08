@@ -390,6 +390,25 @@
       </section>
     
       <section class="section">
+        <h2>Map: family-friendly points of interest</h2>
+        <div class="map-card">
+          <div id="trierMap" aria-label="Map of destination points"></div>
+        </div>
+        <div class="map-legend">
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
+          
+          <div class="layer-legend" aria-label="Map layers">
+            <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="parking" checked /> <span class="layer-swatch" style="background:#f4b942;"></span> Parking garages</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
+          </div>
+        </div>
+      </section>
+    
+      <section class="section">
         <h2>Indoor attractions</h2>
         <ul class="list"><li>Aqua Mundo water park</li><li>Indoor play zones and activity hall</li></ul>
       </section>
@@ -436,6 +455,84 @@
     </main>
   </div>
 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    (function(){
+      var mapEl = document.getElementById("trierMap");
+      if (!mapEl || !window.L) return;
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([49.5649708, 7.0730757], 13);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(map);
+
+      function mapLink(name){
+        var query = encodeURIComponent(name + " Trier Germany");
+        return "https://www.google.com/maps/search/?api=1&query=" + query;
+      }
+
+      function addPin(layer, p, color, link){
+        var icon = L.divIcon({
+          className: "",
+          html: '<div class="pin" style="background:' + color + ';"></div>',
+          iconSize: [18, 18],
+          iconAnchor: [9, 18],
+          popupAnchor: [0, -16]
+        });
+        var popup = link ? '<a href="' + link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
+        L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+      }
+
+      var poiLayer = L.layerGroup();
+      var parkingLayer = L.layerGroup();
+      var restaurantLayer = L.layerGroup();
+      var familyRestaurantLayer = L.layerGroup();
+      var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
+
+      var poiPoints = [];
+      var parkingPoints = [];
+      var restaurantPoints = [];
+      var familyRestaurantPoints = [];
+      var indoorPoints = [];
+      var playgroundPoints = [{"name": "Wasserspielplatz Bostalsee", "lat": 49.565368, "lon": 7.06486}, {"name": "Hufschmied", "lat": 49.570987, "lon": 7.075656}, {"name": "Playground", "lat": 49.568464, "lon": 7.081061}, {"name": "Playground", "lat": 49.563339, "lon": 7.063533}, {"name": "Bosiland", "lat": 49.566765, "lon": 7.062893}, {"name": "Kofferburg", "lat": 49.572198, "lon": 7.072262}];
+
+      poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
+      parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
+      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
+      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
+      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
+
+      poiLayer.addTo(map);
+      parkingLayer.addTo(map);
+      restaurantLayer.addTo(map);
+      familyRestaurantLayer.addTo(map);
+      indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
+
+      var toggles = document.querySelectorAll(".layer-toggle input");
+      toggles.forEach(function(toggle){
+        toggle.addEventListener("change", function(){
+          var key = toggle.getAttribute("data-layer");
+          var layer = null;
+          if (key === "poi") layer = poiLayer;
+          if (key === "parking") layer = parkingLayer;
+          if (key === "restaurants") layer = restaurantLayer;
+          if (key === "family") layer = familyRestaurantLayer;
+          if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
+          if (!layer) return;
+          if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+        });
+      });
+
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
+      map.fitBounds(all.getBounds().pad(0.15));
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

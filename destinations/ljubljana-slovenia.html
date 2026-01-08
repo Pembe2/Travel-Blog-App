@@ -368,7 +368,7 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       
       <div class="hero">
-        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Ljubljana_Castle_Overview.jpg/1600px-Ljubljana_Castle_Overview.jpg" alt="Ljubljana Castle and city skyline" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Ljubljana_river.JPG/1600px-Ljubljana_river.JPG" alt="Ljubljana riverfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dragon_Bridge_Ljubljana.JPG/1600px-Dragon_Bridge_Ljubljana.JPG" alt="Dragon Bridge in Ljubljana" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Tivoli_Park_Ljubljana.JPG/1600px-Tivoli_Park_Ljubljana.JPG" alt="Tivoli Park in Ljubljana" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Preseren_Square_Ljubljana.JPG/1600px-Preseren_Square_Ljubljana.JPG" alt="Preseren Square in Ljubljana" loading="lazy" decoding="async" /></div></div>
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ljubljana_Castle_Overview.jpg?width=1600" alt="Ljubljana Castle and city skyline" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ljubljana_river.JPG?width=1600" alt="Ljubljana riverfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dragon_Bridge_Ljubljana.JPG?width=1600" alt="Dragon Bridge in Ljubljana" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tivoli_Park_Ljubljana.JPG?width=1600" alt="Tivoli Park in Ljubljana" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Preseren_Square_Ljubljana.JPG?width=1600" alt="Preseren Square in Ljubljana" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.0511, 14.5051], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.0500268, 14.5069289], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Preseren Square", "lat": 46.0511, "lon": 14.5051}, {"name": "Ljubljana Castle", "lat": 46.0489, "lon": 14.5083}, {"name": "Tivoli Park", "lat": 46.0583, "lon": 14.4977}, {"name": "Dragon Bridge", "lat": 46.0517, "lon": 14.5089}];
       var parkingPoints = [{"name": "Kongresni Trg Garage", "lat": 46.051, "lon": 14.5059}, {"name": "Kozolec Parking Garage", "lat": 46.058, "lon": 14.499}, {"name": "Nuk II Parking Garage", "lat": 46.049, "lon": 14.5065}];
       var restaurantPoints = [{"name": "Druga Violina", "lat": 46.0512, "lon": 14.5066}, {"name": "Gostilna Sestica", "lat": 46.0516, "lon": 14.5054}, {"name": "Central Market Food Stalls", "lat": 46.0522, "lon": 14.5091}];
       var familyRestaurantPoints = [{"name": "Pop's Place", "lat": 46.0521, "lon": 14.5061}, {"name": "Hood Burger", "lat": 46.0561, "lon": 14.505}];
       var indoorPoints = [{"name": "House of Experiments", "lat": 46.0509, "lon": 14.5099}, {"name": "National Museum of Slovenia", "lat": 46.0532, "lon": 14.5034}, {"name": "Museum of Illusions Ljubljana", "lat": 46.0513, "lon": 14.5067}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.052488, "lon": 14.508204}, {"name": "Playground", "lat": 46.047369, "lon": 14.50821}, {"name": "Playground", "lat": 46.050471, "lon": 14.501888}, {"name": "Playground", "lat": 46.050239, "lon": 14.501676}, {"name": "Playground", "lat": 46.046082, "lon": 14.509277}, {"name": "Playground", "lat": 46.049275, "lon": 14.513464}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

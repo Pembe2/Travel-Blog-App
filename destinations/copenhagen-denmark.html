@@ -368,7 +368,7 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       
       <div class="hero">
-        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nyhavn%2C_Copenhagen.jpg/1600px-Nyhavn%2C_Copenhagen.jpg" alt="Nyhavn harbor in Copenhagen" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Tivoli_Gardens%2C_Copenhagen.jpg/1600px-Tivoli_Gardens%2C_Copenhagen.jpg" alt="Tivoli Gardens in Copenhagen" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/The_Little_Mermaid%2C_Copenhagen.jpg/1600px-The_Little_Mermaid%2C_Copenhagen.jpg" alt="The Little Mermaid statue" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Rosenborg_Slot.jpg/1600px-Rosenborg_Slot.jpg" alt="Rosenborg Castle" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Christiansborg_fra_Nikolaj_Kirken.jpg/1600px-Christiansborg_fra_Nikolaj_Kirken.jpg" alt="Christiansborg Palace" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Amalienborg_Palace%2C_Copenhagen.jpg/1600px-Amalienborg_Palace%2C_Copenhagen.jpg" alt="Amalienborg Palace" loading="lazy" decoding="async" /></div></div>
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Nyhavn%2C_Copenhagen.jpg?width=1600" alt="Nyhavn harbor in Copenhagen" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tivoli_Gardens%2C_Copenhagen.jpg?width=1600" alt="Tivoli Gardens in Copenhagen" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Little_Mermaid%2C_Copenhagen.jpg?width=1600" alt="The Little Mermaid statue" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rosenborg_Slot.jpg?width=1600" alt="Rosenborg Castle" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Christiansborg_fra_Nikolaj_Kirken.jpg?width=1600" alt="Christiansborg Palace" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Amalienborg_Palace%2C_Copenhagen.jpg?width=1600" alt="Amalienborg Palace" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([55.6761, 12.5683], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([55.6867243, 12.5700724], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Tivoli Gardens", "lat": 55.6737, "lon": 12.5681}, {"name": "Nyhavn", "lat": 55.6791, "lon": 12.5913}, {"name": "Amalienborg Palace", "lat": 55.6846, "lon": 12.593}, {"name": "Rosenborg Castle", "lat": 55.6854, "lon": 12.5776}, {"name": "The Little Mermaid", "lat": 55.6929, "lon": 12.5993}, {"name": "Christiansborg Palace", "lat": 55.676, "lon": 12.5805}];
       var parkingPoints = [{"name": "Q-Park Industriens Hus", "lat": 55.6766, "lon": 12.5696}, {"name": "Q-Park Norreport", "lat": 55.6839, "lon": 12.5712}, {"name": "DGI Byen Parking", "lat": 55.6677, "lon": 12.5607}, {"name": "Jeudan Parkering - Kvaesthusmolen", "lat": 55.6789, "lon": 12.5953}];
       var restaurantPoints = [{"name": "Reffen Street Food", "lat": 55.6748, "lon": 12.6121}, {"name": "Torvehallerne", "lat": 55.6837, "lon": 12.5715}, {"name": "Restaurant Koefoed", "lat": 55.6756, "lon": 12.5926}];
       var familyRestaurantPoints = [{"name": "Tivoli Food Hall", "lat": 55.6736, "lon": 12.568}, {"name": "Cafe Norden", "lat": 55.6792, "lon": 12.5713}, {"name": "Paludan Book Cafe", "lat": 55.6841, "lon": 12.5723}];
       var indoorPoints = [{"name": "Experimentarium", "lat": 55.7043, "lon": 12.5857}, {"name": "Den Bla Planet", "lat": 55.6164, "lon": 12.656}, {"name": "National Museum of Denmark", "lat": 55.6742, "lon": 12.5784}, {"name": "Tycho Brahe Planetarium", "lat": 55.669, "lon": 12.5648}, {"name": "SMK - National Gallery of Denmark", "lat": 55.689, "lon": 12.577}];
+      var playgroundPoints = [{"name": "Playground", "lat": 55.683715, "lon": 12.56752}, {"name": "Playground", "lat": 55.682479, "lon": 12.568292}, {"name": "Playground", "lat": 55.68954, "lon": 12.576058}, {"name": "Playground", "lat": 55.682504, "lon": 12.566676}, {"name": "Playground", "lat": 55.682429, "lon": 12.566768}, {"name": "Playground", "lat": 55.68279, "lon": 12.575578}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

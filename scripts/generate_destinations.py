@@ -1,5 +1,6 @@
 import json
 import re
+from urllib.parse import urlparse
 from pathlib import Path
 
 
@@ -15,6 +16,39 @@ def load_base_css():
     html = INDEX_PATH.read_text(encoding="utf-8")
     match = re.search(r"<style>(.*)</style>", html, re.S)
     return match.group(1).strip() if match else ""
+
+
+def normalize_wikimedia_url(src, width=None):
+    if not src:
+        return src
+    try:
+        parsed = urlparse(src)
+    except ValueError:
+        return src
+    if "wikimedia.org" not in parsed.netloc:
+        return src
+    path = parsed.path
+    filename = None
+    if "/wikipedia/commons/thumb/" in path:
+        parts = path.split("/")
+        try:
+            idx = parts.index("thumb")
+            filename = parts[idx + 3]
+        except (ValueError, IndexError):
+            return src
+    elif "/wikipedia/commons/" in path:
+        parts = path.split("/")
+        try:
+            idx = parts.index("commons")
+            filename = parts[idx + 3]
+        except (ValueError, IndexError):
+            filename = parts[-1] if parts else None
+    if not filename:
+        return src
+    file_path = f"https://commons.wikimedia.org/wiki/Special:FilePath/{filename}"
+    if width:
+        file_path += f"?width={int(width)}"
+    return file_path
 
 
 EXTRA_CSS = """
@@ -144,8 +178,9 @@ def slideshow_html(dest):
     items = []
     for idx, photo in enumerate(photos):
         cls = "slide active" if idx == 0 else "slide"
+        src = normalize_wikimedia_url(photo.get("src"), width=1600)
         items.append(
-            f'<div class="{cls}"><img src="{photo["src"]}" alt="{photo.get("alt", "")}" loading="lazy" decoding="async" /></div>'
+            f'<div class="{cls}"><img src="{src}" alt="{photo.get("alt", "")}" loading="lazy" decoding="async" /></div>'
         )
     return f'<div class="slideshow" data-slideshow="1">{"".join(items)}</div>'
 
@@ -176,6 +211,7 @@ def map_section(map_cfg):
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -232,24 +268,28 @@ def map_section(map_cfg):
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = __POI__;
       var parkingPoints = __PARKING__;
       var restaurantPoints = __RESTAURANTS__;
       var familyRestaurantPoints = __FAMILY_RESTAURANTS__;
       var indoorPoints = __INDOOR__;
+      var playgroundPoints = __PLAYGROUNDS__;
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -261,12 +301,13 @@ def map_section(map_cfg):
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>
@@ -277,6 +318,7 @@ def map_section(map_cfg):
     js = js.replace("__RESTAURANTS__", js_array(map_cfg.get("restaurants", [])))
     js = js.replace("__FAMILY_RESTAURANTS__", js_array(map_cfg.get("family_restaurants", [])))
     js = js.replace("__INDOOR__", js_array(map_cfg.get("indoor", [])))
+    js = js.replace("__PLAYGROUNDS__", js_array(map_cfg.get("playgrounds", [])))
     js = js.replace("__CENTER__", json.dumps([center["lat"], center["lon"]], ensure_ascii=True))
 
     return html, js
@@ -411,7 +453,8 @@ def build_page(dest, template, styles):
     slideshow = slideshow_html(dest)
     hero_image = ""
     if not slideshow:
-        hero_image = f'<img src="{dest["image"]}" alt="{dest["alt"]}" loading="lazy" decoding="async" />'
+        hero_src = normalize_wikimedia_url(dest.get("image"), width=1200)
+        hero_image = f'<img src="{hero_src}" alt="{dest["alt"]}" loading="lazy" decoding="async" />'
 
     body = f"""
       <div class="breadcrumb"><a href="../{dest['category_page']}">Back to {dest['category_label']}</a></div>
@@ -513,10 +556,11 @@ def list_card_html(dest, pill_label):
     pill = f'<span class="pill">{pill_label}</span>' if pill_label else ""
     groomed = bool(dest.get("groomed", False))
     guide_label = "" if groomed else "<span>Guide coming soon</span>"
+    img_src = normalize_wikimedia_url(dest.get("image"), width=900)
     return f"""
       <article class="card">
         <a href="destinations/{dest['slug']}.html">
-          <img src="{dest['image']}" alt="{dest['alt']}" loading="lazy" decoding="async" />
+          <img src="{img_src}" alt="{dest['alt']}" loading="lazy" decoding="async" />
         </a>
         <div class="card-body">
           <div class="tag">{dest['tag']}</div>

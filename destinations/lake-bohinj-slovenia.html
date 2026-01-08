@@ -368,7 +368,7 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       
       <div class="hero">
-        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lake_Bohinj.jpg/1600px-Lake_Bohinj.jpg" alt="Lake Bohinj" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Savica_Waterfall.jpg/1600px-Savica_Waterfall.jpg" alt="Savica Waterfall" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Vogel_Slovenia.jpg/1600px-Vogel_Slovenia.jpg" alt="Vogel cable car area" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bohinj_Ribcev_Laz.jpg/1600px-Bohinj_Ribcev_Laz.jpg" alt="Ribcev Laz by the lake" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Mostnica_Gorge.jpg/1600px-Mostnica_Gorge.jpg" alt="Mostnica Gorge" loading="lazy" decoding="async" /></div></div>
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Bohinj.jpg?width=1600" alt="Lake Bohinj" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Savica_Waterfall.jpg?width=1600" alt="Savica Waterfall" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vogel_Slovenia.jpg?width=1600" alt="Vogel cable car area" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bohinj_Ribcev_Laz.jpg?width=1600" alt="Ribcev Laz by the lake" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mostnica_Gorge.jpg?width=1600" alt="Mostnica Gorge" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.2767, 13.8856], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.2822654, 13.8645306], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Lake Bohinj Shore (Ribcev Laz)", "lat": 46.2767, "lon": 13.8856}, {"name": "Savica Waterfall", "lat": 46.2848, "lon": 13.8348}, {"name": "Vogel Cable Car", "lat": 46.2687, "lon": 13.883}, {"name": "Mostnica Gorge", "lat": 46.293, "lon": 13.892}];
       var parkingPoints = [{"name": "Ribcev Laz Parking", "lat": 46.2765, "lon": 13.8851}, {"name": "Ukanc Parking", "lat": 46.2769, "lon": 13.8536}, {"name": "Vogel Cable Car Parking", "lat": 46.269, "lon": 13.8835}];
       var restaurantPoints = [{"name": "Gostilna Danica", "lat": 46.2763, "lon": 13.8837}, {"name": "Restavracija Tripic", "lat": 46.2772, "lon": 13.8859}];
       var familyRestaurantPoints = [{"name": "Picerija Bohinj", "lat": 46.2771, "lon": 13.8855}, {"name": "Camp Danica Restaurant", "lat": 46.2758, "lon": 13.8829}];
       var indoorPoints = [{"name": "Bohinj House Visitor Center", "lat": 46.277, "lon": 13.8852}, {"name": "St. John the Baptist Church", "lat": 46.2761, "lon": 13.885}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.276107, "lon": 13.887967}, {"name": "Playground", "lat": 46.28967, "lon": 13.888725}, {"name": "Playground", "lat": 46.278732, "lon": 13.837467}, {"name": "Playground", "lat": 46.279687, "lon": 13.829064}, {"name": "Vogel Playground", "lat": 46.263068, "lon": 13.840503}, {"name": "Playground", "lat": 46.31037, "lon": 13.882703}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

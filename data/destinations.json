@@ -193,10 +193,10 @@
     ],
     "map": {
       "center": {
-        "lat": 55.6761,
-        "lon": 12.5683
+        "lat": 55.6867243,
+        "lon": 12.5700724
       },
-      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Tivoli Gardens",
@@ -310,6 +310,38 @@
           "name": "SMK - National Gallery of Denmark",
           "lat": 55.689,
           "lon": 12.577
+        }
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 55.683715,
+          "lon": 12.56752
+        },
+        {
+          "name": "Playground",
+          "lat": 55.682479,
+          "lon": 12.568292
+        },
+        {
+          "name": "Playground",
+          "lat": 55.68954,
+          "lon": 12.576058
+        },
+        {
+          "name": "Playground",
+          "lat": 55.682504,
+          "lon": 12.566676
+        },
+        {
+          "name": "Playground",
+          "lat": 55.682429,
+          "lon": 12.566768
+        },
+        {
+          "name": "Playground",
+          "lat": 55.68279,
+          "lon": 12.575578
         }
       ]
     },
@@ -601,7 +633,7 @@
       "Stadtmuseum Simeonstift"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, or family-friendly restaurants.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "source_label": "Family-friendly source",
       "source_url": "https://www.trier-info.de/trier-fuer-kinder/kindefreundliche-restaurants",
       "poi": [
@@ -758,7 +790,43 @@
           "lat": 49.7597859,
           "lon": 6.6435635
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 49.759099,
+          "lon": 6.645991
+        },
+        {
+          "name": "Spielplatz Wilhelm-Rautenstrauch-Park",
+          "lat": 49.758066,
+          "lon": 6.639851
+        },
+        {
+          "name": "Playground",
+          "lat": 49.762593,
+          "lon": 6.646182
+        },
+        {
+          "name": "Playground",
+          "lat": 49.763463,
+          "lon": 6.642207
+        },
+        {
+          "name": "Playground",
+          "lat": 49.75459,
+          "lon": 6.643341
+        },
+        {
+          "name": "Playground",
+          "lat": 49.760028,
+          "lon": 6.635192
+        }
+      ],
+      "center": {
+        "lat": 49.7596208,
+        "lon": 6.6441878
+      }
     },
     "groomed": true,
     "modes": [
@@ -1179,7 +1247,7 @@
       "Stadtgalerie Saarbrucken"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Ludwigskirche",
@@ -1269,7 +1337,43 @@
           "lat": 49.2351,
           "lon": 6.9936
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 49.233825,
+          "lon": 6.998791
+        },
+        {
+          "name": "Kinderspielplatz Nauwieserplatz",
+          "lat": 49.235219,
+          "lon": 6.999682
+        },
+        {
+          "name": "Kinderspielplatz Staatstheater",
+          "lat": 49.231456,
+          "lon": 6.994163
+        },
+        {
+          "name": "Playground",
+          "lat": 49.232743,
+          "lon": 6.990736
+        },
+        {
+          "name": "Playground",
+          "lat": 49.237421,
+          "lon": 7.002258
+        },
+        {
+          "name": "Kinderspielplatz Nanteser Platz",
+          "lat": 49.231218,
+          "lon": 6.989201
+        }
+      ],
+      "center": {
+        "lat": 49.234362,
+        "lon": 6.996379
+      }
     },
     "groomed": true,
     "modes": [
@@ -1385,7 +1489,7 @@
       "Museum of Illusions Ljubljana"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Preseren Square",
@@ -1470,7 +1574,43 @@
           "lat": 46.0513,
           "lon": 14.5067
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 46.052488,
+          "lon": 14.508204
+        },
+        {
+          "name": "Playground",
+          "lat": 46.047369,
+          "lon": 14.50821
+        },
+        {
+          "name": "Playground",
+          "lat": 46.050471,
+          "lon": 14.501888
+        },
+        {
+          "name": "Playground",
+          "lat": 46.050239,
+          "lon": 14.501676
+        },
+        {
+          "name": "Playground",
+          "lat": 46.046082,
+          "lon": 14.509277
+        },
+        {
+          "name": "Playground",
+          "lat": 46.049275,
+          "lon": 14.513464
+        }
+      ],
+      "center": {
+        "lat": 46.0500268,
+        "lon": 14.5069289
+      }
     },
     "groomed": true,
     "modes": [
@@ -1558,7 +1698,7 @@
       "Bled Parish Church"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Lake Bled Promenade",
@@ -1643,7 +1783,43 @@
           "lat": 46.3704,
           "lon": 14.1159
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 46.368736,
+          "lon": 14.10046
+        },
+        {
+          "name": "Playground",
+          "lat": 46.361808,
+          "lon": 14.080519
+        },
+        {
+          "name": "Playground",
+          "lat": 46.370532,
+          "lon": 14.105766
+        },
+        {
+          "name": "Playground",
+          "lat": 46.373286,
+          "lon": 14.101426
+        },
+        {
+          "name": "Playground",
+          "lat": 46.3681,
+          "lon": 14.111302
+        },
+        {
+          "name": "Playground",
+          "lat": 46.372339,
+          "lon": 14.111167
+        }
+      ],
+      "center": {
+        "lat": 46.3639132,
+        "lon": 14.0938069
+      }
     },
     "groomed": true,
     "modes": [
@@ -1731,7 +1907,7 @@
       "St. John the Baptist Church"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Lake Bohinj Shore (Ribcev Laz)",
@@ -1806,7 +1982,43 @@
           "lat": 46.2761,
           "lon": 13.885
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 46.276107,
+          "lon": 13.887967
+        },
+        {
+          "name": "Playground",
+          "lat": 46.28967,
+          "lon": 13.888725
+        },
+        {
+          "name": "Playground",
+          "lat": 46.278732,
+          "lon": 13.837467
+        },
+        {
+          "name": "Playground",
+          "lat": 46.279687,
+          "lon": 13.829064
+        },
+        {
+          "name": "Vogel Playground",
+          "lat": 46.263068,
+          "lon": 13.840503
+        },
+        {
+          "name": "Playground",
+          "lat": 46.31037,
+          "lon": 13.882703
+        }
+      ],
+      "center": {
+        "lat": 46.2822654,
+        "lon": 13.8645306
+      }
     },
     "groomed": true,
     "modes": [
@@ -1894,7 +2106,7 @@
       "Triglav National Park Information Center"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Lake Jasna",
@@ -1964,7 +2176,43 @@
           "lat": 46.2748,
           "lon": 13.8842
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 46.329445,
+          "lon": 13.878311
+        },
+        {
+          "name": "Playground",
+          "lat": 46.31037,
+          "lon": 13.882703
+        },
+        {
+          "name": "Playground",
+          "lat": 46.279687,
+          "lon": 13.829064
+        },
+        {
+          "name": "Playground",
+          "lat": 46.278732,
+          "lon": 13.837467
+        },
+        {
+          "name": "Playground",
+          "lat": 46.28967,
+          "lon": 13.888725
+        },
+        {
+          "name": "Vogel Playground",
+          "lat": 46.263068,
+          "lon": 13.840503
+        }
+      ],
+      "center": {
+        "lat": 46.336046,
+        "lon": 13.8138725
+      }
     },
     "groomed": true,
     "modes": [
@@ -2052,7 +2300,7 @@
       "Tolmin Museum"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Soca River Trail (Bovec)",
@@ -2122,7 +2370,43 @@
           "lat": 46.1844,
           "lon": 13.7339
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 46.339118,
+          "lon": 13.551992
+        },
+        {
+          "name": "Playground",
+          "lat": 46.338716,
+          "lon": 13.554919
+        },
+        {
+          "name": "Playground",
+          "lat": 46.336281,
+          "lon": 13.555283
+        },
+        {
+          "name": "Playground",
+          "lat": 46.335774,
+          "lon": 13.55795
+        },
+        {
+          "name": "Playground",
+          "lat": 46.337689,
+          "lon": 13.560232
+        },
+        {
+          "name": "Playground",
+          "lat": 46.337561,
+          "lon": 13.56079
+        }
+      ],
+      "center": {
+        "lat": 46.3385847,
+        "lon": 13.552419
+      }
     },
     "groomed": true,
     "modes": [
@@ -2211,7 +2495,7 @@
       "Predjama Castle interior rooms"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Postojna Cave",
@@ -2281,7 +2565,43 @@
           "lat": 45.782,
           "lon": 14.2049
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 45.775328,
+          "lon": 14.21346
+        },
+        {
+          "name": "Playground",
+          "lat": 45.774467,
+          "lon": 14.21351
+        },
+        {
+          "name": "Playground",
+          "lat": 45.774833,
+          "lon": 14.211612
+        },
+        {
+          "name": "Playground",
+          "lat": 45.774046,
+          "lon": 14.211921
+        },
+        {
+          "name": "Playground",
+          "lat": 45.773089,
+          "lon": 14.214782
+        },
+        {
+          "name": "Playground",
+          "lat": 45.773498,
+          "lon": 14.216515
+        }
+      ],
+      "center": {
+        "lat": 45.7752847,
+        "lon": 14.2139937
+      }
     },
     "groomed": true,
     "modes": [
@@ -2368,7 +2688,7 @@
       "Aquarium Piran"
     ],
     "map": {
-      "legend": "Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
       "poi": [
         {
           "name": "Tartini Square",
@@ -2433,7 +2753,43 @@
           "lat": 45.5281,
           "lon": 13.5677
         }
-      ]
+      ],
+      "playgrounds": [
+        {
+          "name": "Playground",
+          "lat": 45.528276,
+          "lon": 13.5691
+        },
+        {
+          "name": "Playground",
+          "lat": 45.527227,
+          "lon": 13.57071
+        },
+        {
+          "name": "Playground",
+          "lat": 45.52569,
+          "lon": 13.568304
+        },
+        {
+          "name": "Playground",
+          "lat": 45.527272,
+          "lon": 13.572458
+        },
+        {
+          "name": "Playground",
+          "lat": 45.52505,
+          "lon": 13.581135
+        },
+        {
+          "name": "Playground",
+          "lat": 45.5161,
+          "lon": 13.575394
+        }
+      ],
+      "center": {
+        "lat": 45.5284919,
+        "lon": 13.5684485
+      }
     },
     "groomed": true,
     "modes": [
@@ -2553,6 +2909,50 @@
       "Center Parcs Park Bostalsee cottages",
       "Premium and VIP cottages on-site"
     ],
-    "access_note": "Bolstalsee is about 1 hour 20 minutes from KMC by car. Follow A6/A62 toward Nohfelden; on-site parking is available at the resort."
+    "access_note": "Bolstalsee is about 1 hour 20 minutes from KMC by car. Follow A6/A62 toward Nohfelden; on-site parking is available at the resort.",
+    "map": {
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
+      "center": {
+        "lat": 49.5649708,
+        "lon": 7.0730757
+      },
+      "poi": [],
+      "parking": [],
+      "restaurants": [],
+      "family_restaurants": [],
+      "indoor": [],
+      "playgrounds": [
+        {
+          "name": "Wasserspielplatz Bostalsee",
+          "lat": 49.565368,
+          "lon": 7.06486
+        },
+        {
+          "name": "Hufschmied",
+          "lat": 49.570987,
+          "lon": 7.075656
+        },
+        {
+          "name": "Playground",
+          "lat": 49.568464,
+          "lon": 7.081061
+        },
+        {
+          "name": "Playground",
+          "lat": 49.563339,
+          "lon": 7.063533
+        },
+        {
+          "name": "Bosiland",
+          "lat": 49.566765,
+          "lon": 7.062893
+        },
+        {
+          "name": "Kofferburg",
+          "lat": 49.572198,
+          "lon": 7.072262
+        }
+      ]
+    }
   }
 ]

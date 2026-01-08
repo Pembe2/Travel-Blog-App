@@ -368,7 +368,7 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       
       <div class="hero">
-        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Lake_Bled_island.jpg/1600px-Lake_Bled_island.jpg" alt="Lake Bled and island church" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Bled_Castle_Slovenia.jpg/1600px-Bled_Castle_Slovenia.jpg" alt="Bled Castle" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Bled_Lake_walk.jpg/1600px-Bled_Lake_walk.jpg" alt="Lakeside walk in Bled" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Vintgar_Gorge_Slovenia.jpg/1600px-Vintgar_Gorge_Slovenia.jpg" alt="Vintgar Gorge" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Bled_Island_boat.jpg/1600px-Bled_Island_boat.jpg" alt="Boat on Lake Bled" loading="lazy" decoding="async" /></div></div>
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Bled_island.jpg?width=1600" alt="Lake Bled and island church" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bled_Castle_Slovenia.jpg?width=1600" alt="Bled Castle" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bled_Lake_walk.jpg?width=1600" alt="Lakeside walk in Bled" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vintgar_Gorge_Slovenia.jpg?width=1600" alt="Vintgar Gorge" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bled_Island_boat.jpg?width=1600" alt="Boat on Lake Bled" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.3683, 14.1146], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.3639132, 14.0938069], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Lake Bled Promenade", "lat": 46.3683, "lon": 14.1146}, {"name": "Bled Castle", "lat": 46.369, "lon": 14.1005}, {"name": "Bled Island", "lat": 46.3625, "lon": 14.0902}, {"name": "Vintgar Gorge", "lat": 46.3932, "lon": 14.079}, {"name": "Straza Bled", "lat": 46.3617, "lon": 14.124}];
       var parkingPoints = [{"name": "Bled Bus Station Parking", "lat": 46.3698, "lon": 14.1138}, {"name": "Velika Zaka Parking", "lat": 46.364, "lon": 14.0988}, {"name": "Bled Castle Parking", "lat": 46.3707, "lon": 14.1008}];
       var restaurantPoints = [{"name": "Gostilna Murka", "lat": 46.3692, "lon": 14.1147}, {"name": "Restaurant Sova", "lat": 46.3689, "lon": 14.1139}, {"name": "Ostarija Peglez'n", "lat": 46.3686, "lon": 14.1144}];
       var familyRestaurantPoints = [{"name": "Pizzeria Rustika", "lat": 46.3694, "lon": 14.1133}, {"name": "Cafe Park", "lat": 46.3695, "lon": 14.1147}];
       var indoorPoints = [{"name": "Bled Castle Museum", "lat": 46.369, "lon": 14.1005}, {"name": "Bled Parish Church", "lat": 46.3704, "lon": 14.1159}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.368736, "lon": 14.10046}, {"name": "Playground", "lat": 46.361808, "lon": 14.080519}, {"name": "Playground", "lat": 46.370532, "lon": 14.105766}, {"name": "Playground", "lat": 46.373286, "lon": 14.101426}, {"name": "Playground", "lat": 46.3681, "lon": 14.111302}, {"name": "Playground", "lat": 46.372339, "lon": 14.111167}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

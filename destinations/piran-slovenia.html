@@ -368,7 +368,7 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       
       <div class="hero">
-        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Piran_Slovenia.jpg/1600px-Piran_Slovenia.jpg" alt="Piran coastline" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Tartini_Square_Piran.jpg/1600px-Tartini_Square_Piran.jpg" alt="Tartini Square" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Piran_Walls.jpg/1600px-Piran_Walls.jpg" alt="Piran Walls" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Church_of_St_George_Piran.jpg/1600px-Church_of_St_George_Piran.jpg" alt="St. George Church in Piran" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Piran_Promenade.jpg/1600px-Piran_Promenade.jpg" alt="Piran promenade by the sea" loading="lazy" decoding="async" /></div></div>
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Piran_Slovenia.jpg?width=1600" alt="Piran coastline" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tartini_Square_Piran.jpg?width=1600" alt="Tartini Square" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Piran_Walls.jpg?width=1600" alt="Piran Walls" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Church_of_St_George_Piran.jpg?width=1600" alt="St. George Church in Piran" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Piran_Promenade.jpg?width=1600" alt="Piran promenade by the sea" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([45.5289, 13.5684], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([45.5284919, 13.5684485], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Tartini Square", "lat": 45.5289, "lon": 13.5684}, {"name": "Piran Walls", "lat": 45.528, "lon": 13.565}, {"name": "St. George Church", "lat": 45.5273, "lon": 13.568}, {"name": "Piran Promenade", "lat": 45.5283, "lon": 13.5672}];
       var parkingPoints = [{"name": "Forance Garage", "lat": 45.5302, "lon": 13.5613}, {"name": "Portoroz Central Parking", "lat": 45.5146, "lon": 13.5927}];
       var restaurantPoints = [{"name": "Fritolin pri Cantini", "lat": 45.5286, "lon": 13.568}, {"name": "Pavel", "lat": 45.5285, "lon": 13.5672}];
       var familyRestaurantPoints = [{"name": "Cacao Piran", "lat": 45.5287, "lon": 13.5676}];
       var indoorPoints = [{"name": "Maritime Museum Piran", "lat": 45.5279, "lon": 13.5682}, {"name": "Aquarium Piran", "lat": 45.5281, "lon": 13.5677}];
+      var playgroundPoints = [{"name": "Playground", "lat": 45.528276, "lon": 13.5691}, {"name": "Playground", "lat": 45.527227, "lon": 13.57071}, {"name": "Playground", "lat": 45.52569, "lon": 13.568304}, {"name": "Playground", "lat": 45.527272, "lon": 13.572458}, {"name": "Playground", "lat": 45.52505, "lon": 13.581135}, {"name": "Playground", "lat": 45.5161, "lon": 13.575394}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

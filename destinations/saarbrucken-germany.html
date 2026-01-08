@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([49.2364, 6.9927], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([49.234362, 6.996379], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Ludwigskirche", "lat": 49.2364, "lon": 6.9927}, {"name": "Saarbrucken Castle", "lat": 49.2346, "lon": 6.9966}, {"name": "St. Johanner Markt", "lat": 49.2342, "lon": 7.0006}, {"name": "Deutsch-Franzoesischer Garten", "lat": 49.2256, "lon": 6.9666}, {"name": "Saarbrucken Zoo", "lat": 49.2218, "lon": 7.0306}];
       var parkingPoints = [{"name": "Parkhaus Am Schloss", "lat": 49.235, "lon": 6.9953}, {"name": "Parkhaus Rathaus", "lat": 49.2348, "lon": 6.9994}, {"name": "Parkhaus Europa-Galerie", "lat": 49.2384, "lon": 6.9913}, {"name": "Parkhaus Bahnhofstrasse", "lat": 49.2361, "lon": 6.9983}];
       var restaurantPoints = [{"name": "Brauhaus Zum Stiefel", "lat": 49.2339, "lon": 7.0017}, {"name": "St. Johanner Markt cafes", "lat": 49.2342, "lon": 7.0006}];
       var familyRestaurantPoints = [{"name": "Saarbrucker Zoo Restaurant", "lat": 49.2219, "lon": 7.0302}, {"name": "Deutsch-Franzoesischer Garten Bistro", "lat": 49.2259, "lon": 6.9669}];
       var indoorPoints = [{"name": "Saarland Museum (Moderne Galerie)", "lat": 49.2355, "lon": 7.0044}, {"name": "Historisches Museum Saar", "lat": 49.2341, "lon": 6.9964}, {"name": "Stadtgalerie Saarbrucken", "lat": 49.2351, "lon": 6.9936}];
+      var playgroundPoints = [{"name": "Playground", "lat": 49.233825, "lon": 6.998791}, {"name": "Kinderspielplatz Nauwieserplatz", "lat": 49.235219, "lon": 6.999682}, {"name": "Kinderspielplatz Staatstheater", "lat": 49.231456, "lon": 6.994163}, {"name": "Playground", "lat": 49.232743, "lon": 6.990736}, {"name": "Playground", "lat": 49.237421, "lon": 7.002258}, {"name": "Kinderspielplatz Nanteser Platz", "lat": 49.231218, "lon": 6.989201}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

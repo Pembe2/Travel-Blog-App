@@ -368,7 +368,7 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       
       <div class="hero">
-        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Triglav_National_Park.jpg/1600px-Triglav_National_Park.jpg" alt="Triglav National Park landscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lake_Jasna.jpg/1600px-Lake_Jasna.jpg" alt="Lake Jasna" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Pericnik_Waterfall.jpg/1600px-Pericnik_Waterfall.jpg" alt="Pericnik Waterfall" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Vrsic_Pass_Slovenia.jpg/1600px-Vrsic_Pass_Slovenia.jpg" alt="Vrsic Pass road" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Zelenci_Slovenia.jpg/1600px-Zelenci_Slovenia.jpg" alt="Zelenci Nature Reserve" loading="lazy" decoding="async" /></div></div>
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Triglav_National_Park.jpg?width=1600" alt="Triglav National Park landscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Jasna.jpg?width=1600" alt="Lake Jasna" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pericnik_Waterfall.jpg?width=1600" alt="Pericnik Waterfall" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vrsic_Pass_Slovenia.jpg?width=1600" alt="Vrsic Pass road" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Zelenci_Slovenia.jpg?width=1600" alt="Zelenci Nature Reserve" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.484, 13.776], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.336046, 13.8138725], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Lake Jasna", "lat": 46.484, "lon": 13.776}, {"name": "Vrsic Pass", "lat": 46.4345, "lon": 13.7445}, {"name": "Pericnik Waterfall", "lat": 46.434, "lon": 13.935}, {"name": "Zelenci Nature Reserve", "lat": 46.495, "lon": 13.7547}];
       var parkingPoints = [{"name": "Lake Jasna Parking", "lat": 46.4836, "lon": 13.7754}, {"name": "Vrsic Pass Parking", "lat": 46.4342, "lon": 13.7441}, {"name": "Pericnik Trailhead Parking", "lat": 46.4329, "lon": 13.9372}];
       var restaurantPoints = [{"name": "Gostilna pri Martinu", "lat": 46.4852, "lon": 13.786}, {"name": "Lipa Restaurant", "lat": 46.4855, "lon": 13.7874}];
       var familyRestaurantPoints = [{"name": "Pizzeria Kotnik", "lat": 46.4851, "lon": 13.7852}];
       var indoorPoints = [{"name": "Slovenian Alpine Museum", "lat": 46.4872, "lon": 13.8304}, {"name": "Triglav National Park Information Center", "lat": 46.2748, "lon": 13.8842}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.329445, "lon": 13.878311}, {"name": "Playground", "lat": 46.31037, "lon": 13.882703}, {"name": "Playground", "lat": 46.279687, "lon": 13.829064}, {"name": "Playground", "lat": 46.278732, "lon": 13.837467}, {"name": "Playground", "lat": 46.28967, "lon": 13.888725}, {"name": "Vogel Playground", "lat": 46.263068, "lon": 13.840503}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

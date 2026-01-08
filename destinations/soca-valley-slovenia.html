@@ -368,7 +368,7 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       
       <div class="hero">
-        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Soca_River_Slovenia.jpg/1600px-Soca_River_Slovenia.jpg" alt="Soca River" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Kozjak_Waterfall.jpg/1600px-Kozjak_Waterfall.jpg" alt="Kozjak Waterfall" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Tolmin_Gorge.jpg/1600px-Tolmin_Gorge.jpg" alt="Tolmin Gorge" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bovec_Slovenia.jpg/1600px-Bovec_Slovenia.jpg" alt="Bovec town in Soca Valley" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Soca_Valley.jpg/1600px-Soca_Valley.jpg" alt="Soca Valley landscape" loading="lazy" decoding="async" /></div></div>
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soca_River_Slovenia.jpg?width=1600" alt="Soca River" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kozjak_Waterfall.jpg?width=1600" alt="Kozjak Waterfall" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tolmin_Gorge.jpg?width=1600" alt="Tolmin Gorge" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bovec_Slovenia.jpg?width=1600" alt="Bovec town in Soca Valley" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soca_Valley.jpg?width=1600" alt="Soca Valley landscape" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel style</h4><p>Fly | 1h 30m</p></div>
@@ -395,7 +395,7 @@
           <div id="trierMap" aria-label="Map of destination points"></div>
         </div>
         <div class="map-legend">
-          <strong>Layers:</strong> Toggle points of interest, parking garages, recommended restaurants, family-friendly restaurants, or indoor attractions.
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
           
           <div class="layer-legend" aria-label="Map layers">
             <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
@@ -403,6 +403,7 @@
             <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
             <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
           </div>
         </div>
       </section>
@@ -481,7 +482,7 @@
     (function(){
       var mapEl = document.getElementById("trierMap");
       if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.3383, 13.552], 13);
+      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.3385847, 13.552419], 13);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: "&copy; OpenStreetMap contributors"
@@ -509,24 +510,28 @@
       var restaurantLayer = L.layerGroup();
       var familyRestaurantLayer = L.layerGroup();
       var indoorLayer = L.layerGroup();
+      var playgroundLayer = L.layerGroup();
 
       var poiPoints = [{"name": "Soca River Trail (Bovec)", "lat": 46.3383, "lon": 13.552}, {"name": "Kozjak Waterfall", "lat": 46.2475, "lon": 13.5715}, {"name": "Tolmin Gorge", "lat": 46.1832, "lon": 13.733}, {"name": "Bovec Town Center", "lat": 46.3388, "lon": 13.5524}];
       var parkingPoints = [{"name": "Bovec Town Parking", "lat": 46.3386, "lon": 13.5527}, {"name": "Kobarid Parking", "lat": 46.2472, "lon": 13.5795}, {"name": "Tolmin Gorge Parking", "lat": 46.1871, "lon": 13.7261}];
       var restaurantPoints = [{"name": "Gostilna in Pizzeria Letni Vrt", "lat": 46.3381, "lon": 13.5522}, {"name": "Gostilna Pri Mostu", "lat": 46.2476, "lon": 13.5791}];
       var familyRestaurantPoints = [{"name": "Pizzeria Bocca", "lat": 46.3389, "lon": 13.5529}];
       var indoorPoints = [{"name": "Kobarid Museum", "lat": 46.247, "lon": 13.579}, {"name": "Tolmin Museum", "lat": 46.1844, "lon": 13.7339}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.339118, "lon": 13.551992}, {"name": "Playground", "lat": 46.338716, "lon": 13.554919}, {"name": "Playground", "lat": 46.336281, "lon": 13.555283}, {"name": "Playground", "lat": 46.335774, "lon": 13.55795}, {"name": "Playground", "lat": 46.337689, "lon": 13.560232}, {"name": "Playground", "lat": 46.337561, "lon": 13.56079}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
       restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
       familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
       indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
       restaurantLayer.addTo(map);
       familyRestaurantLayer.addTo(map);
       indoorLayer.addTo(map);
+      playgroundLayer.addTo(map);
 
       var toggles = document.querySelectorAll(".layer-toggle input");
       toggles.forEach(function(toggle){
@@ -538,12 +543,13 @@
           if (key === "restaurants") layer = restaurantLayer;
           if (key === "family") layer = familyRestaurantLayer;
           if (key === "indoor") layer = indoorLayer;
+          if (key === "playgrounds") layer = playgroundLayer;
           if (!layer) return;
           if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
         });
       });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer]);
+      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
       map.fitBounds(all.getBounds().pad(0.15));
     })();
   </script>

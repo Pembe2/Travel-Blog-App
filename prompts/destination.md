@@ -4,6 +4,8 @@ Generate a suggested itinerary and points of interest or restaurants that the vi
 
 Generate a map with pinpoints for points of interest, recommended restaurants, family friendly restaurants, recommended parking, and indoor attractions.
 
+Add a playgrounds layer to the map.
+
 Generate a lodging section with a list of recommended places to stay in the destination location.
 
 If it is difficult to get into the city, provided a recommended method of travel to get into the city.
