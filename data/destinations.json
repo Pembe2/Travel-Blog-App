@@ -122,6 +122,203 @@
     ],
     "modes": [
       "plane"
+    ],
+    "groomed": true,
+    "description": "Copenhagen is a compact harbor city where families can combine castles, playgrounds, and waterfront walks without long transfers. Kids love Tivoli Gardens rides, the Experimentarium hands-on science museum, and the harbor promenade around Nyhavn and the Little Mermaid. Parks like King's Garden and the Copenhagen Harbor Baths make it easy to mix sightseeing with downtime.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Start with Nyhavn and the harbor promenade, then visit Amalienborg Palace and the Little Mermaid."
+      },
+      {
+        "title": "Day 2",
+        "text": "Spend the day in Tivoli Gardens and end with dinner at Tivoli Food Hall."
+      },
+      {
+        "title": "Day 3",
+        "text": "Tour Rosenborg Castle, relax in King's Garden, and pop into the National Gallery (SMK)."
+      },
+      {
+        "title": "Day 4",
+        "text": "Head to the Experimentarium, then take an easy harbor stroll and street-food stop at Reffen."
+      },
+      {
+        "title": "Day 5",
+        "text": "Optional day trip to the Louisiana Museum of Modern Art or a beach afternoon north of the city."
+      }
+    ],
+    "recommended_stops": [
+      "Tivoli Gardens",
+      "Nyhavn harbor walk",
+      "Amalienborg Palace changing of the guard",
+      "Rosenborg Castle and King's Garden",
+      "National Museum of Denmark",
+      "Experimentarium",
+      "Den Bla Planet (National Aquarium)",
+      "Torvehallerne food market",
+      "Reffen Street Food"
+    ],
+    "lodging": [
+      "Indre By (City Center)",
+      "Vesterbro (near Tivoli)",
+      "Osterbro (parks and waterfront)",
+      "Christianshavn (canal-side, easy metro)"
+    ],
+    "access_note": "Fly into Copenhagen Airport (CPH). The M2 metro line runs directly to the city center in about 15 minutes, so you can skip a car and stay close to a metro or S-train stop.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nyhavn%2C_Copenhagen.jpg/1600px-Nyhavn%2C_Copenhagen.jpg",
+        "alt": "Nyhavn harbor in Copenhagen"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Tivoli_Gardens%2C_Copenhagen.jpg/1600px-Tivoli_Gardens%2C_Copenhagen.jpg",
+        "alt": "Tivoli Gardens in Copenhagen"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/The_Little_Mermaid%2C_Copenhagen.jpg/1600px-The_Little_Mermaid%2C_Copenhagen.jpg",
+        "alt": "The Little Mermaid statue"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Rosenborg_Slot.jpg/1600px-Rosenborg_Slot.jpg",
+        "alt": "Rosenborg Castle"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Christiansborg_fra_Nikolaj_Kirken.jpg/1600px-Christiansborg_fra_Nikolaj_Kirken.jpg",
+        "alt": "Christiansborg Palace"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Amalienborg_Palace%2C_Copenhagen.jpg/1600px-Amalienborg_Palace%2C_Copenhagen.jpg",
+        "alt": "Amalienborg Palace"
+      }
+    ],
+    "map": {
+      "center": {
+        "lat": 55.6761,
+        "lon": 12.5683
+      },
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, or indoor attractions.",
+      "poi": [
+        {
+          "name": "Tivoli Gardens",
+          "lat": 55.6737,
+          "lon": 12.5681
+        },
+        {
+          "name": "Nyhavn",
+          "lat": 55.6791,
+          "lon": 12.5913
+        },
+        {
+          "name": "Amalienborg Palace",
+          "lat": 55.6846,
+          "lon": 12.593
+        },
+        {
+          "name": "Rosenborg Castle",
+          "lat": 55.6854,
+          "lon": 12.5776
+        },
+        {
+          "name": "The Little Mermaid",
+          "lat": 55.6929,
+          "lon": 12.5993
+        },
+        {
+          "name": "Christiansborg Palace",
+          "lat": 55.676,
+          "lon": 12.5805
+        }
+      ],
+      "parking": [
+        {
+          "name": "Q-Park Industriens Hus",
+          "lat": 55.6766,
+          "lon": 12.5696
+        },
+        {
+          "name": "Q-Park Norreport",
+          "lat": 55.6839,
+          "lon": 12.5712
+        },
+        {
+          "name": "DGI Byen Parking",
+          "lat": 55.6677,
+          "lon": 12.5607
+        },
+        {
+          "name": "Jeudan Parkering - Kvaesthusmolen",
+          "lat": 55.6789,
+          "lon": 12.5953
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Reffen Street Food",
+          "lat": 55.6748,
+          "lon": 12.6121
+        },
+        {
+          "name": "Torvehallerne",
+          "lat": 55.6837,
+          "lon": 12.5715
+        },
+        {
+          "name": "Restaurant Koefoed",
+          "lat": 55.6756,
+          "lon": 12.5926
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Tivoli Food Hall",
+          "lat": 55.6736,
+          "lon": 12.568
+        },
+        {
+          "name": "Cafe Norden",
+          "lat": 55.6792,
+          "lon": 12.5713
+        },
+        {
+          "name": "Paludan Book Cafe",
+          "lat": 55.6841,
+          "lon": 12.5723
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Experimentarium",
+          "lat": 55.7043,
+          "lon": 12.5857
+        },
+        {
+          "name": "Den Bla Planet",
+          "lat": 55.6164,
+          "lon": 12.656
+        },
+        {
+          "name": "National Museum of Denmark",
+          "lat": 55.6742,
+          "lon": 12.5784
+        },
+        {
+          "name": "Tycho Brahe Planetarium",
+          "lat": 55.669,
+          "lon": 12.5648
+        },
+        {
+          "name": "SMK - National Gallery of Denmark",
+          "lat": 55.689,
+          "lon": 12.577
+        }
+      ]
+    },
+    "indoor_attractions": [
+      "Experimentarium",
+      "Den Bla Planet (National Aquarium)",
+      "National Museum of Denmark",
+      "Tycho Brahe Planetarium",
+      "SMK - National Gallery of Denmark"
     ]
   },
   {
