@@ -149,6 +149,20 @@ def list_items(items):
     return "".join(f"<li>{i}</li>" for i in items)
 
 
+def format_travel_tag(tag, modes=None):
+    if not tag:
+        return tag
+    lower = tag.lower()
+    if "landstuhl" in lower or "frankfurt" in lower:
+        return tag
+    mode_list = [m.lower() for m in (modes or [])]
+    if "plane" in mode_list or "fly" in lower:
+        return f"{tag} (from Frankfurt)"
+    if "train" in mode_list or "car" in mode_list or any(word in lower for word in ("train", "drive", "car")):
+        return f"{tag} (from Landstuhl)"
+    return tag
+
+
 def itinerary_html(dest):
     custom = dest.get("itinerary") or []
     if custom:
@@ -455,9 +469,14 @@ def build_page(dest, template, styles):
     recommended_stops = dest.get("recommended_stops") or []
     lodging = dest.get("lodging") or []
     access_note = dest.get("access_note", "").strip()
-    tag_label = dest.get("tag", "")
+    tag_label = format_travel_tag(dest.get("tag", ""), dest.get("modes", []))
     tag_lower = tag_label.lower()
-    travel_label = "Travel time (from Landstuhl)" if ("train" in tag_lower or "drive" in tag_lower or "car" in tag_lower) else "Travel style"
+    if "train" in tag_lower or "drive" in tag_lower or "car" in tag_lower:
+        travel_label = "Travel time (from Landstuhl)"
+    elif "fly" in tag_lower or "plane" in tag_lower:
+        travel_label = "Travel time (from Frankfurt)"
+    else:
+        travel_label = "Travel style"
 
     slideshow = slideshow_html(dest)
     hero_image = ""
@@ -566,13 +585,14 @@ def list_card_html(dest, pill_label):
     groomed = bool(dest.get("groomed", False))
     guide_label = "" if groomed else "<span>Guide coming soon</span>"
     img_src = normalize_wikimedia_url(dest.get("image"), width=900)
+    tag = format_travel_tag(dest.get("tag", ""), dest.get("modes", []))
     return f"""
       <article class="card">
         <a href="destinations/{dest['slug']}.html">
           <img src="{img_src}" alt="{dest['alt']}" loading="lazy" decoding="async" />
         </a>
         <div class="card-body">
-          <div class="tag">{dest['tag']}</div>
+          <div class="tag">{tag}</div>
           <h3><a href="destinations/{dest['slug']}.html">{dest['title']}</a></h3>
           <p class="summary">{dest['summary']}</p>
           <ul class="facts">
@@ -622,6 +642,7 @@ def build_list_page(destinations, title, lede, active_href, mode, day_trip, styl
 
     cards_html = "\n".join(cards)
     nav = make_list_nav(active_href)
+    footer_origin = "Frankfurt" if mode == "plane" else "Landstuhl"
 
     return f"""<!doctype html>
 <html lang="en">
@@ -651,7 +672,7 @@ def build_list_page(destinations, title, lede, active_href, mode, day_trip, styl
 {cards_html}
       </section>
       <footer>
-        Photos sourced from Wikimedia Commons. Travel times are approximate from KMC / Frankfurt area.
+        Photos sourced from Wikimedia Commons. Travel times are approximate from {footer_origin}.
       </footer>
     </main>
   </div>
@@ -722,7 +743,7 @@ def build_resort_list(destinations, category_page, groomed_only=True):
           <img src="{dest['image']}" alt="{dest['alt']}" loading="lazy" decoding="async" />
         </a>
         <div class="card-body">
-          <div class="tag">Travel time from Landstuhl: {dest['tag']}</div>
+          <div class="tag">Travel time from Landstuhl: {format_travel_tag(dest.get("tag", ""), dest.get("modes", []))}</div>
           <h3><a href="destinations/{dest['slug']}.html">{dest['title']}</a></h3>
           <p class="summary">{dest['summary']}</p>
           <ul class="facts">
