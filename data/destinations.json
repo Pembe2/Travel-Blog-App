@@ -579,6 +579,952 @@
     ]
   },
   {
+    "slug": "val-gardena-italy",
+    "title": "Val Gardena (Ortisei + Selva), Italy",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Dolomite valley base with cable cars, meadow walks, and easy village hopping.",
+    "length": "4 to 5 days",
+    "tag": "Drive | 8 to 9 hours",
+    "highlights": [
+      "Seceda ridgeline views",
+      "Alpe di Siusi meadows",
+      "Ortisei village strolls",
+      "Selva di Val Gardena hikes",
+      "Gardena Pass viewpoints"
+    ],
+    "best_for": "Scenic lifts, short hikes, and meadow picnics",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Seceda.jpg",
+    "alt": "Seceda ridgeline above Val Gardena",
+    "tips": [
+      "Use cable cars to skip steep climbs with kids.",
+      "Base in Ortisei for easier parking and village walks.",
+      "Start early for Seceda to avoid afternoon clouds."
+    ],
+    "indoor_attractions": [
+      "Museum Gherdeina (Ortisei)",
+      "Luis Trenker Museum (Ortisei)",
+      "Mar Dolomit pool and wellness"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
+      "poi": [
+        {
+          "name": "Ortisei town center",
+          "lat": 46.5749,
+          "lon": 11.6734
+        },
+        {
+          "name": "Selva di Val Gardena",
+          "lat": 46.5534,
+          "lon": 11.7641
+        },
+        {
+          "name": "Seceda ridgeline",
+          "lat": 46.5566,
+          "lon": 11.7234
+        },
+        {
+          "name": "Alpe di Siusi meadow access",
+          "lat": 46.5562,
+          "lon": 11.6525
+        },
+        {
+          "name": "Gardena Pass viewpoint",
+          "lat": 46.5565,
+          "lon": 11.8196
+        }
+      ],
+      "parking": [
+        {
+          "name": "Ortisei central parking",
+          "lat": 46.5752,
+          "lon": 11.6698
+        },
+        {
+          "name": "Selva village parking",
+          "lat": 46.5531,
+          "lon": 11.7626
+        },
+        {
+          "name": "St. Christina parking",
+          "lat": 46.5609,
+          "lon": 11.7142
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Ristorante Tubladel",
+          "lat": 46.5753,
+          "lon": 11.6721
+        },
+        {
+          "name": "Ristorante Cascade",
+          "lat": 46.5751,
+          "lon": 11.6731
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Ortisei pizza and pasta spot",
+          "lat": 46.5748,
+          "lon": 11.6715
+        },
+        {
+          "name": "Rifugio Firenze",
+          "lat": 46.5344,
+          "lon": 11.7441
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Museum Gherdeina",
+          "lat": 46.5755,
+          "lon": 11.6736
+        },
+        {
+          "name": "Luis Trenker Museum",
+          "lat": 46.5751,
+          "lon": 11.6729
+        },
+        {
+          "name": "Mar Dolomit pool",
+          "lat": 46.5761,
+          "lon": 11.6681
+        }
+      ],
+      "playgrounds": [
+        {
+          "name": "Ortisei playground",
+          "lat": 46.5756,
+          "lon": 11.6687
+        },
+        {
+          "name": "Selva playground",
+          "lat": 46.5529,
+          "lon": 11.7634
+        }
+      ],
+      "center": {
+        "lat": 46.5749,
+        "lon": 11.6734
+      }
+    },
+    "groomed": true,
+    "modes": [
+      "car"
+    ],
+    "description": "Val Gardena is a Dolomites base where families can combine dramatic ridgelines with gentle meadow walks. Ortisei is compact and easy for strollers, while Selva puts you close to the big hiking starts and cable cars.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive in Ortisei, explore the pedestrian center, and ride the Seceda cable car for a short ridge walk."
+      },
+      {
+        "title": "Day 2",
+        "text": "Head up to Alpe di Siusi for wide meadow walks and a relaxed hut lunch."
+      },
+      {
+        "title": "Day 3",
+        "text": "Base in Selva and ride the Col Raiser or Dantercepies lifts for scenic loops."
+      },
+      {
+        "title": "Day 4",
+        "text": "Drive the Gardena Pass for viewpoints, then stop in St. Christina for an easy afternoon stroll."
+      }
+    ],
+    "recommended_stops": [
+      "Ortisei pedestrian center",
+      "Seceda ridgeline viewpoint",
+      "Alpe di Siusi meadow walks",
+      "Selva di Val Gardena village",
+      "Gardena Pass viewpoints",
+      "Rifugio Firenze terrace stop"
+    ],
+    "lodging": [
+      "Ortisei (easy lifts and walkable center)",
+      "Selva di Val Gardena (closer to higher trails)",
+      "St. Christina (quieter and central)"
+    ],
+    "access_note": "Val Gardena is best reached by car. Expect a full-day drive from western Germany with mountain roads for the last stretch; arrive before evening to check in and park.",
+    "photo_deck": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Seceda.jpg",
+        "alt": "Seceda ridgeline"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Val_Gardena.jpg",
+        "alt": "Val Gardena valley view"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Ortisei.jpg",
+        "alt": "Ortisei village center"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Alpe_di_Siusi.jpg",
+        "alt": "Alpe di Siusi meadows"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Sassolungo.jpg",
+        "alt": "Sassolungo massif"
+      }
+    ]
+  },
+  {
+    "slug": "alpe-di-siusi-italy",
+    "title": "Alpe di Siusi (Siusi allo Sciliar + Castelrotto), Italy",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Gentle meadows and car-free alpine zones with easy lift access.",
+    "length": "4 to 5 days",
+    "tag": "Drive | 8 to 9 hours",
+    "highlights": [
+      "Alpe di Siusi meadow loops",
+      "Siusi allo Sciliar village",
+      "Castelrotto square",
+      "Schlern massif views",
+      "Compatsch base area"
+    ],
+    "best_for": "Meadow walks, easy lifts, and calm villages",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Seiser_Alm.jpg",
+    "alt": "Alpe di Siusi (Seiser Alm) meadow landscape",
+    "tips": [
+      "Leave the car and ride the cable car for the car-free meadow area.",
+      "Stay in Siusi for quick access to Alpe di Siusi lifts.",
+      "Plan mornings on the meadows, afternoons in Castelrotto."
+    ],
+    "indoor_attractions": [
+      "Sciliar Nature Park visitor center",
+      "Kastelruth parish museum",
+      "Local history exhibit in Siusi"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
+      "poi": [
+        {
+          "name": "Siusi allo Sciliar center",
+          "lat": 46.5512,
+          "lon": 11.6204
+        },
+        {
+          "name": "Castelrotto (Kastelruth)",
+          "lat": 46.5668,
+          "lon": 11.5614
+        },
+        {
+          "name": "Compatsch base area",
+          "lat": 46.5564,
+          "lon": 11.6692
+        },
+        {
+          "name": "Alpe di Siusi meadows",
+          "lat": 46.5612,
+          "lon": 11.6831
+        },
+        {
+          "name": "Bullaccia viewpoint",
+          "lat": 46.5727,
+          "lon": 11.6138
+        }
+      ],
+      "parking": [
+        {
+          "name": "Seiser Alm Bahn parking",
+          "lat": 46.5585,
+          "lon": 11.6039
+        },
+        {
+          "name": "Castelrotto parking",
+          "lat": 46.5671,
+          "lon": 11.5622
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Gostner Schwaige",
+          "lat": 46.5389,
+          "lon": 11.6793
+        },
+        {
+          "name": "Malga Sanon",
+          "lat": 46.5589,
+          "lon": 11.6439
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Compatsch mountain huts",
+          "lat": 46.5564,
+          "lon": 11.6692
+        },
+        {
+          "name": "Siusi family trattoria",
+          "lat": 46.5513,
+          "lon": 11.6209
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Sciliar Nature Park visitor center",
+          "lat": 46.5517,
+          "lon": 11.6212
+        },
+        {
+          "name": "Kastelruth parish museum",
+          "lat": 46.5669,
+          "lon": 11.5616
+        },
+        {
+          "name": "Local history exhibit in Siusi",
+          "lat": 46.5514,
+          "lon": 11.6207
+        }
+      ],
+      "playgrounds": [
+        {
+          "name": "Siusi playground",
+          "lat": 46.5511,
+          "lon": 11.6215
+        },
+        {
+          "name": "Castelrotto playground",
+          "lat": 46.5665,
+          "lon": 11.5607
+        }
+      ],
+      "center": {
+        "lat": 46.5512,
+        "lon": 11.6204
+      }
+    },
+    "groomed": true,
+    "modes": [
+      "car"
+    ],
+    "description": "Alpe di Siusi is the Dolomites base for families who want big views without big hikes. The meadow plateau is car-free in season, so kids can roam safely while parents enjoy easy loops and sunny hut stops.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive in Siusi allo Sciliar and take an afternoon stroll through the village."
+      },
+      {
+        "title": "Day 2",
+        "text": "Ride the Seiser Alm cable car to Compatsch and walk a short meadow loop with a hut lunch."
+      },
+      {
+        "title": "Day 3",
+        "text": "Explore Castelrotto and the Bullaccia viewpoint for gentle paths and panoramas."
+      },
+      {
+        "title": "Day 4",
+        "text": "Return to the meadows for another easy loop or a pony-ride style farm visit."
+      }
+    ],
+    "recommended_stops": [
+      "Seiser Alm cable car ride",
+      "Compatsch meadow loop",
+      "Bullaccia viewpoint",
+      "Castelrotto village square",
+      "Siusi allo Sciliar center"
+    ],
+    "lodging": [
+      "Siusi allo Sciliar (easy lift access)",
+      "Castelrotto (quieter village base)",
+      "Compatsch area hotels (closest to meadow trails)"
+    ],
+    "access_note": "Drive to Siusi allo Sciliar and use the Seiser Alm cable car to reach the car-free meadow area. Park early in busy weeks to avoid long waits.",
+    "photo_deck": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Seiser_Alm.jpg",
+        "alt": "Seiser Alm meadows"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Alpe_di_Siusi_2.jpg",
+        "alt": "Alpe di Siusi panoramic view"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Kastelruth.jpg",
+        "alt": "Castelrotto village"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Siusi_allo_Sciliar.jpg",
+        "alt": "Siusi allo Sciliar streets"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Schlern.jpg",
+        "alt": "Schlern massif above the meadows"
+      }
+    ]
+  },
+  {
+    "slug": "alta-badia-italy",
+    "title": "Alta Badia (Corvara + La Villa + San Cassiano), Italy",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Family base with gondolas, easy plateau walks, and charming Ladin villages.",
+    "length": "4 to 5 days",
+    "tag": "Drive | 8 to 9 hours",
+    "highlights": [
+      "Corvara village base",
+      "Pralongia plateau walks",
+      "San Cassiano village",
+      "La Villa castle lookout",
+      "Santa Croce valley views"
+    ],
+    "best_for": "Lift access, mellow hikes, village hopping",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Corvara.jpg",
+    "alt": "Corvara village in Alta Badia",
+    "tips": [
+      "Use gondolas to reach the plateau with short walks.",
+      "Base in Corvara for easy lift access and dining.",
+      "Plan a half-day in San Cassiano for a quieter pace."
+    ],
+    "indoor_attractions": [
+      "Museum Ladin Ursus ladinicus (San Cassiano)",
+      "Alta Badia visitor center exhibit",
+      "Indoor ice rink in Corvara"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
+      "poi": [
+        {
+          "name": "Corvara village center",
+          "lat": 46.5536,
+          "lon": 11.8721
+        },
+        {
+          "name": "La Villa village",
+          "lat": 46.5866,
+          "lon": 11.8929
+        },
+        {
+          "name": "San Cassiano",
+          "lat": 46.5695,
+          "lon": 11.9325
+        },
+        {
+          "name": "Pralongia plateau",
+          "lat": 46.5612,
+          "lon": 11.8469
+        },
+        {
+          "name": "Santa Croce valley",
+          "lat": 46.5496,
+          "lon": 11.9134
+        }
+      ],
+      "parking": [
+        {
+          "name": "Corvara Boe gondola parking",
+          "lat": 46.5532,
+          "lon": 11.8751
+        },
+        {
+          "name": "La Villa center parking",
+          "lat": 46.5862,
+          "lon": 11.8933
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Rifugio Bioch",
+          "lat": 46.5598,
+          "lon": 11.8632
+        },
+        {
+          "name": "Rifugio Pralongia",
+          "lat": 46.5607,
+          "lon": 11.8406
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Corvara pizza and pasta",
+          "lat": 46.5535,
+          "lon": 11.8716
+        },
+        {
+          "name": "San Cassiano family trattoria",
+          "lat": 46.5692,
+          "lon": 11.9321
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Museum Ladin Ursus ladinicus",
+          "lat": 46.5697,
+          "lon": 11.9328
+        },
+        {
+          "name": "Alta Badia visitor center exhibit",
+          "lat": 46.5538,
+          "lon": 11.8726
+        },
+        {
+          "name": "Indoor ice rink in Corvara",
+          "lat": 46.5539,
+          "lon": 11.8708
+        }
+      ],
+      "playgrounds": [
+        {
+          "name": "Corvara playground",
+          "lat": 46.5531,
+          "lon": 11.8712
+        },
+        {
+          "name": "La Villa playground",
+          "lat": 46.5861,
+          "lon": 11.8924
+        }
+      ],
+      "center": {
+        "lat": 46.5536,
+        "lon": 11.8721
+      }
+    },
+    "groomed": true,
+    "modes": [
+      "car"
+    ],
+    "description": "Alta Badia is a family-friendly base with easy lifts and mellow plateaus where kids can wander without long climbs. Corvara is the most convenient base, while La Villa and San Cassiano offer quieter village stays.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive in Corvara, stroll the village, and ride a short gondola to a nearby viewpoint."
+      },
+      {
+        "title": "Day 2",
+        "text": "Spend the day on the Pralongia plateau with easy loops and a hut lunch."
+      },
+      {
+        "title": "Day 3",
+        "text": "Explore San Cassiano and the Museum Ladin, then relax in the village."
+      },
+      {
+        "title": "Day 4",
+        "text": "Visit La Villa and the Santa Croce area for scenery and gentle walks."
+      }
+    ],
+    "recommended_stops": [
+      "Corvara village center",
+      "Pralongia plateau loop",
+      "San Cassiano village",
+      "La Villa castle area",
+      "Santa Croce valley viewpoints"
+    ],
+    "lodging": [
+      "Corvara (best lift access)",
+      "La Villa (quiet base, central)",
+      "San Cassiano (peaceful village stay)"
+    ],
+    "access_note": "Drive into Alta Badia via Brunico or the Gardena Pass. Parking is available near the main gondolas in Corvara and in village garages.",
+    "photo_deck": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Corvara.jpg",
+        "alt": "Corvara in Alta Badia"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Alta_Badia.jpg",
+        "alt": "Alta Badia valley view"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/San_Cassiano.jpg",
+        "alt": "San Cassiano village"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/La_Villa_Badia.jpg",
+        "alt": "La Villa village"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Pralongia.jpg",
+        "alt": "Pralongia plateau"
+      }
+    ]
+  },
+  {
+    "slug": "cortina-d-ampezzo-italy",
+    "title": "Cortina d'Ampezzo, Italy",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Iconic Dolomites town with easy access to cable cars, passes, and lakes.",
+    "length": "4 to 5 days",
+    "tag": "Drive | 8 to 9 hours",
+    "highlights": [
+      "Cortina town strolls",
+      "Cinque Torri views",
+      "Tofana cable car",
+      "Lago di Misurina",
+      "Passo Falzarego"
+    ],
+    "best_for": "Big scenery, easy day trips, and gondola rides",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cortina_d%27Ampezzo.jpg",
+    "alt": "Cortina d'Ampezzo town view",
+    "tips": [
+      "Mix one big scenic day with a relaxed town day.",
+      "Use the cable cars for short walks instead of long hikes.",
+      "Arrive early for popular passes to avoid parking lines."
+    ],
+    "indoor_attractions": [
+      "Museo d'Arte Moderna Mario Rimoldi",
+      "Museo Paleontologico Rinaldo Zardini",
+      "Cortina ice rink"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
+      "poi": [
+        {
+          "name": "Cortina town center",
+          "lat": 46.5389,
+          "lon": 12.1358
+        },
+        {
+          "name": "Cinque Torri",
+          "lat": 46.5092,
+          "lon": 12.0368
+        },
+        {
+          "name": "Tofana cable car",
+          "lat": 46.5503,
+          "lon": 12.0936
+        },
+        {
+          "name": "Lago di Misurina",
+          "lat": 46.5795,
+          "lon": 12.2537
+        },
+        {
+          "name": "Passo Falzarego",
+          "lat": 46.5187,
+          "lon": 12.0092
+        }
+      ],
+      "parking": [
+        {
+          "name": "Cortina central parking",
+          "lat": 46.5384,
+          "lon": 12.1392
+        },
+        {
+          "name": "Passo Falzarego parking",
+          "lat": 46.5185,
+          "lon": 12.0086
+        },
+        {
+          "name": "Misurina lakeside parking",
+          "lat": 46.5799,
+          "lon": 12.2546
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Rifugio Lagazuoi",
+          "lat": 46.5171,
+          "lon": 12.0099
+        },
+        {
+          "name": "Rifugio Scoiattoli",
+          "lat": 46.5047,
+          "lon": 12.0394
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Cortina pizza and gelato",
+          "lat": 46.5391,
+          "lon": 12.1363
+        },
+        {
+          "name": "Misurina lakeside cafe",
+          "lat": 46.5797,
+          "lon": 12.2539
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Museo d'Arte Moderna Mario Rimoldi",
+          "lat": 46.5396,
+          "lon": 12.1369
+        },
+        {
+          "name": "Museo Paleontologico Rinaldo Zardini",
+          "lat": 46.5391,
+          "lon": 12.1361
+        },
+        {
+          "name": "Cortina ice rink",
+          "lat": 46.5406,
+          "lon": 12.1418
+        }
+      ],
+      "playgrounds": [
+        {
+          "name": "Cortina playground",
+          "lat": 46.5381,
+          "lon": 12.1385
+        },
+        {
+          "name": "Fiames playground",
+          "lat": 46.5632,
+          "lon": 12.1284
+        }
+      ],
+      "center": {
+        "lat": 46.5389,
+        "lon": 12.1358
+      }
+    },
+    "groomed": true,
+    "modes": [
+      "car"
+    ],
+    "description": "Cortina d'Ampezzo is a classic Dolomites base with a walkable town center and quick access to passes, lakes, and cable cars. Families can mix short scenic hikes with easy gondola rides and lakeside picnics.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive and settle in, then stroll the pedestrian center for gelato and shopping."
+      },
+      {
+        "title": "Day 2",
+        "text": "Ride the Tofana cable car for panoramic views and a short ridge walk."
+      },
+      {
+        "title": "Day 3",
+        "text": "Head to Cinque Torri for a family-friendly walk and WWI open-air museum."
+      },
+      {
+        "title": "Day 4",
+        "text": "Visit Lago di Misurina or Passo Falzarego for an easy lakeside day."
+      }
+    ],
+    "recommended_stops": [
+      "Cortina town center",
+      "Tofana cable car viewpoint",
+      "Cinque Torri loop",
+      "Lago di Misurina",
+      "Passo Falzarego viewpoints"
+    ],
+    "lodging": [
+      "Cortina town center (walkable dining)",
+      "Pocol area (quiet, close to Cinque Torri)",
+      "Fiames (easy access to trails)"
+    ],
+    "access_note": "Cortina is best by car, with mountain passes near the end of the drive. Expect traffic in peak summer and start early for day trips to Cinque Torri or Misurina.",
+    "photo_deck": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cortina_d%27Ampezzo.jpg",
+        "alt": "Cortina d'Ampezzo town view"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cinque_Torri.jpg",
+        "alt": "Cinque Torri rock towers"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Tofana_di_Rozes.jpg",
+        "alt": "Tofana massif"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Lago_di_Misurina.jpg",
+        "alt": "Lago di Misurina"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Passo_Falzarego.jpg",
+        "alt": "Passo Falzarego"
+      }
+    ]
+  },
+  {
+    "slug": "san-martino-di-castrozza-italy",
+    "title": "San Martino di Castrozza, Italy",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Quiet Dolomites base with easy cable cars and wide valley walks.",
+    "length": "4 to 5 days",
+    "tag": "Drive | 9 to 10 hours",
+    "highlights": [
+      "Pale di San Martino views",
+      "Passo Rolle scenic drive",
+      "Val Venegia walks",
+      "Paneveggio forest",
+      "San Martino village center"
+    ],
+    "best_for": "Quiet stays and short valley walks",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/San_Martino_di_Castrozza.jpg",
+    "alt": "San Martino di Castrozza village view",
+    "tips": [
+      "Use the Col Verde cable car for a fast scenery boost.",
+      "Plan a half-day in Val Venegia for easy walks.",
+      "Pair Passo Rolle with a picnic stop for kids."
+    ],
+    "indoor_attractions": [
+      "Paneveggio Visitor Center",
+      "Palaghiaccio San Martino",
+      "Local geology exhibit"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
+      "poi": [
+        {
+          "name": "San Martino village center",
+          "lat": 46.2594,
+          "lon": 11.8007
+        },
+        {
+          "name": "Col Verde cable car",
+          "lat": 46.2621,
+          "lon": 11.8056
+        },
+        {
+          "name": "Passo Rolle",
+          "lat": 46.2972,
+          "lon": 11.7855
+        },
+        {
+          "name": "Val Venegia trailhead",
+          "lat": 46.2913,
+          "lon": 11.8109
+        },
+        {
+          "name": "Paneveggio forest",
+          "lat": 46.3106,
+          "lon": 11.7847
+        }
+      ],
+      "parking": [
+        {
+          "name": "San Martino central parking",
+          "lat": 46.2592,
+          "lon": 11.8016
+        },
+        {
+          "name": "Col Verde parking",
+          "lat": 46.2623,
+          "lon": 11.8061
+        },
+        {
+          "name": "Passo Rolle parking",
+          "lat": 46.2968,
+          "lon": 11.7851
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Rifugio Rosetta",
+          "lat": 46.2768,
+          "lon": 11.8293
+        },
+        {
+          "name": "Rifugio Col Verde",
+          "lat": 46.2646,
+          "lon": 11.8207
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "San Martino pizza and pasta",
+          "lat": 46.2596,
+          "lon": 11.8012
+        },
+        {
+          "name": "Passo Rolle mountain hut",
+          "lat": 46.2971,
+          "lon": 11.7853
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Paneveggio Visitor Center",
+          "lat": 46.3103,
+          "lon": 11.7852
+        },
+        {
+          "name": "Palaghiaccio San Martino",
+          "lat": 46.2601,
+          "lon": 11.8032
+        },
+        {
+          "name": "Local geology exhibit",
+          "lat": 46.2599,
+          "lon": 11.8019
+        }
+      ],
+      "playgrounds": [
+        {
+          "name": "San Martino playground",
+          "lat": 46.259,
+          "lon": 11.8024
+        },
+        {
+          "name": "Passo Rolle playground",
+          "lat": 46.2975,
+          "lon": 11.7858
+        }
+      ],
+      "center": {
+        "lat": 46.2594,
+        "lon": 11.8007
+      }
+    },
+    "groomed": true,
+    "modes": [
+      "car"
+    ],
+    "description": "San Martino di Castrozza is a quieter Dolomites base with quick access to gentle valley walks and big Pale di San Martino views. It is ideal for families who want less traffic and easy hiking options.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive in San Martino and enjoy an easy village walk after the drive."
+      },
+      {
+        "title": "Day 2",
+        "text": "Ride the Col Verde cable car for panoramic views and a short ridge stroll."
+      },
+      {
+        "title": "Day 3",
+        "text": "Spend the day in Val Venegia with a picnic and relaxed walking."
+      },
+      {
+        "title": "Day 4",
+        "text": "Drive to Passo Rolle for photos, then stop in Paneveggio forest."
+      }
+    ],
+    "recommended_stops": [
+      "San Martino village center",
+      "Col Verde cable car views",
+      "Val Venegia walk",
+      "Passo Rolle scenic drive",
+      "Paneveggio forest visit"
+    ],
+    "lodging": [
+      "San Martino village center",
+      "Passo Rolle area lodges",
+      "Fiera di Primiero (quiet base)"
+    ],
+    "access_note": "Expect a long drive and mountain roads for the final approach. Arrive before dusk if possible, and plan fuel stops before entering the mountain valley.",
+    "photo_deck": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/San_Martino_di_Castrozza.jpg",
+        "alt": "San Martino di Castrozza village"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Pale_di_San_Martino.jpg",
+        "alt": "Pale di San Martino peaks"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Passo_Rolle.jpg",
+        "alt": "Passo Rolle"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Val_Venegia.jpg",
+        "alt": "Val Venegia valley"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Paneveggio.jpg",
+        "alt": "Paneveggio forest"
+      }
+    ]
+  },
+  {
     "slug": "salzburg-austria",
     "title": "Salzburg, Austria",
     "category_page": "trips-car.html",

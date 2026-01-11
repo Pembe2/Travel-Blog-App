@@ -185,7 +185,7 @@ def slideshow_html(dest):
     return f'<div class="slideshow" data-slideshow="1">{"".join(items)}</div>'
 
 
-def map_section(map_cfg):
+def map_section(map_cfg, dest_title):
     if not map_cfg:
         return "", ""
 
@@ -246,12 +246,19 @@ def map_section(map_cfg):
         attribution: "&copy; OpenStreetMap contributors"
       }).addTo(map);
 
-      function mapLink(name){
-        var query = encodeURIComponent(name + " Trier Germany");
-        return "https://www.google.com/maps/search/?api=1&query=" + query;
+      function mapLink(point){
+        if (!point) return "";
+        if (typeof point.lat === "number" && typeof point.lon === "number") {
+          var coords = point.lat + "," + point.lon;
+          return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(coords);
+        }
+        var name = point.name || "";
+        if (!name) return "";
+        var suffix = __DEST_TITLE__ ? " " + __DEST_TITLE__ : "";
+        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
       }
 
-      function addPin(layer, p, color, link){
+      function addPin(layer, p, color){
         var icon = L.divIcon({
           className: "",
           html: '<div class="pin" style="background:' + color + ';"></div>',
@@ -259,6 +266,7 @@ def map_section(map_cfg):
           iconAnchor: [9, 18],
           popupAnchor: [0, -16]
         });
+        var link = mapLink(p);
         var popup = link ? '<a href="' + link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
         L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
       }
@@ -279,10 +287,10 @@ def map_section(map_cfg):
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
-      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
-      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
-      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
-      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
+      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b"); });
+      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9"); });
+      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8"); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3"); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
@@ -320,6 +328,7 @@ def map_section(map_cfg):
     js = js.replace("__INDOOR__", js_array(map_cfg.get("indoor", [])))
     js = js.replace("__PLAYGROUNDS__", js_array(map_cfg.get("playgrounds", [])))
     js = js.replace("__CENTER__", json.dumps([center["lat"], center["lon"]], ensure_ascii=True))
+    js = js.replace("__DEST_TITLE__", json.dumps(dest_title or "", ensure_ascii=True))
 
     return html, js
 
@@ -482,7 +491,7 @@ def build_page(dest, template, styles):
       </section>
     """
 
-    map_html, map_scripts = map_section(dest.get("map"))
+    map_html, map_scripts = map_section(dest.get("map"), dest.get("title", ""))
     if map_html:
         body += map_html
     if indoor_section:

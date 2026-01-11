@@ -488,12 +488,19 @@
         attribution: "&copy; OpenStreetMap contributors"
       }).addTo(map);
 
-      function mapLink(name){
-        var query = encodeURIComponent(name + " Trier Germany");
-        return "https://www.google.com/maps/search/?api=1&query=" + query;
+      function mapLink(point){
+        if (!point) return "";
+        if (typeof point.lat === "number" && typeof point.lon === "number") {
+          var coords = point.lat + "," + point.lon;
+          return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(coords);
+        }
+        var name = point.name || "";
+        if (!name) return "";
+        var suffix = "Soca Valley, Slovenia" ? " " + "Soca Valley, Slovenia" : "";
+        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
       }
 
-      function addPin(layer, p, color, link){
+      function addPin(layer, p, color){
         var icon = L.divIcon({
           className: "",
           html: '<div class="pin" style="background:' + color + ';"></div>',
@@ -501,6 +508,7 @@
           iconAnchor: [9, 18],
           popupAnchor: [0, -16]
         });
+        var link = mapLink(p);
         var popup = link ? '<a href="' + link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
         L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
       }
@@ -521,10 +529,10 @@
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
-      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b", mapLink(p.name)); });
-      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9", mapLink(p.name)); });
-      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8", mapLink(p.name)); });
-      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3", mapLink(p.name)); });
+      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b"); });
+      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9"); });
+      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8"); });
+      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3"); });
 
       poiLayer.addTo(map);
       parkingLayer.addTo(map);
