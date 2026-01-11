@@ -173,6 +173,54 @@ def extract_mode_minutes(tag, label):
     return parse_duration_minutes(match.group(1))
 
 
+def normalize_tag_order(tag):
+    if not tag or "/" not in tag:
+        return tag
+    parts = [p.strip() for p in tag.split("/") if p.strip()]
+    buckets = {"drive": None, "train": None, "plane": None, "other": []}
+    for part in parts:
+        lower = part.lower()
+        if lower.startswith("drive") or lower.startswith("car"):
+            buckets["drive"] = part
+        elif lower.startswith("train"):
+            buckets["train"] = part
+        elif lower.startswith("fly") or lower.startswith("plane"):
+            buckets["plane"] = part
+        else:
+            buckets["other"].append(part)
+    ordered = [buckets["drive"], buckets["train"], buckets["plane"]] + buckets["other"]
+    return " / ".join([p for p in ordered if p])
+
+
+def filter_tag_for_modes(tag, modes):
+    if not tag:
+        return tag
+    mode_set = {m.lower() for m in (modes or [])}
+    parts = [p.strip() for p in tag.split("/") if p.strip()]
+    kept = []
+    has_plane = False
+    for part in parts:
+        lower = part.lower()
+        if lower.startswith("drive") or lower.startswith("car"):
+            if "car" in mode_set:
+                kept.append(part)
+            continue
+        if lower.startswith("train"):
+            if "train" in mode_set:
+                kept.append(part)
+            continue
+        if lower.startswith("fly") or lower.startswith("plane"):
+            if "plane" in mode_set:
+                kept.append(part)
+                has_plane = True
+            continue
+        kept.append(part)
+
+    if mode_set == {"plane"} and not has_plane:
+        return "Fly | TBD (from Frankfurt)"
+    return " / ".join(kept)
+
+
 def format_travel_tag(tag, modes=None):
     if not tag:
         return tag
@@ -940,6 +988,14 @@ def main():
                 dest["modes"] = ["train"]
             else:
                 dest["modes"] = ["plane"]
+            continue
+
+        if drive_minutes is not None and train_minutes is not None:
+            if abs(drive_minutes - train_minutes) <= 60:
+                dest["modes"] = ["car", "train"]
+
+        filtered_tag = filter_tag_for_modes(dest.get("tag") or "", dest.get("modes", []))
+        dest["tag"] = normalize_tag_order(filtered_tag)
 
     dest_dir = ROOT / "destinations"
     dest_dir.mkdir(parents=True, exist_ok=True)
