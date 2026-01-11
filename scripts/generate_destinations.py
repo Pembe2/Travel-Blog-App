@@ -334,10 +334,8 @@ def map_section(map_cfg, dest_title):
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = __DEST_TITLE__ ? " " + __DEST_TITLE__ : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){
@@ -532,7 +530,7 @@ def build_page(dest, template, styles):
       </section>
         """
 
-    lede = dest.get("description") or dest.get("summary", "")
+    lede = dest.get("summary", "") or dest.get("description", "")
     description = dest.get("description") or dest.get("summary", "")
     recommended_stops = dest.get("recommended_stops") or []
     lodging = dest.get("lodging") or []

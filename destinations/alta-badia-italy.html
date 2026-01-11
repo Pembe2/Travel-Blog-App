@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Alta Badia (Corvara + La Villa + San Cassiano), Italy</h1>
-        <p class="lede">Alta Badia is a family-friendly base with easy lifts and mellow plateaus where kids can wander without long climbs. Corvara is the most convenient base, while La Villa and San Cassiano offer quieter village stays.</p>
+        <p class="lede">Family base with gondolas, easy plateau walks, and charming Ladin villages.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-car.html">Back to Trips by Car</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Alta Badia (Corvara + La Villa + San Cassiano), Italy" ? " " + "Alta Badia (Corvara + La Villa + San Cassiano), Italy" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){
@@ -516,12 +514,12 @@
       var indoorLayer = L.layerGroup();
       var playgroundLayer = L.layerGroup();
 
-      var poiPoints = [{"name": "Corvara village center", "lat": 46.5536, "lon": 11.8721}, {"name": "La Villa village", "lat": 46.5866, "lon": 11.8929}, {"name": "San Cassiano", "lat": 46.5695, "lon": 11.9325}, {"name": "Pralongia plateau", "lat": 46.5612, "lon": 11.8469}, {"name": "Santa Croce valley", "lat": 46.5496, "lon": 11.9134}];
-      var parkingPoints = [{"name": "Corvara Boe gondola parking", "lat": 46.5532, "lon": 11.8751}, {"name": "La Villa center parking", "lat": 46.5862, "lon": 11.8933}];
-      var restaurantPoints = [{"name": "Rifugio Bioch", "lat": 46.5598, "lon": 11.8632}, {"name": "Rifugio Pralongia", "lat": 46.5607, "lon": 11.8406}];
-      var familyRestaurantPoints = [{"name": "Corvara pizza and pasta", "lat": 46.5535, "lon": 11.8716}, {"name": "San Cassiano family trattoria", "lat": 46.5692, "lon": 11.9321}];
-      var indoorPoints = [{"name": "Museum Ladin Ursus ladinicus", "lat": 46.5697, "lon": 11.9328}, {"name": "Alta Badia visitor center exhibit", "lat": 46.5538, "lon": 11.8726}, {"name": "Indoor ice rink in Corvara", "lat": 46.5539, "lon": 11.8708}];
-      var playgroundPoints = [{"name": "Corvara playground", "lat": 46.5531, "lon": 11.8712}, {"name": "La Villa playground", "lat": 46.5861, "lon": 11.8924}];
+      var poiPoints = [{"name": "Corvara village center", "lat": 46.5536, "lon": 11.8721, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20village%20center%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "La Villa village", "lat": 46.5866, "lon": 11.8929, "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20village%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "San Cassiano", "lat": 46.5695, "lon": 11.9325, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Cassiano%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Pralongia plateau", "lat": 46.5612, "lon": 11.8469, "maps_url": "https://www.google.com/maps/search/?api=1&query=Pralongia%20plateau%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Santa Croce valley", "lat": 46.5496, "lon": 11.9134, "maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Croce%20valley%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
+      var parkingPoints = [{"name": "Corvara Boe gondola parking", "lat": 46.5532, "lon": 11.8751, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20Boe%20gondola%20parking%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "La Villa center parking", "lat": 46.5862, "lon": 11.8933, "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20center%20parking%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
+      var restaurantPoints = [{"name": "Rifugio Bioch", "lat": 46.5598, "lon": 11.8632, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Bioch%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Rifugio Pralongia", "lat": 46.5607, "lon": 11.8406, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Pralongia%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
+      var familyRestaurantPoints = [{"name": "Corvara pizza and pasta", "lat": 46.5535, "lon": 11.8716, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20pizza%20and%20pasta%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "San Cassiano family trattoria", "lat": 46.5692, "lon": 11.9321, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Cassiano%20family%20trattoria%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
+      var indoorPoints = [{"name": "Museum Ladin Ursus ladinicus", "lat": 46.5697, "lon": 11.9328, "maps_url": "https://www.google.com/maps/search/?api=1&query=Museum%20Ladin%20Ursus%20ladinicus%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Alta Badia visitor center exhibit", "lat": 46.5538, "lon": 11.8726, "maps_url": "https://www.google.com/maps/search/?api=1&query=Alta%20Badia%20visitor%20center%20exhibit%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Indoor ice rink in Corvara", "lat": 46.5539, "lon": 11.8708, "maps_url": "https://www.google.com/maps/search/?api=1&query=Indoor%20ice%20rink%20in%20Corvara%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
+      var playgroundPoints = [{"name": "Corvara playground", "lat": 46.5531, "lon": 11.8712, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20playground%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "La Villa playground", "lat": 46.5861, "lon": 11.8924, "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20playground%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });

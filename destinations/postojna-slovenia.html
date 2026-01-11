@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Postojna and Predjama, Slovenia</h1>
-        <p class="lede">Postojna is a family favorite thanks to the cave train ride, dramatic formations, and the nearby cliffside Predjama Castle. It is an easy base for a short visit with plenty of indoor options if the weather turns.</p>
+        <p class="lede">Family favorite caves and a cliffside castle with short walks.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Postojna and Predjama, Slovenia" ? " " + "Postojna and Predjama, Slovenia" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

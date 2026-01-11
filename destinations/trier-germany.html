@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Trier, Germany</h1>
-        <p class="lede">Germany's oldest city blends Roman ruins with a compact old town that is easy for families to explore. Kids can walk the Porta Nigra, climb the amphitheater, and still have time for a riverside stroll along the Mosel.</p>
+        <p class="lede">Roman sites, a compact old town, and riverside views that are easy to do in one day.</p>
       </header>
 
       <div class="breadcrumb"><a href="../day-trips-car.html">Back to Day Trips by Car</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Trier, Germany" ? " " + "Trier, Germany" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

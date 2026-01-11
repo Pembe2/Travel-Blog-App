@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Cortina d'Ampezzo, Italy</h1>
-        <p class="lede">Cortina d'Ampezzo is a classic Dolomites base with a walkable town center and quick access to passes, lakes, and cable cars. Families can mix short scenic hikes with easy gondola rides and lakeside picnics.</p>
+        <p class="lede">Iconic Dolomites town with easy access to cable cars, passes, and lakes.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-car.html">Back to Trips by Car</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Cortina d'Ampezzo, Italy" ? " " + "Cortina d'Ampezzo, Italy" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){
@@ -516,12 +514,12 @@
       var indoorLayer = L.layerGroup();
       var playgroundLayer = L.layerGroup();
 
-      var poiPoints = [{"name": "Cortina town center", "lat": 46.5389, "lon": 12.1358}, {"name": "Cinque Torri", "lat": 46.5092, "lon": 12.0368}, {"name": "Tofana cable car", "lat": 46.5503, "lon": 12.0936}, {"name": "Lago di Misurina", "lat": 46.5795, "lon": 12.2537}, {"name": "Passo Falzarego", "lat": 46.5187, "lon": 12.0092}];
-      var parkingPoints = [{"name": "Cortina central parking", "lat": 46.5384, "lon": 12.1392}, {"name": "Passo Falzarego parking", "lat": 46.5185, "lon": 12.0086}, {"name": "Misurina lakeside parking", "lat": 46.5799, "lon": 12.2546}];
-      var restaurantPoints = [{"name": "Rifugio Lagazuoi", "lat": 46.5171, "lon": 12.0099}, {"name": "Rifugio Scoiattoli", "lat": 46.5047, "lon": 12.0394}];
-      var familyRestaurantPoints = [{"name": "Cortina pizza and gelato", "lat": 46.5391, "lon": 12.1363}, {"name": "Misurina lakeside cafe", "lat": 46.5797, "lon": 12.2539}];
-      var indoorPoints = [{"name": "Museo d'Arte Moderna Mario Rimoldi", "lat": 46.5396, "lon": 12.1369}, {"name": "Museo Paleontologico Rinaldo Zardini", "lat": 46.5391, "lon": 12.1361}, {"name": "Cortina ice rink", "lat": 46.5406, "lon": 12.1418}];
-      var playgroundPoints = [{"name": "Cortina playground", "lat": 46.5381, "lon": 12.1385}, {"name": "Fiames playground", "lat": 46.5632, "lon": 12.1284}];
+      var poiPoints = [{"name": "Cortina town center", "lat": 46.5389, "lon": 12.1358, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20town%20center%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Cinque Torri", "lat": 46.5092, "lon": 12.0368, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cinque%20Torri%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Tofana cable car", "lat": 46.5503, "lon": 12.0936, "maps_url": "https://www.google.com/maps/search/?api=1&query=Tofana%20cable%20car%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Lago di Misurina", "lat": 46.5795, "lon": 12.2537, "maps_url": "https://www.google.com/maps/search/?api=1&query=Lago%20di%20Misurina%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Passo Falzarego", "lat": 46.5187, "lon": 12.0092, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Falzarego%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var parkingPoints = [{"name": "Cortina central parking", "lat": 46.5384, "lon": 12.1392, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20central%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Passo Falzarego parking", "lat": 46.5185, "lon": 12.0086, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Falzarego%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Misurina lakeside parking", "lat": 46.5799, "lon": 12.2546, "maps_url": "https://www.google.com/maps/search/?api=1&query=Misurina%20lakeside%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var restaurantPoints = [{"name": "Rifugio Lagazuoi", "lat": 46.5171, "lon": 12.0099, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Lagazuoi%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Rifugio Scoiattoli", "lat": 46.5047, "lon": 12.0394, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Scoiattoli%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var familyRestaurantPoints = [{"name": "Cortina pizza and gelato", "lat": 46.5391, "lon": 12.1363, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20pizza%20and%20gelato%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Misurina lakeside cafe", "lat": 46.5797, "lon": 12.2539, "maps_url": "https://www.google.com/maps/search/?api=1&query=Misurina%20lakeside%20cafe%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var indoorPoints = [{"name": "Museo d'Arte Moderna Mario Rimoldi", "lat": 46.5396, "lon": 12.1369, "maps_url": "https://www.google.com/maps/search/?api=1&query=Museo%20d%27Arte%20Moderna%20Mario%20Rimoldi%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Museo Paleontologico Rinaldo Zardini", "lat": 46.5391, "lon": 12.1361, "maps_url": "https://www.google.com/maps/search/?api=1&query=Museo%20Paleontologico%20Rinaldo%20Zardini%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Cortina ice rink", "lat": 46.5406, "lon": 12.1418, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20ice%20rink%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var playgroundPoints = [{"name": "Cortina playground", "lat": 46.5381, "lon": 12.1385, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20playground%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Fiames playground", "lat": 46.5632, "lon": 12.1284, "maps_url": "https://www.google.com/maps/search/?api=1&query=Fiames%20playground%20Cortina%20d%27Ampezzo%2C%20Italy"}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });

@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Ljubljana, Slovenia</h1>
-        <p class="lede">Ljubljana is a relaxed, walkable capital with riverfront cafes, small museums, and a castle overlooking the old town. Families can explore on foot, keep days short, and use nearby parks and playgrounds to reset.</p>
+        <p class="lede">Compact capital with a riverside old town, parks, and easy day trips.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Ljubljana, Slovenia" ? " " + "Ljubljana, Slovenia" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

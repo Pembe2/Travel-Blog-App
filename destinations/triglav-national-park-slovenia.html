@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Triglav National Park, Slovenia</h1>
-        <p class="lede">Triglav National Park delivers classic alpine scenery with viewpoints, lakes, and waterfalls that can be done in half-day bursts. Families can base in nearby towns, choose shorter trails, and still get the wow factor without long hikes.</p>
+        <p class="lede">Alpine park with lakes, waterfalls, and family-friendly hikes.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Triglav National Park, Slovenia" ? " " + "Triglav National Park, Slovenia" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

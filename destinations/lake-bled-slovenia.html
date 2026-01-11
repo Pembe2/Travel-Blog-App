@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Lake Bled, Slovenia</h1>
-        <p class="lede">Lake Bled is a classic alpine lake destination with an easy lakeside loop, a boat ride to the island, and a castle that kids love. The town is compact, and most highlights are reachable on foot with short drives for nearby nature stops.</p>
+        <p class="lede">Iconic lake with an island church, castle views, and easy scenic walks.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Lake Bled, Slovenia" ? " " + "Lake Bled, Slovenia" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

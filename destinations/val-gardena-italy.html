@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Val Gardena (Ortisei + Selva), Italy</h1>
-        <p class="lede">Val Gardena is a Dolomites base where families can combine dramatic ridgelines with gentle meadow walks. Ortisei is compact and easy for strollers, while Selva puts you close to the big hiking starts and cable cars.</p>
+        <p class="lede">Dolomite valley base with cable cars, meadow walks, and easy village hopping.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-car.html">Back to Trips by Car</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Val Gardena (Ortisei + Selva), Italy" ? " " + "Val Gardena (Ortisei + Selva), Italy" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){
@@ -516,12 +514,12 @@
       var indoorLayer = L.layerGroup();
       var playgroundLayer = L.layerGroup();
 
-      var poiPoints = [{"name": "Ortisei town center", "lat": 46.5749, "lon": 11.6734}, {"name": "Selva di Val Gardena", "lat": 46.5534, "lon": 11.7641}, {"name": "Seceda ridgeline", "lat": 46.5566, "lon": 11.7234}, {"name": "Alpe di Siusi meadow access", "lat": 46.5562, "lon": 11.6525}, {"name": "Gardena Pass viewpoint", "lat": 46.5565, "lon": 11.8196}];
-      var parkingPoints = [{"name": "Ortisei central parking", "lat": 46.5752, "lon": 11.6698}, {"name": "Selva village parking", "lat": 46.5531, "lon": 11.7626}, {"name": "St. Christina parking", "lat": 46.5609, "lon": 11.7142}];
-      var restaurantPoints = [{"name": "Ristorante Tubladel", "lat": 46.5753, "lon": 11.6721}, {"name": "Ristorante Cascade", "lat": 46.5751, "lon": 11.6731}];
-      var familyRestaurantPoints = [{"name": "Ortisei pizza and pasta spot", "lat": 46.5748, "lon": 11.6715}, {"name": "Rifugio Firenze", "lat": 46.5344, "lon": 11.7441}];
-      var indoorPoints = [{"name": "Museum Gherdeina", "lat": 46.5755, "lon": 11.6736}, {"name": "Luis Trenker Museum", "lat": 46.5751, "lon": 11.6729}, {"name": "Mar Dolomit pool", "lat": 46.5761, "lon": 11.6681}];
-      var playgroundPoints = [{"name": "Ortisei playground", "lat": 46.5756, "lon": 11.6687}, {"name": "Selva playground", "lat": 46.5529, "lon": 11.7634}];
+      var poiPoints = [{"name": "Ortisei town center", "lat": 46.5749, "lon": 11.6734, "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20town%20center%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Selva di Val Gardena", "lat": 46.5534, "lon": 11.7641, "maps_url": "https://www.google.com/maps/search/?api=1&query=Selva%20di%20Val%20Gardena%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Seceda ridgeline", "lat": 46.5566, "lon": 11.7234, "maps_url": "https://www.google.com/maps/search/?api=1&query=Seceda%20ridgeline%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Alpe di Siusi meadow access", "lat": 46.5562, "lon": 11.6525, "maps_url": "https://www.google.com/maps/search/?api=1&query=Alpe%20di%20Siusi%20meadow%20access%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Gardena Pass viewpoint", "lat": 46.5565, "lon": 11.8196, "maps_url": "https://www.google.com/maps/search/?api=1&query=Gardena%20Pass%20viewpoint%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}];
+      var parkingPoints = [{"name": "Ortisei central parking", "lat": 46.5752, "lon": 11.6698, "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20central%20parking%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Selva village parking", "lat": 46.5531, "lon": 11.7626, "maps_url": "https://www.google.com/maps/search/?api=1&query=Selva%20village%20parking%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "St. Christina parking", "lat": 46.5609, "lon": 11.7142, "maps_url": "https://www.google.com/maps/search/?api=1&query=St.%20Christina%20parking%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}];
+      var restaurantPoints = [{"name": "Ristorante Tubladel", "lat": 46.5753, "lon": 11.6721, "maps_url": "https://www.google.com/maps/search/?api=1&query=Ristorante%20Tubladel%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Ristorante Cascade", "lat": 46.5751, "lon": 11.6731, "maps_url": "https://www.google.com/maps/search/?api=1&query=Ristorante%20Cascade%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}];
+      var familyRestaurantPoints = [{"name": "Ortisei pizza and pasta spot", "lat": 46.5748, "lon": 11.6715, "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20pizza%20and%20pasta%20spot%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Rifugio Firenze", "lat": 46.5344, "lon": 11.7441, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Firenze%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}];
+      var indoorPoints = [{"name": "Museum Gherdeina", "lat": 46.5755, "lon": 11.6736, "maps_url": "https://www.google.com/maps/search/?api=1&query=Museum%20Gherdeina%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Luis Trenker Museum", "lat": 46.5751, "lon": 11.6729, "maps_url": "https://www.google.com/maps/search/?api=1&query=Luis%20Trenker%20Museum%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Mar Dolomit pool", "lat": 46.5761, "lon": 11.6681, "maps_url": "https://www.google.com/maps/search/?api=1&query=Mar%20Dolomit%20pool%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}];
+      var playgroundPoints = [{"name": "Ortisei playground", "lat": 46.5756, "lon": 11.6687, "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20playground%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}, {"name": "Selva playground", "lat": 46.5529, "lon": 11.7634, "maps_url": "https://www.google.com/maps/search/?api=1&query=Selva%20playground%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });

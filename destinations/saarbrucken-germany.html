@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Saarbrucken, Germany</h1>
-        <p class="lede">Saarbrucken is a compact riverside capital where families can mix historic sites with park time. The old town, castle district, and St. Johanner Markt are close together, and the river promenade plus large gardens keep the day relaxed for kids.</p>
+        <p class="lede">Riverside capital with parks, a market square, and easy family walks.</p>
       </header>
 
       <div class="breadcrumb"><a href="../day-trips-train.html">Back to Day Trips by Train</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Saarbrucken, Germany" ? " " + "Saarbrucken, Germany" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

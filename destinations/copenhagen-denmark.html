@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Copenhagen, Denmark</h1>
-        <p class="lede">Copenhagen is a compact harbor city where families can combine castles, playgrounds, and waterfront walks without long transfers. Kids love Tivoli Gardens rides, the Experimentarium hands-on science museum, and the harbor promenade around Nyhavn and the Little Mermaid. Parks like King's Garden and the Copenhagen Harbor Baths make it easy to mix sightseeing with downtime.</p>
+        <p class="lede">Harbor city with castles, playgrounds, and easy day trips.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Copenhagen, Denmark" ? " " + "Copenhagen, Denmark" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

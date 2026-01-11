@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Piran, Slovenia</h1>
-        <p class="lede">Piran is a compact coastal town with a car-free core, sea views, and short walks that work well for families. Pair the old town with a beach afternoon in Portoroz to keep the pace relaxed.</p>
+        <p class="lede">Venetian-style coastal town with short walks and easy beach time.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Piran, Slovenia" ? " " + "Piran, Slovenia" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

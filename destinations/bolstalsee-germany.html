@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Bolstalsee (Center Parcs), Germany</h1>
-        <p class="lede">Bolstalsee is a Center Parcs resort built around a calm lake, with car-free paths, play areas, and an indoor pool complex that keeps kids busy in any weather. Families can settle into a cottage, keep the schedule light, and mix pool time with easy lakeside walks.</p>
+        <p class="lede">Lake resort stay with cabins, indoor water park time, and easy on-site activities.</p>
       </header>
 
       <div class="breadcrumb"><a href="../center-parcs.html">Back to Center Parcs</a></div>
@@ -469,10 +469,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Bolstalsee (Center Parcs), Germany" ? " " + "Bolstalsee (Center Parcs), Germany" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

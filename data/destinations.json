@@ -612,97 +612,114 @@
         {
           "name": "Ortisei town center",
           "lat": 46.5749,
-          "lon": 11.6734
+          "lon": 11.6734,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20town%20center%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Selva di Val Gardena",
           "lat": 46.5534,
-          "lon": 11.7641
+          "lon": 11.7641,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Selva%20di%20Val%20Gardena%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Seceda ridgeline",
           "lat": 46.5566,
-          "lon": 11.7234
+          "lon": 11.7234,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Seceda%20ridgeline%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Alpe di Siusi meadow access",
           "lat": 46.5562,
-          "lon": 11.6525
+          "lon": 11.6525,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Alpe%20di%20Siusi%20meadow%20access%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Gardena Pass viewpoint",
           "lat": 46.5565,
-          "lon": 11.8196
+          "lon": 11.8196,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Gardena%20Pass%20viewpoint%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         }
       ],
       "parking": [
         {
           "name": "Ortisei central parking",
           "lat": 46.5752,
-          "lon": 11.6698
+          "lon": 11.6698,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20central%20parking%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Selva village parking",
           "lat": 46.5531,
-          "lon": 11.7626
+          "lon": 11.7626,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Selva%20village%20parking%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "St. Christina parking",
           "lat": 46.5609,
-          "lon": 11.7142
+          "lon": 11.7142,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=St.%20Christina%20parking%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         }
       ],
       "restaurants": [
         {
           "name": "Ristorante Tubladel",
           "lat": 46.5753,
-          "lon": 11.6721
+          "lon": 11.6721,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Ristorante%20Tubladel%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Ristorante Cascade",
           "lat": 46.5751,
-          "lon": 11.6731
+          "lon": 11.6731,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Ristorante%20Cascade%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         }
       ],
       "family_restaurants": [
         {
           "name": "Ortisei pizza and pasta spot",
           "lat": 46.5748,
-          "lon": 11.6715
+          "lon": 11.6715,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20pizza%20and%20pasta%20spot%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Rifugio Firenze",
           "lat": 46.5344,
-          "lon": 11.7441
+          "lon": 11.7441,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Firenze%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         }
       ],
       "indoor": [
         {
           "name": "Museum Gherdeina",
           "lat": 46.5755,
-          "lon": 11.6736
+          "lon": 11.6736,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Museum%20Gherdeina%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Luis Trenker Museum",
           "lat": 46.5751,
-          "lon": 11.6729
+          "lon": 11.6729,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Luis%20Trenker%20Museum%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Mar Dolomit pool",
           "lat": 46.5761,
-          "lon": 11.6681
+          "lon": 11.6681,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Mar%20Dolomit%20pool%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         }
       ],
       "playgrounds": [
         {
           "name": "Ortisei playground",
           "lat": 46.5756,
-          "lon": 11.6687
+          "lon": 11.6687,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Ortisei%20playground%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         },
         {
           "name": "Selva playground",
           "lat": 46.5529,
-          "lon": 11.7634
+          "lon": 11.7634,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Selva%20playground%20Val%20Gardena%20%28Ortisei%20%2B%20Selva%29%2C%20Italy"
         }
       ],
       "center": {
@@ -804,92 +821,108 @@
         {
           "name": "Siusi allo Sciliar center",
           "lat": 46.5512,
-          "lon": 11.6204
+          "lon": 11.6204,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Siusi%20allo%20Sciliar%20center%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Castelrotto (Kastelruth)",
           "lat": 46.5668,
-          "lon": 11.5614
+          "lon": 11.5614,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Castelrotto%20%28Kastelruth%29%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Compatsch base area",
           "lat": 46.5564,
-          "lon": 11.6692
+          "lon": 11.6692,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Compatsch%20base%20area%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Alpe di Siusi meadows",
           "lat": 46.5612,
-          "lon": 11.6831
+          "lon": 11.6831,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Alpe%20di%20Siusi%20meadows%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Bullaccia viewpoint",
           "lat": 46.5727,
-          "lon": 11.6138
+          "lon": 11.6138,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Bullaccia%20viewpoint%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         }
       ],
       "parking": [
         {
           "name": "Seiser Alm Bahn parking",
           "lat": 46.5585,
-          "lon": 11.6039
+          "lon": 11.6039,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Seiser%20Alm%20Bahn%20parking%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Castelrotto parking",
           "lat": 46.5671,
-          "lon": 11.5622
+          "lon": 11.5622,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Castelrotto%20parking%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         }
       ],
       "restaurants": [
         {
           "name": "Gostner Schwaige",
           "lat": 46.5389,
-          "lon": 11.6793
+          "lon": 11.6793,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Gostner%20Schwaige%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Malga Sanon",
           "lat": 46.5589,
-          "lon": 11.6439
+          "lon": 11.6439,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Malga%20Sanon%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         }
       ],
       "family_restaurants": [
         {
           "name": "Compatsch mountain huts",
           "lat": 46.5564,
-          "lon": 11.6692
+          "lon": 11.6692,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Compatsch%20mountain%20huts%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Siusi family trattoria",
           "lat": 46.5513,
-          "lon": 11.6209
+          "lon": 11.6209,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Siusi%20family%20trattoria%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         }
       ],
       "indoor": [
         {
           "name": "Sciliar Nature Park visitor center",
           "lat": 46.5517,
-          "lon": 11.6212
+          "lon": 11.6212,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Sciliar%20Nature%20Park%20visitor%20center%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Kastelruth parish museum",
           "lat": 46.5669,
-          "lon": 11.5616
+          "lon": 11.5616,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Kastelruth%20parish%20museum%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Local history exhibit in Siusi",
           "lat": 46.5514,
-          "lon": 11.6207
+          "lon": 11.6207,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Local%20history%20exhibit%20in%20Siusi%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         }
       ],
       "playgrounds": [
         {
           "name": "Siusi playground",
           "lat": 46.5511,
-          "lon": 11.6215
+          "lon": 11.6215,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Siusi%20playground%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         },
         {
           "name": "Castelrotto playground",
           "lat": 46.5665,
-          "lon": 11.5607
+          "lon": 11.5607,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Castelrotto%20playground%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"
         }
       ],
       "center": {
@@ -990,92 +1023,108 @@
         {
           "name": "Corvara village center",
           "lat": 46.5536,
-          "lon": 11.8721
+          "lon": 11.8721,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20village%20center%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "La Villa village",
           "lat": 46.5866,
-          "lon": 11.8929
+          "lon": 11.8929,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20village%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "San Cassiano",
           "lat": 46.5695,
-          "lon": 11.9325
+          "lon": 11.9325,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Cassiano%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "Pralongia plateau",
           "lat": 46.5612,
-          "lon": 11.8469
+          "lon": 11.8469,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Pralongia%20plateau%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "Santa Croce valley",
           "lat": 46.5496,
-          "lon": 11.9134
+          "lon": 11.9134,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Croce%20valley%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         }
       ],
       "parking": [
         {
           "name": "Corvara Boe gondola parking",
           "lat": 46.5532,
-          "lon": 11.8751
+          "lon": 11.8751,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20Boe%20gondola%20parking%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "La Villa center parking",
           "lat": 46.5862,
-          "lon": 11.8933
+          "lon": 11.8933,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20center%20parking%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         }
       ],
       "restaurants": [
         {
           "name": "Rifugio Bioch",
           "lat": 46.5598,
-          "lon": 11.8632
+          "lon": 11.8632,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Bioch%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "Rifugio Pralongia",
           "lat": 46.5607,
-          "lon": 11.8406
+          "lon": 11.8406,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Pralongia%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         }
       ],
       "family_restaurants": [
         {
           "name": "Corvara pizza and pasta",
           "lat": 46.5535,
-          "lon": 11.8716
+          "lon": 11.8716,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20pizza%20and%20pasta%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "San Cassiano family trattoria",
           "lat": 46.5692,
-          "lon": 11.9321
+          "lon": 11.9321,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Cassiano%20family%20trattoria%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         }
       ],
       "indoor": [
         {
           "name": "Museum Ladin Ursus ladinicus",
           "lat": 46.5697,
-          "lon": 11.9328
+          "lon": 11.9328,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Museum%20Ladin%20Ursus%20ladinicus%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "Alta Badia visitor center exhibit",
           "lat": 46.5538,
-          "lon": 11.8726
+          "lon": 11.8726,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Alta%20Badia%20visitor%20center%20exhibit%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "Indoor ice rink in Corvara",
           "lat": 46.5539,
-          "lon": 11.8708
+          "lon": 11.8708,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Indoor%20ice%20rink%20in%20Corvara%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         }
       ],
       "playgrounds": [
         {
           "name": "Corvara playground",
           "lat": 46.5531,
-          "lon": 11.8712
+          "lon": 11.8712,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20playground%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         },
         {
           "name": "La Villa playground",
           "lat": 46.5861,
-          "lon": 11.8924
+          "lon": 11.8924,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20playground%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"
         }
       ],
       "center": {
@@ -1176,97 +1225,114 @@
         {
           "name": "Cortina town center",
           "lat": 46.5389,
-          "lon": 12.1358
+          "lon": 12.1358,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20town%20center%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Cinque Torri",
           "lat": 46.5092,
-          "lon": 12.0368
+          "lon": 12.0368,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Cinque%20Torri%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Tofana cable car",
           "lat": 46.5503,
-          "lon": 12.0936
+          "lon": 12.0936,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Tofana%20cable%20car%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Lago di Misurina",
           "lat": 46.5795,
-          "lon": 12.2537
+          "lon": 12.2537,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Lago%20di%20Misurina%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Passo Falzarego",
           "lat": 46.5187,
-          "lon": 12.0092
+          "lon": 12.0092,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Falzarego%20Cortina%20d%27Ampezzo%2C%20Italy"
         }
       ],
       "parking": [
         {
           "name": "Cortina central parking",
           "lat": 46.5384,
-          "lon": 12.1392
+          "lon": 12.1392,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20central%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Passo Falzarego parking",
           "lat": 46.5185,
-          "lon": 12.0086
+          "lon": 12.0086,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Falzarego%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Misurina lakeside parking",
           "lat": 46.5799,
-          "lon": 12.2546
+          "lon": 12.2546,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Misurina%20lakeside%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"
         }
       ],
       "restaurants": [
         {
           "name": "Rifugio Lagazuoi",
           "lat": 46.5171,
-          "lon": 12.0099
+          "lon": 12.0099,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Lagazuoi%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Rifugio Scoiattoli",
           "lat": 46.5047,
-          "lon": 12.0394
+          "lon": 12.0394,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Scoiattoli%20Cortina%20d%27Ampezzo%2C%20Italy"
         }
       ],
       "family_restaurants": [
         {
           "name": "Cortina pizza and gelato",
           "lat": 46.5391,
-          "lon": 12.1363
+          "lon": 12.1363,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20pizza%20and%20gelato%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Misurina lakeside cafe",
           "lat": 46.5797,
-          "lon": 12.2539
+          "lon": 12.2539,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Misurina%20lakeside%20cafe%20Cortina%20d%27Ampezzo%2C%20Italy"
         }
       ],
       "indoor": [
         {
           "name": "Museo d'Arte Moderna Mario Rimoldi",
           "lat": 46.5396,
-          "lon": 12.1369
+          "lon": 12.1369,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Museo%20d%27Arte%20Moderna%20Mario%20Rimoldi%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Museo Paleontologico Rinaldo Zardini",
           "lat": 46.5391,
-          "lon": 12.1361
+          "lon": 12.1361,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Museo%20Paleontologico%20Rinaldo%20Zardini%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Cortina ice rink",
           "lat": 46.5406,
-          "lon": 12.1418
+          "lon": 12.1418,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20ice%20rink%20Cortina%20d%27Ampezzo%2C%20Italy"
         }
       ],
       "playgrounds": [
         {
           "name": "Cortina playground",
           "lat": 46.5381,
-          "lon": 12.1385
+          "lon": 12.1385,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20playground%20Cortina%20d%27Ampezzo%2C%20Italy"
         },
         {
           "name": "Fiames playground",
           "lat": 46.5632,
-          "lon": 12.1284
+          "lon": 12.1284,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Fiames%20playground%20Cortina%20d%27Ampezzo%2C%20Italy"
         }
       ],
       "center": {
@@ -1367,97 +1433,114 @@
         {
           "name": "San Martino village center",
           "lat": 46.2594,
-          "lon": 11.8007
+          "lon": 11.8007,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20village%20center%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Col Verde cable car",
           "lat": 46.2621,
-          "lon": 11.8056
+          "lon": 11.8056,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Col%20Verde%20cable%20car%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Passo Rolle",
           "lat": 46.2972,
-          "lon": 11.7855
+          "lon": 11.7855,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Val Venegia trailhead",
           "lat": 46.2913,
-          "lon": 11.8109
+          "lon": 11.8109,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Val%20Venegia%20trailhead%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Paneveggio forest",
           "lat": 46.3106,
-          "lon": 11.7847
+          "lon": 11.7847,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Paneveggio%20forest%20San%20Martino%20di%20Castrozza%2C%20Italy"
         }
       ],
       "parking": [
         {
           "name": "San Martino central parking",
           "lat": 46.2592,
-          "lon": 11.8016
+          "lon": 11.8016,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20central%20parking%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Col Verde parking",
           "lat": 46.2623,
-          "lon": 11.8061
+          "lon": 11.8061,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Col%20Verde%20parking%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Passo Rolle parking",
           "lat": 46.2968,
-          "lon": 11.7851
+          "lon": 11.7851,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20parking%20San%20Martino%20di%20Castrozza%2C%20Italy"
         }
       ],
       "restaurants": [
         {
           "name": "Rifugio Rosetta",
           "lat": 46.2768,
-          "lon": 11.8293
+          "lon": 11.8293,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Rosetta%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Rifugio Col Verde",
           "lat": 46.2646,
-          "lon": 11.8207
+          "lon": 11.8207,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Col%20Verde%20San%20Martino%20di%20Castrozza%2C%20Italy"
         }
       ],
       "family_restaurants": [
         {
           "name": "San Martino pizza and pasta",
           "lat": 46.2596,
-          "lon": 11.8012
+          "lon": 11.8012,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20pizza%20and%20pasta%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Passo Rolle mountain hut",
           "lat": 46.2971,
-          "lon": 11.7853
+          "lon": 11.7853,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20mountain%20hut%20San%20Martino%20di%20Castrozza%2C%20Italy"
         }
       ],
       "indoor": [
         {
           "name": "Paneveggio Visitor Center",
           "lat": 46.3103,
-          "lon": 11.7852
+          "lon": 11.7852,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Paneveggio%20Visitor%20Center%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Palaghiaccio San Martino",
           "lat": 46.2601,
-          "lon": 11.8032
+          "lon": 11.8032,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Palaghiaccio%20San%20Martino%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Local geology exhibit",
           "lat": 46.2599,
-          "lon": 11.8019
+          "lon": 11.8019,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Local%20geology%20exhibit%20San%20Martino%20di%20Castrozza%2C%20Italy"
         }
       ],
       "playgrounds": [
         {
           "name": "San Martino playground",
           "lat": 46.259,
-          "lon": 11.8024
+          "lon": 11.8024,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20playground%20San%20Martino%20di%20Castrozza%2C%20Italy"
         },
         {
           "name": "Passo Rolle playground",
           "lat": 46.2975,
-          "lon": 11.7858
+          "lon": 11.7858,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20playground%20San%20Martino%20di%20Castrozza%2C%20Italy"
         }
       ],
       "center": {

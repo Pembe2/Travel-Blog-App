@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Soca Valley, Slovenia</h1>
-        <p class="lede">The Soca Valley is all about turquoise water, short gorge walks, and outdoor adventures that older kids love. Families can mix easy trails with rafting or zip lines, then retreat to small town centers for low-key evenings.</p>
+        <p class="lede">Turquoise river scenery with adventure activities and easy riverside walks.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Soca Valley, Slovenia" ? " " + "Soca Valley, Slovenia" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

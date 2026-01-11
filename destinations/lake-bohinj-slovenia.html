@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>Lake Bohinj, Slovenia</h1>
-        <p class="lede">Lake Bohinj is a calmer alternative to Bled with a wide shoreline, easy trails, and a slower pace that works well for families. Kids can mix waterfall walks with cable car views and long lakeside afternoons.</p>
+        <p class="lede">Quieter alpine lake with easy hikes, waterfalls, and wide-open scenery.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "Lake Bohinj, Slovenia" ? " " + "Lake Bohinj, Slovenia" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){

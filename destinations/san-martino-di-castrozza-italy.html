@@ -362,7 +362,7 @@
     <main class="content">
       <header>
         <h1>San Martino di Castrozza, Italy</h1>
-        <p class="lede">San Martino di Castrozza is a quieter Dolomites base with quick access to gentle valley walks and big Pale di San Martino views. It is ideal for families who want less traffic and easy hiking options.</p>
+        <p class="lede">Quiet Dolomites base with easy cable cars and wide valley walks.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-car.html">Back to Trips by Car</a></div>
@@ -490,10 +490,8 @@
 
       function mapLink(point){
         if (!point) return "";
-        var name = point.name || "";
-        if (!name) return "";
-        var suffix = "San Martino di Castrozza, Italy" ? " " + "San Martino di Castrozza, Italy" : "";
-        return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + suffix);
+        var url = point.maps_url || "";
+        return url;
       }
 
       function addPin(layer, p, color){
@@ -516,12 +514,12 @@
       var indoorLayer = L.layerGroup();
       var playgroundLayer = L.layerGroup();
 
-      var poiPoints = [{"name": "San Martino village center", "lat": 46.2594, "lon": 11.8007}, {"name": "Col Verde cable car", "lat": 46.2621, "lon": 11.8056}, {"name": "Passo Rolle", "lat": 46.2972, "lon": 11.7855}, {"name": "Val Venegia trailhead", "lat": 46.2913, "lon": 11.8109}, {"name": "Paneveggio forest", "lat": 46.3106, "lon": 11.7847}];
-      var parkingPoints = [{"name": "San Martino central parking", "lat": 46.2592, "lon": 11.8016}, {"name": "Col Verde parking", "lat": 46.2623, "lon": 11.8061}, {"name": "Passo Rolle parking", "lat": 46.2968, "lon": 11.7851}];
-      var restaurantPoints = [{"name": "Rifugio Rosetta", "lat": 46.2768, "lon": 11.8293}, {"name": "Rifugio Col Verde", "lat": 46.2646, "lon": 11.8207}];
-      var familyRestaurantPoints = [{"name": "San Martino pizza and pasta", "lat": 46.2596, "lon": 11.8012}, {"name": "Passo Rolle mountain hut", "lat": 46.2971, "lon": 11.7853}];
-      var indoorPoints = [{"name": "Paneveggio Visitor Center", "lat": 46.3103, "lon": 11.7852}, {"name": "Palaghiaccio San Martino", "lat": 46.2601, "lon": 11.8032}, {"name": "Local geology exhibit", "lat": 46.2599, "lon": 11.8019}];
-      var playgroundPoints = [{"name": "San Martino playground", "lat": 46.259, "lon": 11.8024}, {"name": "Passo Rolle playground", "lat": 46.2975, "lon": 11.7858}];
+      var poiPoints = [{"name": "San Martino village center", "lat": 46.2594, "lon": 11.8007, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20village%20center%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Col Verde cable car", "lat": 46.2621, "lon": 11.8056, "maps_url": "https://www.google.com/maps/search/?api=1&query=Col%20Verde%20cable%20car%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Passo Rolle", "lat": 46.2972, "lon": 11.7855, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Val Venegia trailhead", "lat": 46.2913, "lon": 11.8109, "maps_url": "https://www.google.com/maps/search/?api=1&query=Val%20Venegia%20trailhead%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Paneveggio forest", "lat": 46.3106, "lon": 11.7847, "maps_url": "https://www.google.com/maps/search/?api=1&query=Paneveggio%20forest%20San%20Martino%20di%20Castrozza%2C%20Italy"}];
+      var parkingPoints = [{"name": "San Martino central parking", "lat": 46.2592, "lon": 11.8016, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20central%20parking%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Col Verde parking", "lat": 46.2623, "lon": 11.8061, "maps_url": "https://www.google.com/maps/search/?api=1&query=Col%20Verde%20parking%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Passo Rolle parking", "lat": 46.2968, "lon": 11.7851, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20parking%20San%20Martino%20di%20Castrozza%2C%20Italy"}];
+      var restaurantPoints = [{"name": "Rifugio Rosetta", "lat": 46.2768, "lon": 11.8293, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Rosetta%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Rifugio Col Verde", "lat": 46.2646, "lon": 11.8207, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Col%20Verde%20San%20Martino%20di%20Castrozza%2C%20Italy"}];
+      var familyRestaurantPoints = [{"name": "San Martino pizza and pasta", "lat": 46.2596, "lon": 11.8012, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20pizza%20and%20pasta%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Passo Rolle mountain hut", "lat": 46.2971, "lon": 11.7853, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20mountain%20hut%20San%20Martino%20di%20Castrozza%2C%20Italy"}];
+      var indoorPoints = [{"name": "Paneveggio Visitor Center", "lat": 46.3103, "lon": 11.7852, "maps_url": "https://www.google.com/maps/search/?api=1&query=Paneveggio%20Visitor%20Center%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Palaghiaccio San Martino", "lat": 46.2601, "lon": 11.8032, "maps_url": "https://www.google.com/maps/search/?api=1&query=Palaghiaccio%20San%20Martino%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Local geology exhibit", "lat": 46.2599, "lon": 11.8019, "maps_url": "https://www.google.com/maps/search/?api=1&query=Local%20geology%20exhibit%20San%20Martino%20di%20Castrozza%2C%20Italy"}];
+      var playgroundPoints = [{"name": "San Martino playground", "lat": 46.259, "lon": 11.8024, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Martino%20playground%20San%20Martino%20di%20Castrozza%2C%20Italy"}, {"name": "Passo Rolle playground", "lat": 46.2975, "lon": 11.7858, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Rolle%20playground%20San%20Martino%20di%20Castrozza%2C%20Italy"}];
 
       poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
       parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
