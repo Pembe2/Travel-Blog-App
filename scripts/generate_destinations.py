@@ -334,10 +334,6 @@ def map_section(map_cfg, dest_title):
 
       function mapLink(point){
         if (!point) return "";
-        if (typeof point.lat === "number" && typeof point.lon === "number") {
-          var coords = point.lat + "," + point.lon;
-          return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(coords);
-        }
         var name = point.name || "";
         if (!name) return "";
         var suffix = __DEST_TITLE__ ? " " + __DEST_TITLE__ : "";
