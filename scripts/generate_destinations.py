@@ -149,6 +149,30 @@ def list_items(items):
     return "".join(f"<li>{i}</li>" for i in items)
 
 
+def parse_duration_minutes(text):
+    if not text:
+        return None
+    match = re.search(r"(?:(\d+)\s*h)?\s*(\d+)\s*m", text, re.IGNORECASE)
+    if not match:
+        match = re.search(r"(\d+)\s*h", text, re.IGNORECASE)
+        if match:
+            return int(match.group(1)) * 60
+        return None
+    hours = int(match.group(1) or 0)
+    minutes = int(match.group(2) or 0)
+    return hours * 60 + minutes
+
+
+def extract_mode_minutes(tag, label):
+    if not tag:
+        return None
+    pattern = rf"{label}\s*\|\s*([^/]+)"
+    match = re.search(pattern, tag, re.IGNORECASE)
+    if not match:
+        return None
+    return parse_duration_minutes(match.group(1))
+
+
 def format_travel_tag(tag, modes=None):
     if not tag:
         return tag
@@ -471,12 +495,7 @@ def build_page(dest, template, styles):
     access_note = dest.get("access_note", "").strip()
     tag_label = format_travel_tag(dest.get("tag", ""), dest.get("modes", []))
     tag_lower = tag_label.lower()
-    if "train" in tag_lower or "drive" in tag_lower or "car" in tag_lower:
-        travel_label = "Travel time (from Landstuhl)"
-    elif "fly" in tag_lower or "plane" in tag_lower:
-        travel_label = "Travel time (from Frankfurt)"
-    else:
-        travel_label = "Travel style"
+    travel_label = "Travel time" if tag_label else "Travel style"
 
     slideshow = slideshow_html(dest)
     hero_image = ""
@@ -907,6 +926,20 @@ def main():
             if "fly" in tag or "plane" in tag:
                 modes.append("plane")
             dest["modes"] = modes
+
+        tag = dest.get("tag") or ""
+        drive_minutes = extract_mode_minutes(tag, "Drive") or extract_mode_minutes(tag, "Car")
+        train_minutes = extract_mode_minutes(tag, "Train")
+
+        if train_minutes is not None and train_minutes > 8 * 60:
+            dest["modes"] = ["plane"]
+            continue
+
+        if drive_minutes is not None and drive_minutes > 8 * 60:
+            if train_minutes is not None and train_minutes <= 8 * 60:
+                dest["modes"] = ["train"]
+            else:
+                dest["modes"] = ["plane"]
 
     dest_dir = ROOT / "destinations"
     dest_dir.mkdir(parents=True, exist_ok=True)
