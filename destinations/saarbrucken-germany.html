@@ -481,38 +481,7 @@
   <script>
     (function(){
       var mapEl = document.getElementById("trierMap");
-      if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([49.234362, 6.996379], 13);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: "&copy; OpenStreetMap contributors"
-      }).addTo(map);
-
-      function mapLink(point){
-        if (!point) return "";
-        var url = point.maps_url || "";
-        return url;
-      }
-
-      function addPin(layer, p, color){
-        var icon = L.divIcon({
-          className: "",
-          html: '<div class="pin" style="background:' + color + ';"></div>',
-          iconSize: [18, 18],
-          iconAnchor: [9, 18],
-          popupAnchor: [0, -16]
-        });
-        var link = mapLink(p);
-        var popup = link ? '<a href="' + link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
-        L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
-      }
-
-      var poiLayer = L.layerGroup();
-      var parkingLayer = L.layerGroup();
-      var restaurantLayer = L.layerGroup();
-      var familyRestaurantLayer = L.layerGroup();
-      var indoorLayer = L.layerGroup();
-      var playgroundLayer = L.layerGroup();
+      if (!mapEl) return;
 
       var poiPoints = [{"name": "Ludwigskirche", "lat": 49.2364, "lon": 6.9927}, {"name": "Saarbrucken Castle", "lat": 49.2346, "lon": 6.9966}, {"name": "St. Johanner Markt", "lat": 49.2342, "lon": 7.0006}, {"name": "Deutsch-Franzoesischer Garten", "lat": 49.2256, "lon": 6.9666}, {"name": "Saarbrucken Zoo", "lat": 49.2218, "lon": 7.0306}];
       var parkingPoints = [{"name": "Parkhaus Am Schloss", "lat": 49.235, "lon": 6.9953}, {"name": "Parkhaus Rathaus", "lat": 49.2348, "lon": 6.9994}, {"name": "Parkhaus Europa-Galerie", "lat": 49.2384, "lon": 6.9913}, {"name": "Parkhaus Bahnhofstrasse", "lat": 49.2361, "lon": 6.9983}];
@@ -520,41 +489,181 @@
       var familyRestaurantPoints = [{"name": "Saarbrucker Zoo Restaurant", "lat": 49.2219, "lon": 7.0302}, {"name": "Deutsch-Franzoesischer Garten Bistro", "lat": 49.2259, "lon": 6.9669}];
       var indoorPoints = [{"name": "Saarland Museum (Moderne Galerie)", "lat": 49.2355, "lon": 7.0044}, {"name": "Historisches Museum Saar", "lat": 49.2341, "lon": 6.9964}, {"name": "Stadtgalerie Saarbrucken", "lat": 49.2351, "lon": 6.9936}];
       var playgroundPoints = [{"name": "Playground", "lat": 49.233825, "lon": 6.998791}, {"name": "Kinderspielplatz Nauwieserplatz", "lat": 49.235219, "lon": 6.999682}, {"name": "Kinderspielplatz Staatstheater", "lat": 49.231456, "lon": 6.994163}, {"name": "Playground", "lat": 49.232743, "lon": 6.990736}, {"name": "Playground", "lat": 49.237421, "lon": 7.002258}, {"name": "Kinderspielplatz Nanteser Platz", "lat": 49.231218, "lon": 6.989201}];
+      var hasGoogle = true;
+      var mapInitialized = false;
 
-      poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
-      parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
-      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b"); });
-      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9"); });
-      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8"); });
-      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3"); });
+      function popupHtml(point){
+        if (!point) return "";
+        var url = point.maps_url || "";
+        if (!url) return point.name;
+        return '<a href="' + url + '" target="_blank" rel="noopener">' + point.name + "</a>";
+      }
 
-      poiLayer.addTo(map);
-      parkingLayer.addTo(map);
-      restaurantLayer.addTo(map);
-      familyRestaurantLayer.addTo(map);
-      indoorLayer.addTo(map);
-      playgroundLayer.addTo(map);
-
-      var toggles = document.querySelectorAll(".layer-toggle input");
-      toggles.forEach(function(toggle){
-        toggle.addEventListener("change", function(){
-          var key = toggle.getAttribute("data-layer");
-          var layer = null;
-          if (key === "poi") layer = poiLayer;
-          if (key === "parking") layer = parkingLayer;
-          if (key === "restaurants") layer = restaurantLayer;
-          if (key === "family") layer = familyRestaurantLayer;
-          if (key === "indoor") layer = indoorLayer;
-          if (key === "playgrounds") layer = playgroundLayer;
-          if (!layer) return;
-          if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+      function initGoogleMap(){
+        if (!window.google || !google.maps) return false;
+        mapInitialized = true;
+        var map = new google.maps.Map(mapEl, {
+          center: { lat: 49.234362, lng: 6.996379 },
+          zoom: 13,
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: false
         });
-      });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
-      map.fitBounds(all.getBounds().pad(0.15));
+        var bounds = new google.maps.LatLngBounds();
+        var markerCount = 0;
+        var layers = {
+          poi: [],
+          parking: [],
+          restaurants: [],
+          family: [],
+          indoor: [],
+          playgrounds: []
+        };
+
+        function addMarkers(points, color, key){
+          var markers = layers[key];
+          for (var i = 0; i < points.length; i++){
+            var p = points[i];
+            var marker = new google.maps.Marker({
+              position: { lat: p.lat, lng: p.lon },
+              map: map,
+              title: p.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+            if (p.maps_url){
+              (function(markerRef, point){
+                var info = new google.maps.InfoWindow({ content: popupHtml(point) });
+                markerRef.addListener("click", function(){ info.open(map, markerRef); });
+              })(marker, p);
+            }
+            markers.push(marker);
+            bounds.extend(marker.getPosition());
+            markerCount += 1;
+          }
+        }
+
+        addMarkers(poiPoints, "#2b7a78", "poi");
+        addMarkers(parkingPoints, "#f4b942", "parking");
+        addMarkers(restaurantPoints, "#e86f5b", "restaurants");
+        addMarkers(familyRestaurantPoints, "#4a76c9", "family");
+        addMarkers(indoorPoints, "#7a5ca8", "indoor");
+        addMarkers(playgroundPoints, "#4ba3c3", "playgrounds");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          map.setCenter({ lat: 49.234362, lng: 6.996379 });
+          map.setZoom(13);
+        }
+
+        var toggles = document.querySelectorAll(".layer-toggle input");
+        toggles.forEach(function(toggle){
+          var key = toggle.getAttribute("data-layer");
+          var markers = layers[key];
+          if (!markers) return;
+          toggle.addEventListener("change", function(){
+            var show = toggle.checked;
+            for (var i = 0; i < markers.length; i++){
+              markers[i].setMap(show ? map : null);
+            }
+          });
+        });
+
+        return true;
+      }
+
+      function initLeafletMap(){
+        if (!window.L) return;
+        mapInitialized = true;
+        var map = L.map("trierMap", { scrollWheelZoom: false }).setView([49.234362, 6.996379], 13);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        function addPin(layer, p, color){
+          var icon = L.divIcon({
+            className: "",
+            html: '<div class="pin" style="background:' + color + ';"></div>',
+            iconSize: [18, 18],
+            iconAnchor: [9, 18],
+            popupAnchor: [0, -16]
+          });
+          var popup = popupHtml(p);
+          L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+        }
+
+        var poiLayer = L.layerGroup();
+        var parkingLayer = L.layerGroup();
+        var restaurantLayer = L.layerGroup();
+        var familyRestaurantLayer = L.layerGroup();
+        var indoorLayer = L.layerGroup();
+        var playgroundLayer = L.layerGroup();
+
+        poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
+        parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
+        restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b"); });
+        familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9"); });
+        indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8"); });
+        playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3"); });
+
+        poiLayer.addTo(map);
+        parkingLayer.addTo(map);
+        restaurantLayer.addTo(map);
+        familyRestaurantLayer.addTo(map);
+        indoorLayer.addTo(map);
+        playgroundLayer.addTo(map);
+
+        var toggles = document.querySelectorAll(".layer-toggle input");
+        toggles.forEach(function(toggle){
+          toggle.addEventListener("change", function(){
+            var key = toggle.getAttribute("data-layer");
+            var layer = null;
+            if (key === "poi") layer = poiLayer;
+            if (key === "parking") layer = parkingLayer;
+            if (key === "restaurants") layer = restaurantLayer;
+            if (key === "family") layer = familyRestaurantLayer;
+            if (key === "indoor") layer = indoorLayer;
+            if (key === "playgrounds") layer = playgroundLayer;
+            if (!layer) return;
+            if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+          });
+        });
+
+        var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
+        map.fitBounds(all.getBounds().pad(0.15));
+      }
+
+      if (!hasGoogle){
+        initLeafletMap();
+        return;
+      }
+
+      window.initDestMap = function(){
+        if (mapInitialized) return;
+        if (!initGoogleMap()){
+          initLeafletMap();
+        }
+      };
+
+      setTimeout(function(){
+        if (!mapInitialized){
+          initLeafletMap();
+        }
+      }, 2000);
     })();
   </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-tcTdDg6bGpjcrc9QQWLKAZWGwgsYyE&callback=initDestMap" async defer></script>
+
     
   <script>
     (function(){

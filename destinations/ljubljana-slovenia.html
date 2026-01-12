@@ -481,38 +481,7 @@
   <script>
     (function(){
       var mapEl = document.getElementById("trierMap");
-      if (!mapEl || !window.L) return;
-      var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.0500268, 14.5069289], 13);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 19,
-        attribution: "&copy; OpenStreetMap contributors"
-      }).addTo(map);
-
-      function mapLink(point){
-        if (!point) return "";
-        var url = point.maps_url || "";
-        return url;
-      }
-
-      function addPin(layer, p, color){
-        var icon = L.divIcon({
-          className: "",
-          html: '<div class="pin" style="background:' + color + ';"></div>',
-          iconSize: [18, 18],
-          iconAnchor: [9, 18],
-          popupAnchor: [0, -16]
-        });
-        var link = mapLink(p);
-        var popup = link ? '<a href="' + link + '" target="_blank" rel="noopener">' + p.name + '</a>' : p.name;
-        L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
-      }
-
-      var poiLayer = L.layerGroup();
-      var parkingLayer = L.layerGroup();
-      var restaurantLayer = L.layerGroup();
-      var familyRestaurantLayer = L.layerGroup();
-      var indoorLayer = L.layerGroup();
-      var playgroundLayer = L.layerGroup();
+      if (!mapEl) return;
 
       var poiPoints = [{"name": "Preseren Square", "lat": 46.0511, "lon": 14.5051}, {"name": "Ljubljana Castle", "lat": 46.0489, "lon": 14.5083}, {"name": "Tivoli Park", "lat": 46.0583, "lon": 14.4977}, {"name": "Dragon Bridge", "lat": 46.0517, "lon": 14.5089}];
       var parkingPoints = [{"name": "Kongresni Trg Garage", "lat": 46.051, "lon": 14.5059}, {"name": "Kozolec Parking Garage", "lat": 46.058, "lon": 14.499}, {"name": "Nuk II Parking Garage", "lat": 46.049, "lon": 14.5065}];
@@ -520,41 +489,181 @@
       var familyRestaurantPoints = [{"name": "Pop's Place", "lat": 46.0521, "lon": 14.5061}, {"name": "Hood Burger", "lat": 46.0561, "lon": 14.505}];
       var indoorPoints = [{"name": "House of Experiments", "lat": 46.0509, "lon": 14.5099}, {"name": "National Museum of Slovenia", "lat": 46.0532, "lon": 14.5034}, {"name": "Museum of Illusions Ljubljana", "lat": 46.0513, "lon": 14.5067}];
       var playgroundPoints = [{"name": "Playground", "lat": 46.052488, "lon": 14.508204}, {"name": "Playground", "lat": 46.047369, "lon": 14.50821}, {"name": "Playground", "lat": 46.050471, "lon": 14.501888}, {"name": "Playground", "lat": 46.050239, "lon": 14.501676}, {"name": "Playground", "lat": 46.046082, "lon": 14.509277}, {"name": "Playground", "lat": 46.049275, "lon": 14.513464}];
+      var hasGoogle = true;
+      var mapInitialized = false;
 
-      poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
-      parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
-      restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b"); });
-      familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9"); });
-      indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8"); });
-      playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3"); });
+      function popupHtml(point){
+        if (!point) return "";
+        var url = point.maps_url || "";
+        if (!url) return point.name;
+        return '<a href="' + url + '" target="_blank" rel="noopener">' + point.name + "</a>";
+      }
 
-      poiLayer.addTo(map);
-      parkingLayer.addTo(map);
-      restaurantLayer.addTo(map);
-      familyRestaurantLayer.addTo(map);
-      indoorLayer.addTo(map);
-      playgroundLayer.addTo(map);
-
-      var toggles = document.querySelectorAll(".layer-toggle input");
-      toggles.forEach(function(toggle){
-        toggle.addEventListener("change", function(){
-          var key = toggle.getAttribute("data-layer");
-          var layer = null;
-          if (key === "poi") layer = poiLayer;
-          if (key === "parking") layer = parkingLayer;
-          if (key === "restaurants") layer = restaurantLayer;
-          if (key === "family") layer = familyRestaurantLayer;
-          if (key === "indoor") layer = indoorLayer;
-          if (key === "playgrounds") layer = playgroundLayer;
-          if (!layer) return;
-          if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+      function initGoogleMap(){
+        if (!window.google || !google.maps) return false;
+        mapInitialized = true;
+        var map = new google.maps.Map(mapEl, {
+          center: { lat: 46.0500268, lng: 14.5069289 },
+          zoom: 13,
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: false
         });
-      });
 
-      var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
-      map.fitBounds(all.getBounds().pad(0.15));
+        var bounds = new google.maps.LatLngBounds();
+        var markerCount = 0;
+        var layers = {
+          poi: [],
+          parking: [],
+          restaurants: [],
+          family: [],
+          indoor: [],
+          playgrounds: []
+        };
+
+        function addMarkers(points, color, key){
+          var markers = layers[key];
+          for (var i = 0; i < points.length; i++){
+            var p = points[i];
+            var marker = new google.maps.Marker({
+              position: { lat: p.lat, lng: p.lon },
+              map: map,
+              title: p.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+            if (p.maps_url){
+              (function(markerRef, point){
+                var info = new google.maps.InfoWindow({ content: popupHtml(point) });
+                markerRef.addListener("click", function(){ info.open(map, markerRef); });
+              })(marker, p);
+            }
+            markers.push(marker);
+            bounds.extend(marker.getPosition());
+            markerCount += 1;
+          }
+        }
+
+        addMarkers(poiPoints, "#2b7a78", "poi");
+        addMarkers(parkingPoints, "#f4b942", "parking");
+        addMarkers(restaurantPoints, "#e86f5b", "restaurants");
+        addMarkers(familyRestaurantPoints, "#4a76c9", "family");
+        addMarkers(indoorPoints, "#7a5ca8", "indoor");
+        addMarkers(playgroundPoints, "#4ba3c3", "playgrounds");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          map.setCenter({ lat: 46.0500268, lng: 14.5069289 });
+          map.setZoom(13);
+        }
+
+        var toggles = document.querySelectorAll(".layer-toggle input");
+        toggles.forEach(function(toggle){
+          var key = toggle.getAttribute("data-layer");
+          var markers = layers[key];
+          if (!markers) return;
+          toggle.addEventListener("change", function(){
+            var show = toggle.checked;
+            for (var i = 0; i < markers.length; i++){
+              markers[i].setMap(show ? map : null);
+            }
+          });
+        });
+
+        return true;
+      }
+
+      function initLeafletMap(){
+        if (!window.L) return;
+        mapInitialized = true;
+        var map = L.map("trierMap", { scrollWheelZoom: false }).setView([46.0500268, 14.5069289], 13);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        function addPin(layer, p, color){
+          var icon = L.divIcon({
+            className: "",
+            html: '<div class="pin" style="background:' + color + ';"></div>',
+            iconSize: [18, 18],
+            iconAnchor: [9, 18],
+            popupAnchor: [0, -16]
+          });
+          var popup = popupHtml(p);
+          L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+        }
+
+        var poiLayer = L.layerGroup();
+        var parkingLayer = L.layerGroup();
+        var restaurantLayer = L.layerGroup();
+        var familyRestaurantLayer = L.layerGroup();
+        var indoorLayer = L.layerGroup();
+        var playgroundLayer = L.layerGroup();
+
+        poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
+        parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
+        restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b"); });
+        familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9"); });
+        indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8"); });
+        playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3"); });
+
+        poiLayer.addTo(map);
+        parkingLayer.addTo(map);
+        restaurantLayer.addTo(map);
+        familyRestaurantLayer.addTo(map);
+        indoorLayer.addTo(map);
+        playgroundLayer.addTo(map);
+
+        var toggles = document.querySelectorAll(".layer-toggle input");
+        toggles.forEach(function(toggle){
+          toggle.addEventListener("change", function(){
+            var key = toggle.getAttribute("data-layer");
+            var layer = null;
+            if (key === "poi") layer = poiLayer;
+            if (key === "parking") layer = parkingLayer;
+            if (key === "restaurants") layer = restaurantLayer;
+            if (key === "family") layer = familyRestaurantLayer;
+            if (key === "indoor") layer = indoorLayer;
+            if (key === "playgrounds") layer = playgroundLayer;
+            if (!layer) return;
+            if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+          });
+        });
+
+        var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
+        map.fitBounds(all.getBounds().pad(0.15));
+      }
+
+      if (!hasGoogle){
+        initLeafletMap();
+        return;
+      }
+
+      window.initDestMap = function(){
+        if (mapInitialized) return;
+        if (!initGoogleMap()){
+          initLeafletMap();
+        }
+      };
+
+      setTimeout(function(){
+        if (!mapInitialized){
+          initLeafletMap();
+        }
+      }, 2000);
     })();
   </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-tcTdDg6bGpjcrc9QQWLKAZWGwgsYyE&callback=initDestMap" async defer></script>
+
     
   <script>
     (function(){
