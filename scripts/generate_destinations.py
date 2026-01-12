@@ -361,8 +361,12 @@ def map_section(map_cfg, dest_title):
       }
 
       function placeLink(place){
-        if (!place || !place.place_id) return "";
-        return "https://www.google.com/maps/place/?q=place_id:" + place.place_id;
+        if (!place || !place.geometry || !place.geometry.location) return "";
+        var loc = place.geometry.location;
+        var lat = typeof loc.lat === "function" ? loc.lat() : loc.lat;
+        var lng = typeof loc.lng === "function" ? loc.lng() : loc.lng;
+        var name = place.name ? encodeURIComponent(place.name) : "";
+        return "https://www.google.com/maps/search/?api=1&query=" + name + "%20@" + lat + "," + lng;
       }
 
       function placePopup(place){
