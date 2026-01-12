@@ -483,20 +483,50 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [{"name": "Porta Nigra", "lat": 49.7597, "lon": 6.6439}, {"name": "Trier Cathedral", "lat": 49.7593, "lon": 6.6449}, {"name": "Liebfrauenkirche", "lat": 49.7592, "lon": 6.6447}, {"name": "Basilica of Constantine", "lat": 49.7596, "lon": 6.6374}, {"name": "Kaiserthermen", "lat": 49.7486, "lon": 6.6481}, {"name": "Roman Amphitheatre", "lat": 49.7492, "lon": 6.6527}];
-      var parkingPoints = [{"name": "City Parkhaus", "lat": 49.7566128, "lon": 6.6365245}, {"name": "Parkhaus Hauptmarkt", "lat": 49.7582549, "lon": 6.6391086}, {"name": "Parkhaus Am Bahnhof", "lat": 49.7597195, "lon": 6.6541111}, {"name": "Parkhaus Porta Nigra", "lat": 49.7609321, "lon": 6.6443565}];
-      var restaurantPoints = [{"name": "Restaurant Kartoffel Kiste", "lat": 49.7535423, "lon": 6.6389391}, {"name": "Weinstube Kesselstatt", "lat": 49.7556823, "lon": 6.6422995}, {"name": "Pizzeria Restaurant Frankenturm", "lat": 49.7569627, "lon": 6.640003}, {"name": "Donna Mia Trier", "lat": 49.7547753, "lon": 6.6388274}, {"name": "Burger House Trier", "lat": 49.75427, "lon": 6.642024}, {"name": "Zuppa", "lat": 49.7578438, "lon": 6.6457142}];
-      var familyRestaurantPoints = [{"name": "Burgeramt", "lat": 49.753609, "lon": 6.6383669}, {"name": "Christis", "lat": 49.7565376, "lon": 6.6418301}, {"name": "Eiscafe Calchera", "lat": 49.7586558, "lon": 6.6428234}, {"name": "Dinea Galeria Restaurant", "lat": 49.7585272, "lon": 6.6421956}, {"name": "Donna Mia", "lat": 49.7547753, "lon": 6.6388274}, {"name": "Hans im Gluck", "lat": 49.7591294, "lon": 6.6432345}, {"name": "Hannahs Kreativcafe", "lat": 49.7574426, "lon": 6.640865}, {"name": "L'Osteria", "lat": 49.7555653, "lon": 6.6376961}, {"name": "Ristorante Pizzeria Hotel Frankenturm", "lat": 49.7569627, "lon": 6.640003}];
-      var indoorPoints = [{"name": "Rheinisches Landesmuseum", "lat": 49.7515591, "lon": 6.6442414}, {"name": "Karl-Marx-Haus", "lat": 49.7539008, "lon": 6.6357225}, {"name": "Spielzeugmuseum", "lat": 49.7569643, "lon": 6.6405237}, {"name": "Stadtmuseum Simeonstift", "lat": 49.7597859, "lon": 6.6435635}];
-      var playgroundPoints = [{"name": "Playground", "lat": 49.759099, "lon": 6.645991}, {"name": "Spielplatz Wilhelm-Rautenstrauch-Park", "lat": 49.758066, "lon": 6.639851}, {"name": "Playground", "lat": 49.762593, "lon": 6.646182}, {"name": "Playground", "lat": 49.763463, "lon": 6.642207}, {"name": "Playground", "lat": 49.75459, "lon": 6.643341}, {"name": "Playground", "lat": 49.760028, "lon": 6.635192}];
+      var poiPoints = [];
+      var parkingPoints = [];
+      var restaurantPoints = [];
+      var familyRestaurantPoints = [];
+      var indoorPoints = [];
+      var playgroundPoints = [];
       var hasGoogle = true;
       var mapInitialized = false;
+      var destTitle = "Trier, Germany";
+      var searchRadius = 5000;
 
       function popupHtml(point){
         if (!point) return "";
         var url = point.maps_url || "";
         if (!url) return point.name;
         return '<a href="' + url + '" target="_blank" rel="noopener">' + point.name + "</a>";
+      }
+
+      function extractCityName(title){
+        if (!title) return "";
+        var main = title.split(",")[0] || "";
+        main = main.replace(/\(.*?\)/g, "").trim();
+        return main;
+      }
+
+      function formatRating(place){
+        if (!place || !place.rating) return "No rating yet";
+        var total = place.user_ratings_total || 0;
+        return place.rating.toFixed(1) + " (" + total + ")";
+      }
+
+      function placeLink(place){
+        if (!place || !place.place_id) return "";
+        return "https://www.google.com/maps/place/?q=place_id:" + place.place_id;
+      }
+
+      function placePopup(place){
+        var link = placeLink(place);
+        var name = place.name || "Place";
+        var rating = formatRating(place);
+        if (link){
+          return '<div><a href="' + link + '" target="_blank" rel="noopener">' + name + '</a><br />' + rating + "</div>";
+        }
+        return "<div>" + name + "<br />" + rating + "</div>";
       }
 
       function initGoogleMap(){
@@ -512,6 +542,7 @@
 
         var bounds = new google.maps.LatLngBounds();
         var markerCount = 0;
+        var fitTimer = null;
         var layers = {
           poi: [],
           parking: [],
@@ -520,15 +551,26 @@
           indoor: [],
           playgrounds: []
         };
+        var infoWindow = new google.maps.InfoWindow();
+        var placeIds = {
+          poi: {},
+          parking: {},
+          restaurants: {},
+          family: {},
+          indoor: {},
+          playgrounds: {}
+        };
 
-        function addMarkers(points, color, key){
-          var markers = layers[key];
-          for (var i = 0; i < points.length; i++){
-            var p = points[i];
-            var marker = new google.maps.Marker({
-              position: { lat: p.lat, lng: p.lon },
+        function addPlaceMarker(place, color, key){
+          if (!place || !place.geometry || !place.geometry.location) return;
+          var idBucket = placeIds[key] || {};
+          if (place.place_id && idBucket[place.place_id]) return;
+          if (place.place_id) idBucket[place.place_id] = true;
+          placeIds[key] = idBucket;
+          var marker = new google.maps.Marker({
+              position: place.geometry.location,
               map: map,
-              title: p.name,
+              title: place.name,
               icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 6,
@@ -538,30 +580,90 @@
                 strokeWeight: 2
               }
             });
-            if (p.maps_url){
-              (function(markerRef, point){
-                var info = new google.maps.InfoWindow({ content: popupHtml(point) });
-                markerRef.addListener("click", function(){ info.open(map, markerRef); });
-              })(marker, p);
+          marker.addListener("click", function(){
+            infoWindow.setContent(placePopup(place));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+          if (fitTimer) clearTimeout(fitTimer);
+          fitTimer = setTimeout(function(){
+            if (markerCount > 0){
+              map.fitBounds(bounds);
             }
-            markers.push(marker);
-            bounds.extend(marker.getPosition());
-            markerCount += 1;
+          }, 800);
+        }
+
+        function addPlaces(results, key, color, limit){
+          if (!results || !results.length) return;
+          var cap = limit || 10;
+          for (var i = 0; i < results.length && i < cap; i++){
+            addPlaceMarker(results[i], color, key);
           }
         }
 
-        addMarkers(poiPoints, "#2b7a78", "poi");
-        addMarkers(parkingPoints, "#f4b942", "parking");
-        addMarkers(restaurantPoints, "#e86f5b", "restaurants");
-        addMarkers(familyRestaurantPoints, "#4a76c9", "family");
-        addMarkers(indoorPoints, "#7a5ca8", "indoor");
-        addMarkers(playgroundPoints, "#4ba3c3", "playgrounds");
+        function nearbySearch(service, request, key, color, limit, next){
+          service.nearbySearch(request, function(results, status){
+            if (status === google.maps.places.PlacesServiceStatus.OK){
+              addPlaces(results, key, color, limit);
+            }
+            if (typeof next === "function") next();
+          });
+        }
 
-        if (markerCount > 0){
-          map.fitBounds(bounds);
-        } else {
-          map.setCenter({ lat: 49.7596208, lng: 6.6441878 });
-          map.setZoom(13);
+        function runSearches(location){
+          var service = new google.maps.places.PlacesService(map);
+          var base = { location: location, radius: searchRadius };
+          nearbySearch(service, Object.assign({}, base, { type: "tourist_attraction" }), "poi", "#2b7a78", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "park" }), "poi", "#2b7a78", 6);
+          nearbySearch(service, Object.assign({}, base, { type: "parking" }), "parking", "#f4b942", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "popular" }), "restaurants", "#e86f5b", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "family friendly" }), "family", "#4a76c9", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "museum" }), "indoor", "#7a5ca8", 8);
+          nearbySearch(service, Object.assign({}, base, { type: "aquarium" }), "indoor", "#7a5ca8", 4);
+          nearbySearch(service, Object.assign({}, base, { type: "playground" }), "playgrounds", "#4ba3c3", 12);
+        }
+
+        function findPopularCenter(locationFallback){
+          var cityName = extractCityName(destTitle);
+          if (!cityName){
+            runSearches(locationFallback);
+            map.setCenter(locationFallback);
+            map.setZoom(13);
+            return;
+          }
+          var service = new google.maps.places.PlacesService(map);
+          var queries = [
+            cityName + " city center",
+            cityName + " downtown",
+            cityName + " main square"
+          ];
+          var index = 0;
+
+          function tryNext(){
+            if (index >= queries.length){
+              runSearches(locationFallback);
+              map.setCenter(locationFallback);
+              map.setZoom(13);
+              return;
+            }
+            service.textSearch({ query: queries[index] }, function(results, status){
+              if (status === google.maps.places.PlacesServiceStatus.OK && results && results.length){
+                var loc = results[0].geometry && results[0].geometry.location;
+                if (loc){
+                  map.setCenter(loc);
+                  map.setZoom(13);
+                  runSearches(loc);
+                  return;
+                }
+              }
+              index += 1;
+              tryNext();
+            });
+          }
+
+          tryNext();
         }
 
         var toggles = document.querySelectorAll(".layer-toggle input");
@@ -577,6 +679,8 @@
           });
         });
 
+        var fallbackLocation = new google.maps.LatLng(49.7596208, 6.6441878);
+        findPopularCenter(fallbackLocation);
         return true;
       }
 
@@ -588,6 +692,7 @@
           maxZoom: 19,
           attribution: "&copy; OpenStreetMap contributors"
         }).addTo(map);
+        var markerCount = 0;
 
         function addPin(layer, p, color){
           var icon = L.divIcon({
@@ -599,6 +704,7 @@
           });
           var popup = popupHtml(p);
           L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+          markerCount += 1;
         }
 
         var poiLayer = L.layerGroup();
@@ -638,11 +744,22 @@
           });
         });
 
-        var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
-        map.fitBounds(all.getBounds().pad(0.15));
+        if (markerCount > 0){
+          var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
+          map.fitBounds(all.getBounds().pad(0.15));
+        } else {
+          map.setView([49.7596208, 6.6441878], 13);
+        }
       }
 
-      if (!hasGoogle){
+      function initDestMapFallback(){
+        if (mapInitialized) return;
+        mapEl.innerHTML = "";
+        initLeafletMap();
+      }
+
+      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      if (!allowGoogle){
         initLeafletMap();
         return;
       }
@@ -654,6 +771,9 @@
         }
       };
 
+      window.initDestMapFallback = initDestMapFallback;
+      window.gm_authFailure = initDestMapFallback;
+
       setTimeout(function(){
         if (!mapInitialized){
           initLeafletMap();
@@ -662,7 +782,7 @@
     })();
   </script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-tcTdDg6bGpjcrc9QQWLKAZWGwgsYyE&callback=initDestMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-tcTdDg6bGpjcrc9QQWLKAZWGwgsYyE&libraries=places&callback=initDestMap" async defer onerror="initDestMapFallback()"></script>
 
     
   <script>

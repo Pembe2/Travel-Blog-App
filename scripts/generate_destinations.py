@@ -329,20 +329,50 @@ def map_section(map_cfg, dest_title):
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = __POI__;
-      var parkingPoints = __PARKING__;
-      var restaurantPoints = __RESTAURANTS__;
-      var familyRestaurantPoints = __FAMILY_RESTAURANTS__;
-      var indoorPoints = __INDOOR__;
-      var playgroundPoints = __PLAYGROUNDS__;
+      var poiPoints = [];
+      var parkingPoints = [];
+      var restaurantPoints = [];
+      var familyRestaurantPoints = [];
+      var indoorPoints = [];
+      var playgroundPoints = [];
       var hasGoogle = __HAS_GOOGLE__;
       var mapInitialized = false;
+      var destTitle = __DEST_TITLE__;
+      var searchRadius = 5000;
 
       function popupHtml(point){
         if (!point) return "";
         var url = point.maps_url || "";
         if (!url) return point.name;
         return '<a href="' + url + '" target="_blank" rel="noopener">' + point.name + "</a>";
+      }
+
+      function extractCityName(title){
+        if (!title) return "";
+        var main = title.split(",")[0] || "";
+        main = main.replace(/\(.*?\)/g, "").trim();
+        return main;
+      }
+
+      function formatRating(place){
+        if (!place || !place.rating) return "No rating yet";
+        var total = place.user_ratings_total || 0;
+        return place.rating.toFixed(1) + " (" + total + ")";
+      }
+
+      function placeLink(place){
+        if (!place || !place.place_id) return "";
+        return "https://www.google.com/maps/place/?q=place_id:" + place.place_id;
+      }
+
+      function placePopup(place){
+        var link = placeLink(place);
+        var name = place.name || "Place";
+        var rating = formatRating(place);
+        if (link){
+          return '<div><a href="' + link + '" target="_blank" rel="noopener">' + name + '</a><br />' + rating + "</div>";
+        }
+        return "<div>" + name + "<br />" + rating + "</div>";
       }
 
       function initGoogleMap(){
@@ -358,6 +388,7 @@ def map_section(map_cfg, dest_title):
 
         var bounds = new google.maps.LatLngBounds();
         var markerCount = 0;
+        var fitTimer = null;
         var layers = {
           poi: [],
           parking: [],
@@ -366,15 +397,26 @@ def map_section(map_cfg, dest_title):
           indoor: [],
           playgrounds: []
         };
+        var infoWindow = new google.maps.InfoWindow();
+        var placeIds = {
+          poi: {},
+          parking: {},
+          restaurants: {},
+          family: {},
+          indoor: {},
+          playgrounds: {}
+        };
 
-        function addMarkers(points, color, key){
-          var markers = layers[key];
-          for (var i = 0; i < points.length; i++){
-            var p = points[i];
-            var marker = new google.maps.Marker({
-              position: { lat: p.lat, lng: p.lon },
+        function addPlaceMarker(place, color, key){
+          if (!place || !place.geometry || !place.geometry.location) return;
+          var idBucket = placeIds[key] || {};
+          if (place.place_id && idBucket[place.place_id]) return;
+          if (place.place_id) idBucket[place.place_id] = true;
+          placeIds[key] = idBucket;
+          var marker = new google.maps.Marker({
+              position: place.geometry.location,
               map: map,
-              title: p.name,
+              title: place.name,
               icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 6,
@@ -384,30 +426,90 @@ def map_section(map_cfg, dest_title):
                 strokeWeight: 2
               }
             });
-            if (p.maps_url){
-              (function(markerRef, point){
-                var info = new google.maps.InfoWindow({ content: popupHtml(point) });
-                markerRef.addListener("click", function(){ info.open(map, markerRef); });
-              })(marker, p);
+          marker.addListener("click", function(){
+            infoWindow.setContent(placePopup(place));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+          if (fitTimer) clearTimeout(fitTimer);
+          fitTimer = setTimeout(function(){
+            if (markerCount > 0){
+              map.fitBounds(bounds);
             }
-            markers.push(marker);
-            bounds.extend(marker.getPosition());
-            markerCount += 1;
+          }, 800);
+        }
+
+        function addPlaces(results, key, color, limit){
+          if (!results || !results.length) return;
+          var cap = limit || 10;
+          for (var i = 0; i < results.length && i < cap; i++){
+            addPlaceMarker(results[i], color, key);
           }
         }
 
-        addMarkers(poiPoints, "#2b7a78", "poi");
-        addMarkers(parkingPoints, "#f4b942", "parking");
-        addMarkers(restaurantPoints, "#e86f5b", "restaurants");
-        addMarkers(familyRestaurantPoints, "#4a76c9", "family");
-        addMarkers(indoorPoints, "#7a5ca8", "indoor");
-        addMarkers(playgroundPoints, "#4ba3c3", "playgrounds");
+        function nearbySearch(service, request, key, color, limit, next){
+          service.nearbySearch(request, function(results, status){
+            if (status === google.maps.places.PlacesServiceStatus.OK){
+              addPlaces(results, key, color, limit);
+            }
+            if (typeof next === "function") next();
+          });
+        }
 
-        if (markerCount > 0){
-          map.fitBounds(bounds);
-        } else {
-          map.setCenter({ lat: __CENTER_LAT__, lng: __CENTER_LON__ });
-          map.setZoom(13);
+        function runSearches(location){
+          var service = new google.maps.places.PlacesService(map);
+          var base = { location: location, radius: searchRadius };
+          nearbySearch(service, Object.assign({}, base, { type: "tourist_attraction" }), "poi", "#2b7a78", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "park" }), "poi", "#2b7a78", 6);
+          nearbySearch(service, Object.assign({}, base, { type: "parking" }), "parking", "#f4b942", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "popular" }), "restaurants", "#e86f5b", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "family friendly" }), "family", "#4a76c9", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "museum" }), "indoor", "#7a5ca8", 8);
+          nearbySearch(service, Object.assign({}, base, { type: "aquarium" }), "indoor", "#7a5ca8", 4);
+          nearbySearch(service, Object.assign({}, base, { type: "playground" }), "playgrounds", "#4ba3c3", 12);
+        }
+
+        function findPopularCenter(locationFallback){
+          var cityName = extractCityName(destTitle);
+          if (!cityName){
+            runSearches(locationFallback);
+            map.setCenter(locationFallback);
+            map.setZoom(13);
+            return;
+          }
+          var service = new google.maps.places.PlacesService(map);
+          var queries = [
+            cityName + " city center",
+            cityName + " downtown",
+            cityName + " main square"
+          ];
+          var index = 0;
+
+          function tryNext(){
+            if (index >= queries.length){
+              runSearches(locationFallback);
+              map.setCenter(locationFallback);
+              map.setZoom(13);
+              return;
+            }
+            service.textSearch({ query: queries[index] }, function(results, status){
+              if (status === google.maps.places.PlacesServiceStatus.OK && results && results.length){
+                var loc = results[0].geometry && results[0].geometry.location;
+                if (loc){
+                  map.setCenter(loc);
+                  map.setZoom(13);
+                  runSearches(loc);
+                  return;
+                }
+              }
+              index += 1;
+              tryNext();
+            });
+          }
+
+          tryNext();
         }
 
         var toggles = document.querySelectorAll(".layer-toggle input");
@@ -423,6 +525,8 @@ def map_section(map_cfg, dest_title):
           });
         });
 
+        var fallbackLocation = new google.maps.LatLng(__CENTER_LAT__, __CENTER_LON__);
+        findPopularCenter(fallbackLocation);
         return true;
       }
 
@@ -434,6 +538,7 @@ def map_section(map_cfg, dest_title):
           maxZoom: 19,
           attribution: "&copy; OpenStreetMap contributors"
         }).addTo(map);
+        var markerCount = 0;
 
         function addPin(layer, p, color){
           var icon = L.divIcon({
@@ -445,6 +550,7 @@ def map_section(map_cfg, dest_title):
           });
           var popup = popupHtml(p);
           L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+          markerCount += 1;
         }
 
         var poiLayer = L.layerGroup();
@@ -484,11 +590,22 @@ def map_section(map_cfg, dest_title):
           });
         });
 
-        var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
-        map.fitBounds(all.getBounds().pad(0.15));
+        if (markerCount > 0){
+          var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
+          map.fitBounds(all.getBounds().pad(0.15));
+        } else {
+          map.setView(__CENTER__, 13);
+        }
       }
 
-      if (!hasGoogle){
+      function initDestMapFallback(){
+        if (mapInitialized) return;
+        mapEl.innerHTML = "";
+        initLeafletMap();
+      }
+
+      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      if (!allowGoogle){
         initLeafletMap();
         return;
       }
@@ -500,6 +617,9 @@ def map_section(map_cfg, dest_title):
         }
       };
 
+      window.initDestMapFallback = initDestMapFallback;
+      window.gm_authFailure = initDestMapFallback;
+
       setTimeout(function(){
         if (!mapInitialized){
           initLeafletMap();
@@ -510,12 +630,6 @@ def map_section(map_cfg, dest_title):
 __GOOGLE_SCRIPT__
     """
 
-    js = js.replace("__POI__", js_array(map_cfg.get("poi", [])))
-    js = js.replace("__PARKING__", js_array(map_cfg.get("parking", [])))
-    js = js.replace("__RESTAURANTS__", js_array(map_cfg.get("restaurants", [])))
-    js = js.replace("__FAMILY_RESTAURANTS__", js_array(map_cfg.get("family_restaurants", [])))
-    js = js.replace("__INDOOR__", js_array(map_cfg.get("indoor", [])))
-    js = js.replace("__PLAYGROUNDS__", js_array(map_cfg.get("playgrounds", [])))
     js = js.replace("__CENTER__", json.dumps([center["lat"], center["lon"]], ensure_ascii=True))
     js = js.replace("__CENTER_LAT__", json.dumps(center["lat"], ensure_ascii=True))
     js = js.replace("__CENTER_LON__", json.dumps(center["lon"], ensure_ascii=True))
@@ -524,8 +638,8 @@ __GOOGLE_SCRIPT__
     google_script = ""
     if GOOGLE_MAPS_API_KEY:
         google_script = (
-            f'\n  <script src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_MAPS_API_KEY}&callback=initDestMap" '
-            'async defer></script>\n'
+            f'\n  <script src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_MAPS_API_KEY}'
+            '&libraries=places&callback=initDestMap" async defer onerror="initDestMapFallback()"></script>\n'
         )
     js = js.replace("__GOOGLE_SCRIPT__", google_script)
 

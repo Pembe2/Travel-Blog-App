@@ -483,20 +483,50 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [{"name": "Corvara village center", "lat": 46.5536, "lon": 11.8721, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20village%20center%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "La Villa village", "lat": 46.5866, "lon": 11.8929, "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20village%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "San Cassiano", "lat": 46.5695, "lon": 11.9325, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Cassiano%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Pralongia plateau", "lat": 46.5612, "lon": 11.8469, "maps_url": "https://www.google.com/maps/search/?api=1&query=Pralongia%20plateau%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Santa Croce valley", "lat": 46.5496, "lon": 11.9134, "maps_url": "https://www.google.com/maps/search/?api=1&query=Santa%20Croce%20valley%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
-      var parkingPoints = [{"name": "Corvara Boe gondola parking", "lat": 46.5532, "lon": 11.8751, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20Boe%20gondola%20parking%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "La Villa center parking", "lat": 46.5862, "lon": 11.8933, "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20center%20parking%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
-      var restaurantPoints = [{"name": "Rifugio Bioch", "lat": 46.5598, "lon": 11.8632, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Bioch%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Rifugio Pralongia", "lat": 46.5607, "lon": 11.8406, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Pralongia%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
-      var familyRestaurantPoints = [{"name": "Corvara pizza and pasta", "lat": 46.5535, "lon": 11.8716, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20pizza%20and%20pasta%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "San Cassiano family trattoria", "lat": 46.5692, "lon": 11.9321, "maps_url": "https://www.google.com/maps/search/?api=1&query=San%20Cassiano%20family%20trattoria%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
-      var indoorPoints = [{"name": "Museum Ladin Ursus ladinicus", "lat": 46.5697, "lon": 11.9328, "maps_url": "https://www.google.com/maps/search/?api=1&query=Museum%20Ladin%20Ursus%20ladinicus%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Alta Badia visitor center exhibit", "lat": 46.5538, "lon": 11.8726, "maps_url": "https://www.google.com/maps/search/?api=1&query=Alta%20Badia%20visitor%20center%20exhibit%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "Indoor ice rink in Corvara", "lat": 46.5539, "lon": 11.8708, "maps_url": "https://www.google.com/maps/search/?api=1&query=Indoor%20ice%20rink%20in%20Corvara%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
-      var playgroundPoints = [{"name": "Corvara playground", "lat": 46.5531, "lon": 11.8712, "maps_url": "https://www.google.com/maps/search/?api=1&query=Corvara%20playground%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}, {"name": "La Villa playground", "lat": 46.5861, "lon": 11.8924, "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Villa%20playground%20Alta%20Badia%20%28Corvara%20%2B%20La%20Villa%20%2B%20San%20Cassiano%29%2C%20Italy"}];
+      var poiPoints = [];
+      var parkingPoints = [];
+      var restaurantPoints = [];
+      var familyRestaurantPoints = [];
+      var indoorPoints = [];
+      var playgroundPoints = [];
       var hasGoogle = true;
       var mapInitialized = false;
+      var destTitle = "Alta Badia (Corvara + La Villa + San Cassiano), Italy";
+      var searchRadius = 5000;
 
       function popupHtml(point){
         if (!point) return "";
         var url = point.maps_url || "";
         if (!url) return point.name;
         return '<a href="' + url + '" target="_blank" rel="noopener">' + point.name + "</a>";
+      }
+
+      function extractCityName(title){
+        if (!title) return "";
+        var main = title.split(",")[0] || "";
+        main = main.replace(/\(.*?\)/g, "").trim();
+        return main;
+      }
+
+      function formatRating(place){
+        if (!place || !place.rating) return "No rating yet";
+        var total = place.user_ratings_total || 0;
+        return place.rating.toFixed(1) + " (" + total + ")";
+      }
+
+      function placeLink(place){
+        if (!place || !place.place_id) return "";
+        return "https://www.google.com/maps/place/?q=place_id:" + place.place_id;
+      }
+
+      function placePopup(place){
+        var link = placeLink(place);
+        var name = place.name || "Place";
+        var rating = formatRating(place);
+        if (link){
+          return '<div><a href="' + link + '" target="_blank" rel="noopener">' + name + '</a><br />' + rating + "</div>";
+        }
+        return "<div>" + name + "<br />" + rating + "</div>";
       }
 
       function initGoogleMap(){
@@ -512,6 +542,7 @@
 
         var bounds = new google.maps.LatLngBounds();
         var markerCount = 0;
+        var fitTimer = null;
         var layers = {
           poi: [],
           parking: [],
@@ -520,15 +551,26 @@
           indoor: [],
           playgrounds: []
         };
+        var infoWindow = new google.maps.InfoWindow();
+        var placeIds = {
+          poi: {},
+          parking: {},
+          restaurants: {},
+          family: {},
+          indoor: {},
+          playgrounds: {}
+        };
 
-        function addMarkers(points, color, key){
-          var markers = layers[key];
-          for (var i = 0; i < points.length; i++){
-            var p = points[i];
-            var marker = new google.maps.Marker({
-              position: { lat: p.lat, lng: p.lon },
+        function addPlaceMarker(place, color, key){
+          if (!place || !place.geometry || !place.geometry.location) return;
+          var idBucket = placeIds[key] || {};
+          if (place.place_id && idBucket[place.place_id]) return;
+          if (place.place_id) idBucket[place.place_id] = true;
+          placeIds[key] = idBucket;
+          var marker = new google.maps.Marker({
+              position: place.geometry.location,
               map: map,
-              title: p.name,
+              title: place.name,
               icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 6,
@@ -538,30 +580,90 @@
                 strokeWeight: 2
               }
             });
-            if (p.maps_url){
-              (function(markerRef, point){
-                var info = new google.maps.InfoWindow({ content: popupHtml(point) });
-                markerRef.addListener("click", function(){ info.open(map, markerRef); });
-              })(marker, p);
+          marker.addListener("click", function(){
+            infoWindow.setContent(placePopup(place));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+          if (fitTimer) clearTimeout(fitTimer);
+          fitTimer = setTimeout(function(){
+            if (markerCount > 0){
+              map.fitBounds(bounds);
             }
-            markers.push(marker);
-            bounds.extend(marker.getPosition());
-            markerCount += 1;
+          }, 800);
+        }
+
+        function addPlaces(results, key, color, limit){
+          if (!results || !results.length) return;
+          var cap = limit || 10;
+          for (var i = 0; i < results.length && i < cap; i++){
+            addPlaceMarker(results[i], color, key);
           }
         }
 
-        addMarkers(poiPoints, "#2b7a78", "poi");
-        addMarkers(parkingPoints, "#f4b942", "parking");
-        addMarkers(restaurantPoints, "#e86f5b", "restaurants");
-        addMarkers(familyRestaurantPoints, "#4a76c9", "family");
-        addMarkers(indoorPoints, "#7a5ca8", "indoor");
-        addMarkers(playgroundPoints, "#4ba3c3", "playgrounds");
+        function nearbySearch(service, request, key, color, limit, next){
+          service.nearbySearch(request, function(results, status){
+            if (status === google.maps.places.PlacesServiceStatus.OK){
+              addPlaces(results, key, color, limit);
+            }
+            if (typeof next === "function") next();
+          });
+        }
 
-        if (markerCount > 0){
-          map.fitBounds(bounds);
-        } else {
-          map.setCenter({ lat: 46.5536, lng: 11.8721 });
-          map.setZoom(13);
+        function runSearches(location){
+          var service = new google.maps.places.PlacesService(map);
+          var base = { location: location, radius: searchRadius };
+          nearbySearch(service, Object.assign({}, base, { type: "tourist_attraction" }), "poi", "#2b7a78", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "park" }), "poi", "#2b7a78", 6);
+          nearbySearch(service, Object.assign({}, base, { type: "parking" }), "parking", "#f4b942", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "popular" }), "restaurants", "#e86f5b", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "family friendly" }), "family", "#4a76c9", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "museum" }), "indoor", "#7a5ca8", 8);
+          nearbySearch(service, Object.assign({}, base, { type: "aquarium" }), "indoor", "#7a5ca8", 4);
+          nearbySearch(service, Object.assign({}, base, { type: "playground" }), "playgrounds", "#4ba3c3", 12);
+        }
+
+        function findPopularCenter(locationFallback){
+          var cityName = extractCityName(destTitle);
+          if (!cityName){
+            runSearches(locationFallback);
+            map.setCenter(locationFallback);
+            map.setZoom(13);
+            return;
+          }
+          var service = new google.maps.places.PlacesService(map);
+          var queries = [
+            cityName + " city center",
+            cityName + " downtown",
+            cityName + " main square"
+          ];
+          var index = 0;
+
+          function tryNext(){
+            if (index >= queries.length){
+              runSearches(locationFallback);
+              map.setCenter(locationFallback);
+              map.setZoom(13);
+              return;
+            }
+            service.textSearch({ query: queries[index] }, function(results, status){
+              if (status === google.maps.places.PlacesServiceStatus.OK && results && results.length){
+                var loc = results[0].geometry && results[0].geometry.location;
+                if (loc){
+                  map.setCenter(loc);
+                  map.setZoom(13);
+                  runSearches(loc);
+                  return;
+                }
+              }
+              index += 1;
+              tryNext();
+            });
+          }
+
+          tryNext();
         }
 
         var toggles = document.querySelectorAll(".layer-toggle input");
@@ -577,6 +679,8 @@
           });
         });
 
+        var fallbackLocation = new google.maps.LatLng(46.5536, 11.8721);
+        findPopularCenter(fallbackLocation);
         return true;
       }
 
@@ -588,6 +692,7 @@
           maxZoom: 19,
           attribution: "&copy; OpenStreetMap contributors"
         }).addTo(map);
+        var markerCount = 0;
 
         function addPin(layer, p, color){
           var icon = L.divIcon({
@@ -599,6 +704,7 @@
           });
           var popup = popupHtml(p);
           L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+          markerCount += 1;
         }
 
         var poiLayer = L.layerGroup();
@@ -638,11 +744,22 @@
           });
         });
 
-        var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
-        map.fitBounds(all.getBounds().pad(0.15));
+        if (markerCount > 0){
+          var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
+          map.fitBounds(all.getBounds().pad(0.15));
+        } else {
+          map.setView([46.5536, 11.8721], 13);
+        }
       }
 
-      if (!hasGoogle){
+      function initDestMapFallback(){
+        if (mapInitialized) return;
+        mapEl.innerHTML = "";
+        initLeafletMap();
+      }
+
+      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      if (!allowGoogle){
         initLeafletMap();
         return;
       }
@@ -654,6 +771,9 @@
         }
       };
 
+      window.initDestMapFallback = initDestMapFallback;
+      window.gm_authFailure = initDestMapFallback;
+
       setTimeout(function(){
         if (!mapInitialized){
           initLeafletMap();
@@ -662,7 +782,7 @@
     })();
   </script>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-tcTdDg6bGpjcrc9QQWLKAZWGwgsYyE&callback=initDestMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-tcTdDg6bGpjcrc9QQWLKAZWGwgsYyE&libraries=places&callback=initDestMap" async defer onerror="initDestMapFallback()"></script>
 
     
   <script>
