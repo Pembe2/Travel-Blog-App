@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dome_of_Cattedrale_di_Santa_Maria_del_Fiore_%28Florence%29.jpg?width=1600" alt="Florence, Italy view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Florence%2C_Italy%2C_The_Rape_of_Polyxena.jpg?width=1600" alt="Florence, Italy landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/FlorenceSkyline.jpg?width=1600" alt="Florence, Italy scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Florence_Duomo_from_Michelangelo_hill.jpg?width=1600" alt="Florence, Italy waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Florence_from_the_Duomo_terrace_%2861408p%29.jpg?width=1600" alt="Florence, Italy streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Glory_of_Florentine_Saints_on_the_dome_in_San_Lorenzo_%28Florence%29.jpg?width=1600" alt="Florence, Italy skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/FirenzeDec092023_01.jpg?width=1200" alt="Florence skyline" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Fly | 1h 35m (from Frankfurt)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>4 to 5 days</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

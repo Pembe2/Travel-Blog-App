@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../day-trips-car.html">Back to Day Trips by Car</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Aerial_image_of_the_Speyer_Cathedral_%28view_from_the_southwest%29.jpg?width=1600" alt="Speyer, Germany view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speyer_-_Altstadt_-_Altp%C3%B6rtel_-_Blick_auf_Domfassade_und_Kircht%C3%BCrme_mit_Abendsonne.jpg?width=1600" alt="Speyer, Germany landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speyer_-_Altstadt_-_Altp%C3%B6rtel_-_Blick_auf_Ged%C3%A4chtniskirche_und_St._Joseph_mit_Sonnenuntergang.jpg?width=1600" alt="Speyer, Germany scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speyer_-_Altstadt_-_Dreifaltigkeitskirche_-_Deckengem%C3%A4lde_-_Ansicht_1.jpg?width=1600" alt="Speyer, Germany waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speyer_-_Altstadt_-_Dreifaltigkeitskirche_-_Deckengem%C3%A4lde_-_Ansicht_2.jpg?width=1600" alt="Speyer, Germany streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speyer_-_Altstadt_-_Ged%C3%A4chtniskirche_der_Protestation_-_Erdgeschossfenster_-_Der_zw%C3%B6lfj%C3%A4hrige_Jesus_im_Tempel.jpg?width=1600" alt="Speyer, Germany skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Speyer_Dom_Luft.jpg?width=1200" alt="Speyer Cathedral aerial view" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Drive | 1h 10m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>1 day</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

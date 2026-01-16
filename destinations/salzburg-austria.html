@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../trips-car.html">Back to Trips by Car</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Salzburgo%2C_Salzburgo%2C_Austria%2C_2019-05-19%2C_DD_30-32_HDR.jpg?width=1600" alt="Salzburg, Austria view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Catedral_de_Salzburgo%2C_Salzburgo%2C_Austria%2C_2019-05-19%2C_DD_33-35_HDR.jpg?width=1600" alt="Salzburg, Austria landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salzburg_%2848489551981%29.jpg?width=1600" alt="Salzburg, Austria scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salzburg_-_Panorama_%28nachts%29_-_CN.jpg?width=1600" alt="Salzburg, Austria waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salzburg_Altstadt_Panorama_20170409_02.jpg?width=1600" alt="Salzburg, Austria streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salzburg_Dom_Kuppel_01.jpg?width=1600" alt="Salzburg, Austria skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Salzburg_%2848489551981%29.jpg?width=1200" alt="Salzburg old town" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Drive | 5 to 6 hours (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>4 days</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

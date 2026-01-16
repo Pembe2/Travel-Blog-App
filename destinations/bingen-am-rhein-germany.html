@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../day-trips-train.html">Back to Day Trips by Train</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bingen_-_Rhein_Nahe_Eck_-_1.jpg?width=1600" alt="Bingen am Rhein, Germany view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bingen_-_Rhein_Nahe_Eck_-_2.jpg?width=1600" alt="Bingen am Rhein, Germany landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bingen_-_Rhein_Nahe_Eck_-_3.jpg?width=1600" alt="Bingen am Rhein, Germany scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bingen_-_Rhein_Nahe_Eck_-_4.jpg?width=1600" alt="Bingen am Rhein, Germany waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bingen_am_Rhein%2C_1901-1922.jpg?width=1600" alt="Bingen am Rhein, Germany streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bingen_am_Rhein_Hafenpark_%2801%29_Liesel_Metten_Einh%C3%B6rner_Widder.jpg?width=1600" alt="Bingen am Rhein, Germany skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bingen_above.jpg?width=1200" alt="Bingen am Rhein river view" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Train | 1h 30m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>1 day</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

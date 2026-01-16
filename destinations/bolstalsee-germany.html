@@ -783,7 +783,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle;
+      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
       if (!allowGoogle){
         initLeafletMap();
         return;

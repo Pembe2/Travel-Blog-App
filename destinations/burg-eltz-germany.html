@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../day-trips-car.html">Back to Day Trips by Car</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/00_4240_Burg_Eltz_in_Rheinland-Pfalz.jpg?width=1600" alt="Burg Eltz, Germany view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/00_4244_Burg_Eltz_in_Rheinland-Pfalz_%28Wierschen%29.jpg?width=1600" alt="Burg Eltz, Germany landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Burg-Eltz-011-b.jpg?width=1600" alt="Burg Eltz, Germany scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Burg_Eltz%2C_northwest_view_20240608_1.jpg?width=1600" alt="Burg Eltz, Germany waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Burg_Eltz_1.jpg?width=1600" alt="Burg Eltz, Germany streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Burg_Eltz_5.jpg?width=1600" alt="Burg Eltz, Germany skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Le_ch%C3%A2teau_d%27Eltz_%28Burg_Eltz%29_en_allemagne_%28cropped%29.jpg?width=1200" alt="Burg Eltz castle" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Drive | 1h 35m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>1 day</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

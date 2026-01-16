@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../trips-car.html">Back to Trips by Car</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Berth_in_Peschiera_del_Garda._Lake_Garda%2C_Italy.jpg?width=1600" alt="Lake Garda, Italy view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Boat_jetty._Lake_Garda%2C_Italy.jpg?width=1600" alt="Lake Garda, Italy landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago_di_Garda_-_Garda_-_Via_Guglielmo_Marconi%2C_Esplanade_at_the_Lake_-_April_2010_07.jpg?width=1600" alt="Lake Garda, Italy scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lago_di_Garda_-_Garda_-_Via_Verona%2C_Esplanade_at_the_Lake_-_April_2010_01.jpg?width=1600" alt="Lake Garda, Italy waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Garda_-_View_from_Monte_Baldo.jpg?width=1600" alt="Lake Garda, Italy streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Louisa_Starr_Canziani_-_Garda_Street_Scene%2C_Lake_Garda%2C_Italy_-_1978P653.2_-_Birmingham_Museums_Trust.jpg?width=1600" alt="Lake Garda, Italy skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/La_Rocca_di_Manerba_del_Garda_con_l%27isola_dei_Conigli.jpg?width=1200" alt="Lake Garda shoreline" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Drive | 6 to 7 hours (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>4 to 5 days</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../day-trips-train.html">Back to Day Trips by Train</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dreik%C3%B6nigenhaus_Koblenz_Relief_%282011-07-10_Sp%29.JPG?width=1600" alt="Koblenz, Germany view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/FGS_Marksburg_in_Koblenz_%282011-07-17_Sp%29.JPG?width=1600" alt="Koblenz, Germany landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koblenz%2C_S%C3%BCdbr%C3%BCcke_26.03.1972_%28Sp_2b%29.JPG?width=1600" alt="Koblenz, Germany scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koblenz-Kesselheim%2C_Friedhofskreuz_%282012-03-22%29.JPG?width=1600" alt="Koblenz, Germany waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koblenz_-_Basilika_St._Kastor_Westfassade.jpg?width=1600" alt="Koblenz, Germany streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koblenz_-_Panorama_von_Festung_Ehrenbreitstein.jpg?width=1600" alt="Koblenz, Germany skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Koblenz_im_Buga-Jahr_2011_-_Deutsches_Eck_01.jpg?width=1200" alt="Deutsches Eck in Koblenz" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Train | 2h 12m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>1 day</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

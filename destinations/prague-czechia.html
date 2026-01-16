@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../trips-train.html">Back to Trips by Train</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/20190817_View_of_Prague_Castle_from_Pet%C5%99%C3%ADn_1345_5542.jpg?width=1600" alt="Prague, Czechia view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Narodni_Divadlo%2C_Estates_Theater%2C_Prague_-_8638.jpg?width=1600" alt="Prague, Czechia landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/PragueCathedral03.jpg?width=1600" alt="Prague, Czechia scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Prague_07-2016_Charles_Bridge_John_of_Nepomuk_statue_img1.jpg?width=1600" alt="Prague, Czechia waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Prague_07-2016_View_from_Old_Town_Hall_Tower_img3.jpg?width=1600" alt="Prague, Czechia streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Prague_Panorama_-_Oct_2010.jpg?width=1600" alt="Prague, Czechia skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Prague_%286365119737%29.jpg?width=1200" alt="Old Town Prague" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Train | 8h 56m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>4 days</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

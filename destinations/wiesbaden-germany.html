@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../day-trips-train.html">Back to Day Trips by Train</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/13-02-27-spielbank-wiesbaden-by-RalfR-093.jpg?width=1600" alt="Wiesbaden, Germany view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Biebricher_Wasserturm%2C_Wiesbaden%2C_170416%2C_ako.jpg?width=1600" alt="Wiesbaden, Germany landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Marktkirche%2C_Wiesbaden%2C_Nave_view_20200613_1.jpg?width=1600" alt="Wiesbaden, Germany scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Opelbad%2C_Wiesbaden_%28P1090536%29.jpg?width=1600" alt="Wiesbaden, Germany waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/St._Bonifatius%2C_Wiesbaden%2C_Choir_20200613_6.jpg?width=1600" alt="Wiesbaden, Germany streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wiesbaden_BW_2017-04-24_17-30-23.jpg?width=1600" alt="Wiesbaden, Germany skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wiesbaden_BW_2017-04-24_20-51-36.jpg?width=1200" alt="Wiesbaden city center" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Train | 2h 2m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>1 day</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

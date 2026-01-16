@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ponte_Vittorio_Emanuele_II_San_Pietro%2C_Rome%2C_Italy.jpg?width=1600" alt="Rome, Italy view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rome_%28Italy%29%2C_Piazza_della_Rotonda%2C_Hub_of_a_Coach_--_2013_--_10.jpg?width=1600" alt="Rome, Italy landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Saint_Peter%27s_Basilica%2C_Sant%27Angelo_bridge%2C_by_night%2C_Rome%2C_Italy.jpg?width=1600" alt="Rome, Italy scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/San_Stanislao_dei_Polacchi_%28Rome%29_-_Ceiling.jpg?width=1600" alt="Rome, Italy waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sant%27Angelo_bridge%2C_dusk%2C_Rome%2C_Italy.jpg?width=1600" alt="Rome, Italy streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/StAngelo_Bridge_Rome.jpg?width=1600" alt="Rome, Italy skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg?width=1200" alt="Trevi Fountain in Rome" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Fly | 1h 50m (from Frankfurt)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>4 to 5 days</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

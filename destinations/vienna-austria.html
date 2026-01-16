@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../trips-train.html">Back to Trips by Train</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/2014-12-18_Fortuna%2C_Johannes_Benk_at_Neue_Burg%2C_Vienna_-hu-_6224.jpg?width=1600" alt="Vienna, Austria view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/20250502_B%C3%A4ckerstra%C3%9Fe_7_Vienna_01.jpg?width=1600" alt="Vienna, Austria landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ceiling_of_Wien_Hauptbahnhof_%28Vienna_Main_Station%29%2C_Austria_01.jpg?width=1600" alt="Vienna, Austria scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Iglesia_de_San_Carlos_Borromeo%2C_Viena%2C_Austria%2C_2020-01-31%2C_DD_164-166_HDR.jpg?width=1600" alt="Vienna, Austria waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Palacio_Belvedere%2C_Viena%2C_Austria%2C_2020-02-01%2C_DD_93-95_HDR.jpg?width=1600" alt="Vienna, Austria streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Palacio_de_Sch%C3%B6nbrunn%2C_Viena%2C_Austria%2C_2020-02-02%2C_DD_10.jpg?width=1600" alt="Vienna, Austria skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Schoenbrunn_philharmoniker_2012.jpg?width=1200" alt="Schonbrunn Palace in Vienna" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Train | 8h 13m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>4 to 5 days</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

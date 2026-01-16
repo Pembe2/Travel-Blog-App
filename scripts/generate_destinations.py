@@ -1,6 +1,8 @@
 import json
 import os
 import re
+import urllib.parse
+import urllib.request
 from urllib.parse import urlparse
 from pathlib import Path
 
@@ -10,6 +12,7 @@ DATA_PATH = ROOT / "data" / "destinations.json"
 TEMPLATE_PATH = ROOT / "templates" / "destination.html"
 INDEX_PATH = ROOT / "index.html"
 GOOGLE_MAPS_API_KEY = os.environ.get("GOOGLE_MAPS_API_KEY", "").strip()
+PHOTO_SEARCH_LIMIT = 6
 
 
 def load_base_css():
@@ -51,6 +54,83 @@ def normalize_wikimedia_url(src, width=None):
     if width:
         file_path += f"?width={int(width)}"
     return file_path
+
+
+def commons_search(query, limit=8):
+    if not query:
+        return []
+    params = {
+        "action": "query",
+        "format": "json",
+        "generator": "search",
+        "gsrsearch": query,
+        "gsrlimit": limit,
+        "gsrnamespace": 6,
+        "prop": "imageinfo",
+        "iiprop": "url",
+    }
+    url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(url, headers={"User-Agent": "KMC-Exploration/1.0"})
+    try:
+        with urllib.request.urlopen(req, timeout=20) as resp:
+            data = json.load(resp)
+    except Exception:
+        return []
+    pages = data.get("query", {}).get("pages", {})
+    results = []
+    for page in pages.values():
+        info = (page.get("imageinfo") or [{}])[0]
+        img_url = info.get("url") or ""
+        if not img_url:
+            continue
+        lower = img_url.lower()
+        if not (lower.endswith(".jpg") or lower.endswith(".jpeg") or lower.endswith(".png")):
+            continue
+        results.append(img_url)
+    return results
+
+
+def fetch_commons_photos(title, count=PHOTO_SEARCH_LIMIT):
+    if not title:
+        return []
+    queries = [
+        title,
+        f"{title} skyline",
+        f"{title} cathedral",
+        f"{title} old town",
+        f"{title} river",
+        f"{title} park",
+    ]
+    photos = []
+    seen = set()
+    for q in queries:
+        for url in commons_search(q, limit=8):
+            if url in seen:
+                continue
+            seen.add(url)
+            photos.append(url)
+            if len(photos) >= count:
+                return photos
+    return photos
+
+
+def apply_auto_photos(dest):
+    existing = dest.get("photo_deck") or []
+    if existing:
+        return
+    title = dest.get("title", "").strip()
+    photos = fetch_commons_photos(title, count=PHOTO_SEARCH_LIMIT)
+    if not photos:
+        return
+    alt_base = title if title else "Destination"
+    alt_suffixes = ["view", "landmark", "scene", "waterfront", "streetscape", "skyline"]
+    deck = []
+    for idx, url in enumerate(photos):
+        suffix = alt_suffixes[idx % len(alt_suffixes)]
+        deck.append({"src": url, "alt": f"{alt_base} {suffix}"})
+    dest["photo_deck"] = deck
+    dest["image"] = photos[0]
+    dest["alt"] = f"{alt_base} view"
 
 
 EXTRA_CSS = """
@@ -1280,6 +1360,7 @@ def main():
     dest_dir.mkdir(parents=True, exist_ok=True)
 
     for dest in data:
+        apply_auto_photos(dest)
         html = build_page(dest, template, styles)
         (dest_dir / f"{dest['slug']}.html").write_text(html, encoding="utf-8")
 

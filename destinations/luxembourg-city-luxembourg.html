@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../day-trips-car.html">Back to Day Trips by Car</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Abad%C3%ADa_Neum%C3%BCnster%2C_ciudad_de_Luxemburgo%2C_Luxemburgo%2C_2023-12-17%2C_DD_22-24_HDR.jpg?width=1600" alt="Luxembourg City, Luxembourg view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/BCEE_Place_de_Metz_Luxembourg_2013_01.jpg?width=1600" alt="Luxembourg City, Luxembourg landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/City_Hall_of_Luxembourg_City_01.jpg?width=1600" alt="Luxembourg City, Luxembourg scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Luxemb_City_Hotel_de_ville_01.jpg?width=1600" alt="Luxembourg City, Luxembourg waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Luxembourg_City_-_Sch%C3%A9ieschlach_depuis_Rempart.jpg?width=1600" alt="Luxembourg City, Luxembourg streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Luxembourg_City_Chambre_des_d%C3%A9put%C3%A9s_Nov_2009.jpg?width=1600" alt="Luxembourg City, Luxembourg skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Luxembourg_Grand_Ducal_Palace_01.jpg?width=1200" alt="Grand Ducal Palace in Luxembourg City" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Drive | 1h 10m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>1 day</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");

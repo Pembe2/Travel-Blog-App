@@ -368,8 +368,8 @@
       <div class="breadcrumb"><a href="../day-trips-car.html">Back to Day Trips by Car</a></div>
       <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
+        <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Heidelberg%2C_Baden-W%C3%BCrttemberg%2C_Germany_-_Stadtansichten_im_Winter_07.jpg?width=1600" alt="Heidelberg, Germany view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Heidelberg%2C_Baden-W%C3%BCrttemberg%2C_Germany_-_Stadtansichten_im_Winter_09.jpg?width=1600" alt="Heidelberg, Germany landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Heidelberg_Altstadt_Schloss_Luftbild.JPG?width=1600" alt="Heidelberg, Germany scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Heidelberg_Castle_-_Friedrichsbau_Facade_-_3.jpg?width=1600" alt="Heidelberg, Germany waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Heidelberg_St._Bonifatius_20100629-EditMylius.jpg?width=1600" alt="Heidelberg, Germany streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Heidelberg_corr.jpg?width=1600" alt="Heidelberg, Germany skyline" loading="lazy" decoding="async" /></div></div>
         
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/K%C3%B6nigstuhl%2C_Heidelberg%2C_U-17.jpg?width=1200" alt="Heidelberg hillside and river" loading="lazy" decoding="async" />
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Drive | 1h 20m (from Landstuhl)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>1 day</p></div>
@@ -421,6 +421,27 @@
     </main>
   </div>
 
+  <script>
+    (function(){
+      var shows = document.querySelectorAll("[data-slideshow='1']");
+      for (var i = 0; i < shows.length; i++){
+        (function(wrapper){
+          var slides = wrapper.querySelectorAll(".slide");
+          if (!slides.length) return;
+          var index = 0;
+          function setSlide(next){
+            index = (next + slides.length) % slides.length;
+            for (var j = 0; j < slides.length; j++){
+              slides[j].classList.toggle("active", j === index);
+            }
+          }
+          setSlide(0);
+          setInterval(function(){ setSlide(index + 1); }, 10000);
+        })(shows[i]);
+      }
+    })();
+  </script>
+    
   <script>
     (function(){
       var section = document.querySelector(".notes");
