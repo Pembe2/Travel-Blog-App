@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Siusi allo Sciliar center", "lat": 46.5512, "lon": 11.6204, "maps_url": "https://www.google.com/maps/search/?api=1&query=Siusi%20allo%20Sciliar%20center%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Castelrotto (Kastelruth)", "lat": 46.5668, "lon": 11.5614, "maps_url": "https://www.google.com/maps/search/?api=1&query=Castelrotto%20%28Kastelruth%29%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Compatsch base area", "lat": 46.5564, "lon": 11.6692, "maps_url": "https://www.google.com/maps/search/?api=1&query=Compatsch%20base%20area%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Alpe di Siusi meadows", "lat": 46.5612, "lon": 11.6831, "maps_url": "https://www.google.com/maps/search/?api=1&query=Alpe%20di%20Siusi%20meadows%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Bullaccia viewpoint", "lat": 46.5727, "lon": 11.6138, "maps_url": "https://www.google.com/maps/search/?api=1&query=Bullaccia%20viewpoint%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}];
+      var parkingPoints = [{"name": "Seiser Alm Bahn parking", "lat": 46.5585, "lon": 11.6039, "maps_url": "https://www.google.com/maps/search/?api=1&query=Seiser%20Alm%20Bahn%20parking%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Castelrotto parking", "lat": 46.5671, "lon": 11.5622, "maps_url": "https://www.google.com/maps/search/?api=1&query=Castelrotto%20parking%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}];
+      var restaurantPoints = [{"name": "Gostner Schwaige", "lat": 46.5389, "lon": 11.6793, "maps_url": "https://www.google.com/maps/search/?api=1&query=Gostner%20Schwaige%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Malga Sanon", "lat": 46.5589, "lon": 11.6439, "maps_url": "https://www.google.com/maps/search/?api=1&query=Malga%20Sanon%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}];
+      var familyRestaurantPoints = [{"name": "Compatsch mountain huts", "lat": 46.5564, "lon": 11.6692, "maps_url": "https://www.google.com/maps/search/?api=1&query=Compatsch%20mountain%20huts%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Siusi family trattoria", "lat": 46.5513, "lon": 11.6209, "maps_url": "https://www.google.com/maps/search/?api=1&query=Siusi%20family%20trattoria%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}];
+      var indoorPoints = [{"name": "Sciliar Nature Park visitor center", "lat": 46.5517, "lon": 11.6212, "maps_url": "https://www.google.com/maps/search/?api=1&query=Sciliar%20Nature%20Park%20visitor%20center%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Kastelruth parish museum", "lat": 46.5669, "lon": 11.5616, "maps_url": "https://www.google.com/maps/search/?api=1&query=Kastelruth%20parish%20museum%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Local history exhibit in Siusi", "lat": 46.5514, "lon": 11.6207, "maps_url": "https://www.google.com/maps/search/?api=1&query=Local%20history%20exhibit%20in%20Siusi%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}];
+      var playgroundPoints = [{"name": "Siusi playground", "lat": 46.5511, "lon": 11.6215, "maps_url": "https://www.google.com/maps/search/?api=1&query=Siusi%20playground%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}, {"name": "Castelrotto playground", "lat": 46.5665, "lon": 11.5607, "maps_url": "https://www.google.com/maps/search/?api=1&query=Castelrotto%20playground%20Alpe%20di%20Siusi%20%28Siusi%20allo%20Sciliar%20%2B%20Castelrotto%29%2C%20Italy"}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Alpe di Siusi (Siusi allo Sciliar + Castelrotto), Italy";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(46.5512, 11.6204);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

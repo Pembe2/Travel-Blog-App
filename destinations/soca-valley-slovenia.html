@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Soca River Trail (Bovec)", "lat": 46.3383, "lon": 13.552}, {"name": "Kozjak Waterfall", "lat": 46.2475, "lon": 13.5715}, {"name": "Tolmin Gorge", "lat": 46.1832, "lon": 13.733}, {"name": "Bovec Town Center", "lat": 46.3388, "lon": 13.5524}];
+      var parkingPoints = [{"name": "Bovec Town Parking", "lat": 46.3386, "lon": 13.5527}, {"name": "Kobarid Parking", "lat": 46.2472, "lon": 13.5795}, {"name": "Tolmin Gorge Parking", "lat": 46.1871, "lon": 13.7261}];
+      var restaurantPoints = [{"name": "Gostilna in Pizzeria Letni Vrt", "lat": 46.3381, "lon": 13.5522}, {"name": "Gostilna Pri Mostu", "lat": 46.2476, "lon": 13.5791}];
+      var familyRestaurantPoints = [{"name": "Pizzeria Bocca", "lat": 46.3389, "lon": 13.5529}];
+      var indoorPoints = [{"name": "Kobarid Museum", "lat": 46.247, "lon": 13.579}, {"name": "Tolmin Museum", "lat": 46.1844, "lon": 13.7339}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.339118, "lon": 13.551992}, {"name": "Playground", "lat": 46.338716, "lon": 13.554919}, {"name": "Playground", "lat": 46.336281, "lon": 13.555283}, {"name": "Playground", "lat": 46.335774, "lon": 13.55795}, {"name": "Playground", "lat": 46.337689, "lon": 13.560232}, {"name": "Playground", "lat": 46.337561, "lon": 13.56079}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Soca Valley, Slovenia";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(46.3385847, 13.552419);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

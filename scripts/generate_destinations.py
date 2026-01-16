@@ -329,12 +329,12 @@ def map_section(map_cfg, dest_title):
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = __POI__;
+      var parkingPoints = __PARKING__;
+      var restaurantPoints = __RESTAURANTS__;
+      var familyRestaurantPoints = __FAMILY__;
+      var indoorPoints = __INDOOR__;
+      var playgroundPoints = __PLAYGROUNDS__;
       var hasGoogle = __HAS_GOOGLE__;
       var mapInitialized = false;
       var destTitle = __DEST_TITLE__;
@@ -445,6 +445,37 @@ def map_section(map_cfg, dest_title):
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -530,7 +561,18 @@ def map_section(map_cfg, dest_title):
         });
 
         var fallbackLocation = new google.maps.LatLng(__CENTER_LAT__, __CENTER_LON__);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -639,6 +681,12 @@ __GOOGLE_SCRIPT__
     js = js.replace("__CENTER_LON__", json.dumps(center["lon"], ensure_ascii=True))
     js = js.replace("__DEST_TITLE__", json.dumps(dest_title or "", ensure_ascii=True))
     js = js.replace("__HAS_GOOGLE__", "true" if GOOGLE_MAPS_API_KEY else "false")
+    js = js.replace("__POI__", js_array(map_cfg.get("poi") or []))
+    js = js.replace("__PARKING__", js_array(map_cfg.get("parking") or []))
+    js = js.replace("__RESTAURANTS__", js_array(map_cfg.get("restaurants") or []))
+    js = js.replace("__FAMILY__", js_array(map_cfg.get("family_restaurants") or []))
+    js = js.replace("__INDOOR__", js_array(map_cfg.get("indoor") or []))
+    js = js.replace("__PLAYGROUNDS__", js_array(map_cfg.get("playgrounds") or []))
     google_script = ""
     if GOOGLE_MAPS_API_KEY:
         google_script = (

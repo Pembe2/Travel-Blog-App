@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Preseren Square", "lat": 46.0511, "lon": 14.5051}, {"name": "Ljubljana Castle", "lat": 46.0489, "lon": 14.5083}, {"name": "Tivoli Park", "lat": 46.0583, "lon": 14.4977}, {"name": "Dragon Bridge", "lat": 46.0517, "lon": 14.5089}];
+      var parkingPoints = [{"name": "Kongresni Trg Garage", "lat": 46.051, "lon": 14.5059}, {"name": "Kozolec Parking Garage", "lat": 46.058, "lon": 14.499}, {"name": "Nuk II Parking Garage", "lat": 46.049, "lon": 14.5065}];
+      var restaurantPoints = [{"name": "Druga Violina", "lat": 46.0512, "lon": 14.5066}, {"name": "Gostilna Sestica", "lat": 46.0516, "lon": 14.5054}, {"name": "Central Market Food Stalls", "lat": 46.0522, "lon": 14.5091}];
+      var familyRestaurantPoints = [{"name": "Pop's Place", "lat": 46.0521, "lon": 14.5061}, {"name": "Hood Burger", "lat": 46.0561, "lon": 14.505}];
+      var indoorPoints = [{"name": "House of Experiments", "lat": 46.0509, "lon": 14.5099}, {"name": "National Museum of Slovenia", "lat": 46.0532, "lon": 14.5034}, {"name": "Museum of Illusions Ljubljana", "lat": 46.0513, "lon": 14.5067}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.052488, "lon": 14.508204}, {"name": "Playground", "lat": 46.047369, "lon": 14.50821}, {"name": "Playground", "lat": 46.050471, "lon": 14.501888}, {"name": "Playground", "lat": 46.050239, "lon": 14.501676}, {"name": "Playground", "lat": 46.046082, "lon": 14.509277}, {"name": "Playground", "lat": 46.049275, "lon": 14.513464}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Ljubljana, Slovenia";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(46.0500268, 14.5069289);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

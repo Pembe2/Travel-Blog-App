@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Ludwigskirche", "lat": 49.2364, "lon": 6.9927}, {"name": "Saarbrucken Castle", "lat": 49.2346, "lon": 6.9966}, {"name": "St. Johanner Markt", "lat": 49.2342, "lon": 7.0006}, {"name": "Deutsch-Franzoesischer Garten", "lat": 49.2256, "lon": 6.9666}, {"name": "Saarbrucken Zoo", "lat": 49.2218, "lon": 7.0306}];
+      var parkingPoints = [{"name": "Parkhaus Am Schloss", "lat": 49.235, "lon": 6.9953}, {"name": "Parkhaus Rathaus", "lat": 49.2348, "lon": 6.9994}, {"name": "Parkhaus Europa-Galerie", "lat": 49.2384, "lon": 6.9913}, {"name": "Parkhaus Bahnhofstrasse", "lat": 49.2361, "lon": 6.9983}];
+      var restaurantPoints = [{"name": "Brauhaus Zum Stiefel", "lat": 49.2339, "lon": 7.0017}, {"name": "St. Johanner Markt cafes", "lat": 49.2342, "lon": 7.0006}];
+      var familyRestaurantPoints = [{"name": "Saarbrucker Zoo Restaurant", "lat": 49.2219, "lon": 7.0302}, {"name": "Deutsch-Franzoesischer Garten Bistro", "lat": 49.2259, "lon": 6.9669}];
+      var indoorPoints = [{"name": "Saarland Museum (Moderne Galerie)", "lat": 49.2355, "lon": 7.0044}, {"name": "Historisches Museum Saar", "lat": 49.2341, "lon": 6.9964}, {"name": "Stadtgalerie Saarbrucken", "lat": 49.2351, "lon": 6.9936}];
+      var playgroundPoints = [{"name": "Playground", "lat": 49.233825, "lon": 6.998791}, {"name": "Kinderspielplatz Nauwieserplatz", "lat": 49.235219, "lon": 6.999682}, {"name": "Kinderspielplatz Staatstheater", "lat": 49.231456, "lon": 6.994163}, {"name": "Playground", "lat": 49.232743, "lon": 6.990736}, {"name": "Playground", "lat": 49.237421, "lon": 7.002258}, {"name": "Kinderspielplatz Nanteser Platz", "lat": 49.231218, "lon": 6.989201}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Saarbrucken, Germany";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(49.234362, 6.996379);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

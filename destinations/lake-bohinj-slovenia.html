@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Lake Bohinj Shore (Ribcev Laz)", "lat": 46.2767, "lon": 13.8856}, {"name": "Savica Waterfall", "lat": 46.2848, "lon": 13.8348}, {"name": "Vogel Cable Car", "lat": 46.2687, "lon": 13.883}, {"name": "Mostnica Gorge", "lat": 46.293, "lon": 13.892}];
+      var parkingPoints = [{"name": "Ribcev Laz Parking", "lat": 46.2765, "lon": 13.8851}, {"name": "Ukanc Parking", "lat": 46.2769, "lon": 13.8536}, {"name": "Vogel Cable Car Parking", "lat": 46.269, "lon": 13.8835}];
+      var restaurantPoints = [{"name": "Gostilna Danica", "lat": 46.2763, "lon": 13.8837}, {"name": "Restavracija Tripic", "lat": 46.2772, "lon": 13.8859}];
+      var familyRestaurantPoints = [{"name": "Picerija Bohinj", "lat": 46.2771, "lon": 13.8855}, {"name": "Camp Danica Restaurant", "lat": 46.2758, "lon": 13.8829}];
+      var indoorPoints = [{"name": "Bohinj House Visitor Center", "lat": 46.277, "lon": 13.8852}, {"name": "St. John the Baptist Church", "lat": 46.2761, "lon": 13.885}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.276107, "lon": 13.887967}, {"name": "Playground", "lat": 46.28967, "lon": 13.888725}, {"name": "Playground", "lat": 46.278732, "lon": 13.837467}, {"name": "Playground", "lat": 46.279687, "lon": 13.829064}, {"name": "Vogel Playground", "lat": 46.263068, "lon": 13.840503}, {"name": "Playground", "lat": 46.31037, "lon": 13.882703}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Lake Bohinj, Slovenia";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(46.2822654, 13.8645306);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

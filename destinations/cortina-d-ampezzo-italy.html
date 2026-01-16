@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Cortina town center", "lat": 46.5389, "lon": 12.1358, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20town%20center%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Cinque Torri", "lat": 46.5092, "lon": 12.0368, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cinque%20Torri%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Tofana cable car", "lat": 46.5503, "lon": 12.0936, "maps_url": "https://www.google.com/maps/search/?api=1&query=Tofana%20cable%20car%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Lago di Misurina", "lat": 46.5795, "lon": 12.2537, "maps_url": "https://www.google.com/maps/search/?api=1&query=Lago%20di%20Misurina%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Passo Falzarego", "lat": 46.5187, "lon": 12.0092, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Falzarego%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var parkingPoints = [{"name": "Cortina central parking", "lat": 46.5384, "lon": 12.1392, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20central%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Passo Falzarego parking", "lat": 46.5185, "lon": 12.0086, "maps_url": "https://www.google.com/maps/search/?api=1&query=Passo%20Falzarego%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Misurina lakeside parking", "lat": 46.5799, "lon": 12.2546, "maps_url": "https://www.google.com/maps/search/?api=1&query=Misurina%20lakeside%20parking%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var restaurantPoints = [{"name": "Rifugio Lagazuoi", "lat": 46.5171, "lon": 12.0099, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Lagazuoi%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Rifugio Scoiattoli", "lat": 46.5047, "lon": 12.0394, "maps_url": "https://www.google.com/maps/search/?api=1&query=Rifugio%20Scoiattoli%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var familyRestaurantPoints = [{"name": "Cortina pizza and gelato", "lat": 46.5391, "lon": 12.1363, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20pizza%20and%20gelato%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Misurina lakeside cafe", "lat": 46.5797, "lon": 12.2539, "maps_url": "https://www.google.com/maps/search/?api=1&query=Misurina%20lakeside%20cafe%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var indoorPoints = [{"name": "Museo d'Arte Moderna Mario Rimoldi", "lat": 46.5396, "lon": 12.1369, "maps_url": "https://www.google.com/maps/search/?api=1&query=Museo%20d%27Arte%20Moderna%20Mario%20Rimoldi%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Museo Paleontologico Rinaldo Zardini", "lat": 46.5391, "lon": 12.1361, "maps_url": "https://www.google.com/maps/search/?api=1&query=Museo%20Paleontologico%20Rinaldo%20Zardini%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Cortina ice rink", "lat": 46.5406, "lon": 12.1418, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20ice%20rink%20Cortina%20d%27Ampezzo%2C%20Italy"}];
+      var playgroundPoints = [{"name": "Cortina playground", "lat": 46.5381, "lon": 12.1385, "maps_url": "https://www.google.com/maps/search/?api=1&query=Cortina%20playground%20Cortina%20d%27Ampezzo%2C%20Italy"}, {"name": "Fiames playground", "lat": 46.5632, "lon": 12.1284, "maps_url": "https://www.google.com/maps/search/?api=1&query=Fiames%20playground%20Cortina%20d%27Ampezzo%2C%20Italy"}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Cortina d'Ampezzo, Italy";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(46.5389, 12.1358);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

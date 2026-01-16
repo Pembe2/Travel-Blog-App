@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Lake Jasna", "lat": 46.484, "lon": 13.776}, {"name": "Vrsic Pass", "lat": 46.4345, "lon": 13.7445}, {"name": "Pericnik Waterfall", "lat": 46.434, "lon": 13.935}, {"name": "Zelenci Nature Reserve", "lat": 46.495, "lon": 13.7547}];
+      var parkingPoints = [{"name": "Lake Jasna Parking", "lat": 46.4836, "lon": 13.7754}, {"name": "Vrsic Pass Parking", "lat": 46.4342, "lon": 13.7441}, {"name": "Pericnik Trailhead Parking", "lat": 46.4329, "lon": 13.9372}];
+      var restaurantPoints = [{"name": "Gostilna pri Martinu", "lat": 46.4852, "lon": 13.786}, {"name": "Lipa Restaurant", "lat": 46.4855, "lon": 13.7874}];
+      var familyRestaurantPoints = [{"name": "Pizzeria Kotnik", "lat": 46.4851, "lon": 13.7852}];
+      var indoorPoints = [{"name": "Slovenian Alpine Museum", "lat": 46.4872, "lon": 13.8304}, {"name": "Triglav National Park Information Center", "lat": 46.2748, "lon": 13.8842}];
+      var playgroundPoints = [{"name": "Playground", "lat": 46.329445, "lon": 13.878311}, {"name": "Playground", "lat": 46.31037, "lon": 13.882703}, {"name": "Playground", "lat": 46.279687, "lon": 13.829064}, {"name": "Playground", "lat": 46.278732, "lon": 13.837467}, {"name": "Playground", "lat": 46.28967, "lon": 13.888725}, {"name": "Vogel Playground", "lat": 46.263068, "lon": 13.840503}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Triglav National Park, Slovenia";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(46.336046, 13.8138725);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

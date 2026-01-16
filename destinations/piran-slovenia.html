@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Tartini Square", "lat": 45.5289, "lon": 13.5684}, {"name": "Piran Walls", "lat": 45.528, "lon": 13.565}, {"name": "St. George Church", "lat": 45.5273, "lon": 13.568}, {"name": "Piran Promenade", "lat": 45.5283, "lon": 13.5672}];
+      var parkingPoints = [{"name": "Forance Garage", "lat": 45.5302, "lon": 13.5613}, {"name": "Portoroz Central Parking", "lat": 45.5146, "lon": 13.5927}];
+      var restaurantPoints = [{"name": "Fritolin pri Cantini", "lat": 45.5286, "lon": 13.568}, {"name": "Pavel", "lat": 45.5285, "lon": 13.5672}];
+      var familyRestaurantPoints = [{"name": "Cacao Piran", "lat": 45.5287, "lon": 13.5676}];
+      var indoorPoints = [{"name": "Maritime Museum Piran", "lat": 45.5279, "lon": 13.5682}, {"name": "Aquarium Piran", "lat": 45.5281, "lon": 13.5677}];
+      var playgroundPoints = [{"name": "Playground", "lat": 45.528276, "lon": 13.5691}, {"name": "Playground", "lat": 45.527227, "lon": 13.57071}, {"name": "Playground", "lat": 45.52569, "lon": 13.568304}, {"name": "Playground", "lat": 45.527272, "lon": 13.572458}, {"name": "Playground", "lat": 45.52505, "lon": 13.581135}, {"name": "Playground", "lat": 45.5161, "lon": 13.575394}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Piran, Slovenia";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(45.5284919, 13.5684485);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

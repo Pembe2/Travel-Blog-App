@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Postojna Cave", "lat": 45.7825, "lon": 14.2047}, {"name": "Predjama Castle", "lat": 45.8156, "lon": 14.1267}, {"name": "Proteus Vivarium", "lat": 45.782, "lon": 14.2049}, {"name": "Postojna Cave Park", "lat": 45.7827, "lon": 14.2036}];
+      var parkingPoints = [{"name": "Postojna Cave Parking", "lat": 45.782, "lon": 14.2055}, {"name": "Predjama Castle Parking", "lat": 45.815, "lon": 14.126}, {"name": "Postojna Town Parking", "lat": 45.7745, "lon": 14.213}];
+      var restaurantPoints = [{"name": "Jamski Dvorec", "lat": 45.7832, "lon": 14.2065}, {"name": "Pivka Jama", "lat": 45.7818, "lon": 14.2042}];
+      var familyRestaurantPoints = [{"name": "Postojna Cave Park Cafe", "lat": 45.7824, "lon": 14.205}];
+      var indoorPoints = [{"name": "Postojna Cave", "lat": 45.7825, "lon": 14.2047}, {"name": "Proteus Vivarium", "lat": 45.782, "lon": 14.2049}];
+      var playgroundPoints = [{"name": "Playground", "lat": 45.775328, "lon": 14.21346}, {"name": "Playground", "lat": 45.774467, "lon": 14.21351}, {"name": "Playground", "lat": 45.774833, "lon": 14.211612}, {"name": "Playground", "lat": 45.774046, "lon": 14.211921}, {"name": "Playground", "lat": 45.773089, "lon": 14.214782}, {"name": "Playground", "lat": 45.773498, "lon": 14.216515}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Postojna and Predjama, Slovenia";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(45.7752847, 14.2139937);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

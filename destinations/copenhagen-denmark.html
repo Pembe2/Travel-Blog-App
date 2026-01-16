@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Tivoli Gardens", "lat": 55.6737, "lon": 12.5681}, {"name": "Nyhavn", "lat": 55.6791, "lon": 12.5913}, {"name": "Amalienborg Palace", "lat": 55.6846, "lon": 12.593}, {"name": "Rosenborg Castle", "lat": 55.6854, "lon": 12.5776}, {"name": "The Little Mermaid", "lat": 55.6929, "lon": 12.5993}, {"name": "Christiansborg Palace", "lat": 55.676, "lon": 12.5805}];
+      var parkingPoints = [{"name": "Q-Park Industriens Hus", "lat": 55.6766, "lon": 12.5696}, {"name": "Q-Park Norreport", "lat": 55.6839, "lon": 12.5712}, {"name": "DGI Byen Parking", "lat": 55.6677, "lon": 12.5607}, {"name": "Jeudan Parkering - Kvaesthusmolen", "lat": 55.6789, "lon": 12.5953}];
+      var restaurantPoints = [{"name": "Reffen Street Food", "lat": 55.6748, "lon": 12.6121}, {"name": "Torvehallerne", "lat": 55.6837, "lon": 12.5715}, {"name": "Restaurant Koefoed", "lat": 55.6756, "lon": 12.5926}];
+      var familyRestaurantPoints = [{"name": "Tivoli Food Hall", "lat": 55.6736, "lon": 12.568}, {"name": "Cafe Norden", "lat": 55.6792, "lon": 12.5713}, {"name": "Paludan Book Cafe", "lat": 55.6841, "lon": 12.5723}];
+      var indoorPoints = [{"name": "Experimentarium", "lat": 55.7043, "lon": 12.5857}, {"name": "Den Bla Planet", "lat": 55.6164, "lon": 12.656}, {"name": "National Museum of Denmark", "lat": 55.6742, "lon": 12.5784}, {"name": "Tycho Brahe Planetarium", "lat": 55.669, "lon": 12.5648}, {"name": "SMK - National Gallery of Denmark", "lat": 55.689, "lon": 12.577}];
+      var playgroundPoints = [{"name": "Playground", "lat": 55.683715, "lon": 12.56752}, {"name": "Playground", "lat": 55.682479, "lon": 12.568292}, {"name": "Playground", "lat": 55.68954, "lon": 12.576058}, {"name": "Playground", "lat": 55.682504, "lon": 12.566676}, {"name": "Playground", "lat": 55.682429, "lon": 12.566768}, {"name": "Playground", "lat": 55.68279, "lon": 12.575578}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Copenhagen, Denmark";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(55.6867243, 12.5700724);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

@@ -483,12 +483,12 @@
       var mapEl = document.getElementById("trierMap");
       if (!mapEl) return;
 
-      var poiPoints = [];
-      var parkingPoints = [];
-      var restaurantPoints = [];
-      var familyRestaurantPoints = [];
-      var indoorPoints = [];
-      var playgroundPoints = [];
+      var poiPoints = [{"name": "Porta Nigra", "lat": 49.7597, "lon": 6.6439}, {"name": "Trier Cathedral", "lat": 49.7593, "lon": 6.6449}, {"name": "Liebfrauenkirche", "lat": 49.7592, "lon": 6.6447}, {"name": "Basilica of Constantine", "lat": 49.7596, "lon": 6.6374}, {"name": "Kaiserthermen", "lat": 49.7486, "lon": 6.6481}, {"name": "Roman Amphitheatre", "lat": 49.7492, "lon": 6.6527}];
+      var parkingPoints = [{"name": "City Parkhaus", "lat": 49.7566128, "lon": 6.6365245}, {"name": "Parkhaus Hauptmarkt", "lat": 49.7582549, "lon": 6.6391086}, {"name": "Parkhaus Am Bahnhof", "lat": 49.7597195, "lon": 6.6541111}, {"name": "Parkhaus Porta Nigra", "lat": 49.7609321, "lon": 6.6443565}];
+      var restaurantPoints = [{"name": "Restaurant Kartoffel Kiste", "lat": 49.7535423, "lon": 6.6389391}, {"name": "Weinstube Kesselstatt", "lat": 49.7556823, "lon": 6.6422995}, {"name": "Pizzeria Restaurant Frankenturm", "lat": 49.7569627, "lon": 6.640003}, {"name": "Donna Mia Trier", "lat": 49.7547753, "lon": 6.6388274}, {"name": "Burger House Trier", "lat": 49.75427, "lon": 6.642024}, {"name": "Zuppa", "lat": 49.7578438, "lon": 6.6457142}];
+      var familyRestaurantPoints = [{"name": "Burgeramt", "lat": 49.753609, "lon": 6.6383669}, {"name": "Christis", "lat": 49.7565376, "lon": 6.6418301}, {"name": "Eiscafe Calchera", "lat": 49.7586558, "lon": 6.6428234}, {"name": "Dinea Galeria Restaurant", "lat": 49.7585272, "lon": 6.6421956}, {"name": "Donna Mia", "lat": 49.7547753, "lon": 6.6388274}, {"name": "Hans im Gluck", "lat": 49.7591294, "lon": 6.6432345}, {"name": "Hannahs Kreativcafe", "lat": 49.7574426, "lon": 6.640865}, {"name": "L'Osteria", "lat": 49.7555653, "lon": 6.6376961}, {"name": "Ristorante Pizzeria Hotel Frankenturm", "lat": 49.7569627, "lon": 6.640003}];
+      var indoorPoints = [{"name": "Rheinisches Landesmuseum", "lat": 49.7515591, "lon": 6.6442414}, {"name": "Karl-Marx-Haus", "lat": 49.7539008, "lon": 6.6357225}, {"name": "Spielzeugmuseum", "lat": 49.7569643, "lon": 6.6405237}, {"name": "Stadtmuseum Simeonstift", "lat": 49.7597859, "lon": 6.6435635}];
+      var playgroundPoints = [{"name": "Playground", "lat": 49.759099, "lon": 6.645991}, {"name": "Spielplatz Wilhelm-Rautenstrauch-Park", "lat": 49.758066, "lon": 6.639851}, {"name": "Playground", "lat": 49.762593, "lon": 6.646182}, {"name": "Playground", "lat": 49.763463, "lon": 6.642207}, {"name": "Playground", "lat": 49.75459, "lon": 6.643341}, {"name": "Playground", "lat": 49.760028, "lon": 6.635192}];
       var hasGoogle = true;
       var mapInitialized = false;
       var destTitle = "Trier, Germany";
@@ -599,6 +599,37 @@
           }, 800);
         }
 
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
         function addPlaces(results, key, color, limit){
           if (!results || !results.length) return;
           var cap = limit || 10;
@@ -684,7 +715,18 @@
         });
 
         var fallbackLocation = new google.maps.LatLng(49.7596208, 6.6441878);
-        findPopularCenter(fallbackLocation);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
         return true;
       }
 
@@ -762,7 +804,7 @@
         initLeafletMap();
       }
 
-      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      var allowGoogle = hasGoogle;
       if (!allowGoogle){
         initLeafletMap();
         return;

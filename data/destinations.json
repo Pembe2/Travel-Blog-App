@@ -579,6 +579,271 @@
     ]
   },
   {
+    "slug": "strasbourg-france",
+    "title": "Strasbourg, France",
+    "category_page": "trips-car.html",
+    "category_label": "Trips by Car",
+    "summary": "Canal city with half-timbered lanes, big parks, and easy Alsace day trips.",
+    "length": "4 to 5 days",
+    "tag": "Drive | 2h 10m (from Landstuhl)",
+    "highlights": [
+      "Petite France canals",
+      "Strasbourg Cathedral",
+      "Parc de l'Orangerie playgrounds",
+      "Batorama boat cruise",
+      "Alsace village day trips"
+    ],
+    "best_for": "Canals, parks, and short day trips",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Strasbourg_Cathedral_Exterior_-_Diliff.jpg",
+    "alt": "Strasbourg Cathedral exterior",
+    "tips": [
+      "Use park-and-ride lots on tram lines to avoid old town traffic.",
+      "Book the boat cruise early and pack a light layer for the river.",
+      "Keep one full day open for an Alsace village day trip."
+    ],
+    "indoor_attractions": [
+      "Strasbourg Museum of Modern and Contemporary Art",
+      "Alsatian Museum",
+      "Historical Museum of the City of Strasbourg",
+      "Le Vaisseau science center"
+    ],
+    "map": {
+      "legend": "Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.",
+      "poi": [
+        {
+          "name": "Strasbourg Cathedral",
+          "lat": 48.5816,
+          "lon": 7.7509,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Strasbourg%20Cathedral%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Petite France",
+          "lat": 48.5806,
+          "lon": 7.7445,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Petite%20France%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Place Kleber",
+          "lat": 48.5831,
+          "lon": 7.7479,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Place%20Kleber%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Barrage Vauban",
+          "lat": 48.58,
+          "lon": 7.7369,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Barrage%20Vauban%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Parc de l'Orangerie",
+          "lat": 48.5946,
+          "lon": 7.7772,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Parc%20de%20l%27Orangerie%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "European Parliament",
+          "lat": 48.5977,
+          "lon": 7.7701,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=European%20Parliament%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Strasbourg Museum of Modern and Contemporary Art",
+          "lat": 48.581,
+          "lon": 7.731,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Strasbourg%20Museum%20of%20Modern%20and%20Contemporary%20Art%20Strasbourg%2C%20France"
+        }
+      ],
+      "parking": [
+        {
+          "name": "Parking Gutenberg",
+          "lat": 48.5818,
+          "lon": 7.7472,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Parking%20Gutenberg%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Parking Kleber",
+          "lat": 48.5841,
+          "lon": 7.7478,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Parking%20Kleber%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Parking Austerlitz",
+          "lat": 48.5785,
+          "lon": 7.7582,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Parking%20Austerlitz%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "P+R Rotonde",
+          "lat": 48.5917,
+          "lon": 7.7332,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Park%20and%20Ride%20Rotonde%20Strasbourg%2C%20France"
+        }
+      ],
+      "restaurants": [
+        {
+          "name": "Maison Kammerzell",
+          "lat": 48.5817,
+          "lon": 7.7508,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Maison%20Kammerzell%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Au Brasseur",
+          "lat": 48.5837,
+          "lon": 7.7472,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Au%20Brasseur%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Le Gruber",
+          "lat": 48.5811,
+          "lon": 7.7501,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Le%20Gruber%20Strasbourg%2C%20France"
+        }
+      ],
+      "family_restaurants": [
+        {
+          "name": "Flam's",
+          "lat": 48.5839,
+          "lon": 7.7479,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Flam%27s%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "La Corde a Linge",
+          "lat": 48.581,
+          "lon": 7.7436,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=La%20Corde%20a%20Linge%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "L'Ancienne Douane",
+          "lat": 48.5806,
+          "lon": 7.7477,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=L%27Ancienne%20Douane%20Strasbourg%2C%20France"
+        }
+      ],
+      "indoor": [
+        {
+          "name": "Strasbourg Museum of Modern and Contemporary Art",
+          "lat": 48.581,
+          "lon": 7.731,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Strasbourg%20Museum%20of%20Modern%20and%20Contemporary%20Art%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Alsatian Museum",
+          "lat": 48.581,
+          "lon": 7.754,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Alsatian%20Museum%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Historical Museum of the City of Strasbourg",
+          "lat": 48.5812,
+          "lon": 7.7549,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Historical%20Museum%20of%20the%20City%20of%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Le Vaisseau",
+          "lat": 48.5769,
+          "lon": 7.7667,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Le%20Vaisseau%20Strasbourg%2C%20France"
+        }
+      ],
+      "playgrounds": [
+        {
+          "name": "Parc de l'Orangerie playground",
+          "lat": 48.595,
+          "lon": 7.7774,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Parc%20de%20l%27Orangerie%20playground%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Parc de la Citadelle playground",
+          "lat": 48.5741,
+          "lon": 7.7748,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Parc%20de%20la%20Citadelle%20playground%20Strasbourg%2C%20France"
+        },
+        {
+          "name": "Parc de Contades playground",
+          "lat": 48.591,
+          "lon": 7.755,
+          "maps_url": "https://www.google.com/maps/search/?api=1&query=Parc%20de%20Contades%20playground%20Strasbourg%2C%20France"
+        }
+      ],
+      "center": {
+        "lat": 48.5831,
+        "lon": 7.7479
+      }
+    },
+    "groomed": true,
+    "modes": [
+      "car"
+    ],
+    "description": "Strasbourg mixes half-timbered lanes, canal walks, and big parks into a family-friendly city break. You can balance cathedral views and boat rides with playground time and a short day trip into Alsace villages.",
+    "itinerary": [
+      {
+        "title": "Day 1",
+        "text": "Arrive, check in, and walk the Grande Ile with an easy loop through Petite France and Place Kleber."
+      },
+      {
+        "title": "Day 2",
+        "text": "Cathedral climb in the morning, Rohan Palace area, then a Batorama boat cruise."
+      },
+      {
+        "title": "Day 3",
+        "text": "Parc de l'Orangerie playgrounds and the European Quarter, with a relaxed afternoon cafe stop."
+      },
+      {
+        "title": "Day 4",
+        "text": "Alsace day trip to Colmar, Eguisheim, or a nearby wine village."
+      },
+      {
+        "title": "Day 5",
+        "text": "Museum time and market browsing before the drive back."
+      }
+    ],
+    "recommended_stops": [
+      "Strasbourg Cathedral",
+      "Petite France canals",
+      "Place Kleber",
+      "Barrage Vauban and Ponts Couverts",
+      "Parc de l'Orangerie",
+      "Batorama boat cruise",
+      "European Parliament",
+      "Alsatian Museum",
+      "Strasbourg Museum of Modern and Contemporary Art",
+      "Maison Kammerzell"
+    ],
+    "lodging": [
+      "Grande Ile (Old Town)",
+      "Petite France",
+      "Orangerie neighborhood",
+      "Presqu'ile Malraux"
+    ],
+    "access_note": "Strasbourg is about a 2 hour 10 minute drive from Landstuhl via the A6/A5. The historic core is low-traffic, so plan to park in a central garage or use a tram park-and-ride lot for easy access.",
+    "photo_deck": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Strasbourg_Cathedral_Exterior_-_Diliff.jpg",
+        "alt": "Strasbourg Cathedral exterior"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/8/89/2007%2C_Petite_France_%C3%A0_Strasbourg_11.jpg",
+        "alt": "Petite France canals"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/27/Barrage_Vauban_%40_Strasbourg_%2844605641315%29.jpg",
+        "alt": "Barrage Vauban and canal bridges"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Parc_de_l%27Orangerie_%28Strasbourg%29.jpg",
+        "alt": "Parc de l'Orangerie lake"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/2/2c/European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg",
+        "alt": "European Parliament hemicycle"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Strasbourg_-_Place_Kl%C3%A9ber_-_View_WNW.jpg",
+        "alt": "Place Kleber"
+      }
+    ]
+  },
+  {
     "slug": "val-gardena-italy",
     "title": "Val Gardena (Ortisei + Selva), Italy",
     "category_page": "trips-car.html",
