@@ -362,41 +362,74 @@
     <main class="content">
       <header>
         <h1>Venice, Italy</h1>
-        <p class="lede">Canals, islands, and a one-of-a-kind city layout.</p>
+        <p class="lede">A four-day March escape with canals, island hops, and museum breaks.</p>
       </header>
 
       <div class="breadcrumb"><a href="../trips-plane.html">Back to Trips by Plane</a></div>
-      <div class="notice"><strong>Research in progress:</strong> This destination page is a placeholder. Details will be expanded after on-the-ground review.</div>
       <div class="hero">
         <div class="slideshow" data-slideshow="1"><div class="slide active"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chiesa_del_Redentore_%28Venice%29.jpg?width=1600" alt="Venice, Italy view" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Palazzo_Contarini_Fasan_%28Venice%29.jpg?width=1600" alt="Venice, Italy landmark" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Palazzo_Pisani_Moretta_%28Venice%29.jpg?width=1600" alt="Venice, Italy scene" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Panorama_of_Canal_Grande_and_Ponte_di_Rialto%2C_Venice_-_September_2017.jpg?width=1600" alt="Venice, Italy waterfront" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ponte_Storto_%28Venice%29.jpg?width=1600" alt="Venice, Italy streetscape" loading="lazy" decoding="async" /></div><div class="slide"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ponte_dei_Dai_%28Venice%29.jpg?width=1600" alt="Venice, Italy skyline" loading="lazy" decoding="async" /></div></div>
         
         <div class="meta-grid">
           <div class="meta-card"><h4>Travel time</h4><p>Fly | 1h 30m (from Frankfurt)</p></div>
           <div class="meta-card"><h4>Ideal length</h4><p>4 days</p></div>
-          <div class="meta-card"><h4>Season</h4><p>Summer</p></div>
-          <div class="meta-card"><h4>Family fit</h4><p>Unique scenery and easy exploring</p></div>
+          <div class="meta-card"><h4>Season</h4><p>Spring (March)</p></div>
+          <div class="meta-card"><h4>Family fit</h4><p>Walkable sights with water-bus breaks</p></div>
         </div>
       </div>
 
       <section class="section">
         <h2>Why families love it</h2>
-        <p class="lede">Canals, islands, and a one-of-a-kind city layout.</p>
-        <ul class="list"><li>Vaporetto rides</li><li>Murano day trip</li><li>Lido beach</li></ul>
+        <p class="lede">Venice feels like a storybook city, with boats instead of cars and short, scenic walks between sights. March brings lighter crowds, and indoor stops like art museums and palaces make it easy to balance weather and energy.</p>
+        <ul class="list"><li>Vaporetto rides along the Grand Canal</li><li>Murano + Burano island hops</li><li>Piazza San Marco views and bell tower</li><li>Gelato breaks in Dorsoduro</li></ul>
       </section>
 
       <section class="section">
-        <h2>Suggested 4 days plan</h2>
-        <div class="itinerary"><div class="day"><h3>Day 1</h3><p>Arrival and neighborhood walk, light sightseeing.</p></div><div class="day"><h3>Day 2</h3><p>Main landmarks and a family-friendly museum or park.</p></div><div class="day"><h3>Day 3</h3><p>Day trip or water time, relaxed pace.</p></div><div class="day"><h3>Day 4</h3><p>Flexible day for markets, cafes, and local favorites.</p></div><div class="day"><h3>Day 5</h3><p>Departure day with a short activity if time allows.</p></div></div>
+        <h2>Suggested 4-day weekend plan</h2>
+        <div class="itinerary"><div class="day"><h3>Day 1: Arrival and gentle intro</h3><p>Check in, grab a simple lunch, and walk to Piazza San Marco for open space. Exterior view of Doge's Palace, gelato, early dinner, and an optional short sunset vaporetto ride.</p></div><div class="day"><h3>Day 2: Boats, bridges, and canals</h3><p>Grand Canal vaporetto ride (Line 1), Rialto Bridge snack stop, casual trattoria lunch, and a short gondola ride or traghetto crossing. End with a calm evening canal walk.</p></div><div class="day"><h3>Day 3: Murano + Burano island day</h3><p>Morning vaporetto to Murano for a short glass demo, then continue to Burano for colorful streets and photos. Relaxed lunch, return before the kids are overtired.</p></div><div class="day"><h3>Day 4: Basilica, parks, farewell</h3><p>Early St. Mark's Basilica visit, stroll into the Castello district for wider streets, park or playground time, quick souvenir stop, and vaporetto to the airport or station.</p></div></div>
       </section>
     
       <section class="section">
-        <h2>Indoor attractions</h2>
-        <div class="notice"><strong>Research in progress:</strong> Indoor options will be added for winter visits.</div>
+        <h2>Map: family-friendly points of interest</h2>
+        <div class="map-card">
+          <div id="trierMap" aria-label="Map of destination points"></div>
+        </div>
+        <div class="map-legend">
+          <strong>Layers:</strong> Toggle points of interest, parking, recommended restaurants, family-friendly restaurants, indoor attractions, or playgrounds.
+          
+          <div class="layer-legend" aria-label="Map layers">
+            <label class="layer-toggle"><input type="checkbox" data-layer="poi" checked /> <span class="layer-swatch" style="background:#2b7a78;"></span> Points of interest</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="parking" checked /> <span class="layer-swatch" style="background:#f4b942;"></span> Parking garages</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="restaurants" checked /> <span class="layer-swatch" style="background:#e86f5b;"></span> Recommended restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="family" checked /> <span class="layer-swatch" style="background:#4a76c9;"></span> Family-friendly restaurants</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="indoor" checked /> <span class="layer-swatch" style="background:#7a5ca8;"></span> Indoor attractions</label>
+            <label class="layer-toggle"><input type="checkbox" data-layer="playgrounds" checked /> <span class="layer-swatch" style="background:#4ba3c3;"></span> Playgrounds</label>
+          </div>
+        </div>
       </section>
         
       <section class="section">
+        <h2>Indoor attractions</h2>
+        <ul class="list"><li>Peggy Guggenheim Collection</li><li>Gallerie dell'Accademia</li><li>Ca' Rezzonico</li></ul>
+      </section>
+
+      <section class="section">
+        <h2>Recommended stops</h2>
+        <ul class="list"><li>Piazza San Marco and the Campanile</li><li>Rialto Bridge and market area</li><li>Doge's Palace</li><li>Murano and Burano islands</li></ul>
+      </section>
+
+      <section class="section">
+        <h2>Where to stay</h2>
+        <ul class="list"><li>Hilton Molino Stucky Venice (Giudecca)</li><li>Hotel Antiche Figure (Santa Lucia)</li><li>Hotel Excelsior Venice Lido (Lido)</li></ul>
+      </section>
+
+      <section class="section">
+        <h2>Getting there</h2>
+        <p class="lede">Venice is easiest by flight into Marco Polo Airport (VCE). From there, take a water bus (Alilaguna) or bus to Piazzale Roma, then continue by vaporetto or on foot. If driving, park at Tronchetto or Piazzale Roma and walk or take the People Mover into the historic center.</p>
+      </section>
+
+      <section class="section">
         <h2>Family travel tips</h2>
-        <ul class="list"><li>Use the water bus as your main transport.</li><li>Plan a Lido beach afternoon for kids.</li><li>Avoid heavy luggage and use central lodging.</li></ul>
+        <ul class="list"><li>Lightweight stroller helps, but expect stairs and bridges.</li><li>Dress in layers for cool mornings and mild afternoons.</li><li>Multi-day vaporetto passes save time and money.</li><li>Plan frequent breaks and keep walks short between sights.</li><li>Pizza, pasta, and pastries make meals easy for kids.</li></ul>
       </section>
     
       <section class="section notes" data-notes-slug="venice-italy">
@@ -441,7 +474,361 @@
       }
     })();
   </script>
-    
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script>
+    (function(){
+      var mapEl = document.getElementById("trierMap");
+      if (!mapEl) return;
+
+      var poiPoints = [{"name":"Piazza San Marco","lat":45.43389,"lon":12.33806,"maps_url":"https://www.google.com/maps/search/?api=1&query=Piazza%20San%20Marco%20Venice%20Italy"}, {"name":"Doge's Palace","lat":45.4337,"lon":12.3405,"maps_url":"https://www.google.com/maps/search/?api=1&query=Doge%27s%20Palace%20Venice%20Italy"}, {"name":"Rialto Bridge","lat":45.438,"lon":12.336,"maps_url":"https://www.google.com/maps/search/?api=1&query=Rialto%20Bridge%20Venice%20Italy"}, {"name":"Murano Island","lat":45.4575,"lon":12.35361,"maps_url":"https://www.google.com/maps/search/?api=1&query=Murano%20Island%20Venice%20Italy"}];
+      var parkingPoints = [{"name":"Piazzale Roma Parking","lat":45.43778,"lon":12.31861,"maps_url":"https://www.google.com/maps/search/?api=1&query=Piazzale%20Roma%20Parking%20Venice%20Italy"}, {"name":"Tronchetto Parking","lat":45.440556,"lon":12.305,"maps_url":"https://www.google.com/maps/search/?api=1&query=Tronchetto%20Parking%20Venice%20Italy"}];
+      var restaurantPoints = [{"name":"Caff\u00e8 Florian","lat":45.4343,"lon":12.338,"maps_url":"https://www.google.com/maps/search/?api=1&query=Caffe%20Florian%20Venice%20Italy"}, {"name":"Caff\u00e8 Quadri","lat":45.43438,"lon":12.33805,"maps_url":"https://www.google.com/maps/search/?api=1&query=Caffe%20Quadri%20Venice%20Italy"}, {"name":"Harry's Bar","lat":45.43241,"lon":12.33726,"maps_url":"https://www.google.com/maps/search/?api=1&query=Harry%27s%20Bar%20Venice%20Italy"}];
+      var familyRestaurantPoints = [{"name":"Dal Moro's Fresh Pasta to Go","lat":45.43619,"lon":12.3398,"maps_url":"https://www.google.com/maps/search/?api=1&query=Dal%20Moro%27s%20Fresh%20Pasta%20to%20Go%20Venice%20Italy"}, {"name":"Suso Gelatoteca","lat":45.43773,"lon":12.33739,"maps_url":"https://www.google.com/maps/search/?api=1&query=Suso%20Gelatoteca%20Venice%20Italy"}, {"name":"Bacaro del Gelato","lat":45.44407,"lon":12.33305,"maps_url":"https://www.google.com/maps/search/?api=1&query=Bacaro%20del%20Gelato%20Venice%20Italy"}];
+      var indoorPoints = [{"name":"Peggy Guggenheim Collection","lat":45.43056,"lon":12.33111,"maps_url":"https://www.google.com/maps/search/?api=1&query=Peggy%20Guggenheim%20Collection%20Venice%20Italy"}, {"name":"Gallerie dell'Accademia","lat":45.43139,"lon":12.32806,"maps_url":"https://www.google.com/maps/search/?api=1&query=Gallerie%20dell%27Accademia%20Venice%20Italy"}, {"name":"Ca' Rezzonico","lat":45.43347,"lon":12.326242,"maps_url":"https://www.google.com/maps/search/?api=1&query=Ca%27%20Rezzonico%20Venice%20Italy"}];
+      var playgroundPoints = [{"name":"Giardini Savorgnan","lat":45.44342,"lon":12.32385,"maps_url":"https://www.google.com/maps/search/?api=1&query=Giardini%20Savorgnan%20Venice%20Italy"}, {"name":"Giardini della Biennale","lat":45.428818,"lon":12.356828,"maps_url":"https://www.google.com/maps/search/?api=1&query=Giardini%20della%20Biennale%20Venice%20Italy"}];
+      var hasGoogle = true;
+      var mapInitialized = false;
+      var destTitle = "Venice, Italy";
+      var searchRadius = 4500;
+
+      function popupHtml(point){
+        if (!point) return "";
+        var url = point.maps_url || "";
+        if (!url) return point.name;
+        return '<a href="' + url + '" target="_blank" rel="noopener">' + point.name + "</a>";
+      }
+
+      function extractCityName(title){
+        if (!title) return "";
+        var main = title.split(",")[0] || "";
+        main = main.replace(/\(.*?\)/g, "").trim();
+        return main;
+      }
+
+      function formatRating(place){
+        if (!place || !place.rating) return "No rating yet";
+        var total = place.user_ratings_total || 0;
+        return place.rating.toFixed(1) + " (" + total + ")";
+      }
+
+      function placeLink(place){
+        if (!place || !place.geometry || !place.geometry.location) return "";
+        var loc = place.geometry.location;
+        var lat = typeof loc.lat === "function" ? loc.lat() : loc.lat;
+        var lng = typeof loc.lng === "function" ? loc.lng() : loc.lng;
+        var name = place.name ? encodeURIComponent(place.name) : "";
+        return "https://www.google.com/maps/search/?api=1&query=" + name + "%20@" + lat + "," + lng;
+      }
+
+      function placePopup(place){
+        var link = placeLink(place);
+        var name = place.name || "Place";
+        var rating = formatRating(place);
+        if (link){
+          return '<div><a href="' + link + '" target="_blank" rel="noopener">' + name + '</a><br />' + rating + "</div>";
+        }
+        return "<div>" + name + "<br />" + rating + "</div>";
+      }
+
+      function initGoogleMap(){
+        if (!window.google || !google.maps) return false;
+        mapInitialized = true;
+        var map = new google.maps.Map(mapEl, {
+          center: { lat: 45.43389, lng: 12.33806 },
+          zoom: 13,
+          mapTypeControl: false,
+          streetViewControl: false,
+          fullscreenControl: false
+        });
+
+        var bounds = new google.maps.LatLngBounds();
+        var markerCount = 0;
+        var fitTimer = null;
+        var layers = {
+          poi: [],
+          parking: [],
+          restaurants: [],
+          family: [],
+          indoor: [],
+          playgrounds: []
+        };
+        var infoWindow = new google.maps.InfoWindow();
+        var placeIds = {
+          poi: {},
+          parking: {},
+          restaurants: {},
+          family: {},
+          indoor: {},
+          playgrounds: {}
+        };
+
+        function addPlaceMarker(place, color, key){
+          if (!place || !place.geometry || !place.geometry.location) return;
+          var idBucket = placeIds[key] || {};
+          if (place.place_id && idBucket[place.place_id]) return;
+          if (place.place_id) idBucket[place.place_id] = true;
+          placeIds[key] = idBucket;
+          var marker = new google.maps.Marker({
+              position: place.geometry.location,
+              map: map,
+              title: place.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(placePopup(place));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+          if (fitTimer) clearTimeout(fitTimer);
+          fitTimer = setTimeout(function(){
+            if (markerCount > 0){
+              map.fitBounds(bounds);
+            }
+          }, 800);
+        }
+
+        function addPointMarker(point, color, key){
+          if (!point || typeof point.lat !== "number" || typeof point.lon !== "number") return;
+          var marker = new google.maps.Marker({
+              position: { lat: point.lat, lng: point.lon },
+              map: map,
+              title: point.name,
+              icon: {
+                path: google.maps.SymbolPath.CIRCLE,
+                scale: 6,
+                fillColor: color,
+                fillOpacity: 1,
+                strokeColor: "#ffffff",
+                strokeWeight: 2
+              }
+            });
+          marker.addListener("click", function(){
+            infoWindow.setContent(popupHtml(point));
+            infoWindow.open(map, marker);
+          });
+          layers[key].push(marker);
+          bounds.extend(marker.getPosition());
+          markerCount += 1;
+        }
+
+        function addPointLayer(points, key, color){
+          if (!points || !points.length) return;
+          for (var i = 0; i < points.length; i++){
+            addPointMarker(points[i], color, key);
+          }
+        }
+
+        function addPlaces(results, key, color, limit){
+          if (!results || !results.length) return;
+          var cap = limit || 10;
+          for (var i = 0; i < results.length && i < cap; i++){
+            addPlaceMarker(results[i], color, key);
+          }
+        }
+
+        function nearbySearch(service, request, key, color, limit, next){
+          service.nearbySearch(request, function(results, status){
+            if (status === google.maps.places.PlacesServiceStatus.OK){
+              addPlaces(results, key, color, limit);
+            }
+            if (typeof next === "function") next();
+          });
+        }
+
+        function runSearches(location){
+          var service = new google.maps.places.PlacesService(map);
+          var base = { location: location, radius: searchRadius };
+          nearbySearch(service, Object.assign({}, base, { type: "tourist_attraction" }), "poi", "#2b7a78", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "park" }), "poi", "#2b7a78", 6);
+          nearbySearch(service, Object.assign({}, base, { type: "parking" }), "parking", "#f4b942", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "popular" }), "restaurants", "#e86f5b", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "restaurant", keyword: "family friendly" }), "family", "#4a76c9", 10);
+          nearbySearch(service, Object.assign({}, base, { type: "museum" }), "indoor", "#7a5ca8", 8);
+          nearbySearch(service, Object.assign({}, base, { type: "aquarium" }), "indoor", "#7a5ca8", 4);
+          nearbySearch(service, Object.assign({}, base, { type: "playground" }), "playgrounds", "#4ba3c3", 12);
+        }
+
+        function findPopularCenter(locationFallback){
+          var cityName = extractCityName(destTitle);
+          if (!cityName){
+            runSearches(locationFallback);
+            map.setCenter(locationFallback);
+            map.setZoom(13);
+            return;
+          }
+          var service = new google.maps.places.PlacesService(map);
+          var queries = [
+            cityName + " city center",
+            cityName + " downtown",
+            cityName + " main square"
+          ];
+          var index = 0;
+
+          function tryNext(){
+            if (index >= queries.length){
+              runSearches(locationFallback);
+              map.setCenter(locationFallback);
+              map.setZoom(13);
+              return;
+            }
+            service.textSearch({ query: queries[index] }, function(results, status){
+              if (status === google.maps.places.PlacesServiceStatus.OK && results && results.length){
+                var loc = results[0].geometry && results[0].geometry.location;
+                if (loc){
+                  map.setCenter(loc);
+                  map.setZoom(13);
+                  runSearches(loc);
+                  return;
+                }
+              }
+              index += 1;
+              tryNext();
+            });
+          }
+
+          tryNext();
+        }
+
+        var toggles = document.querySelectorAll(".layer-toggle input");
+        toggles.forEach(function(toggle){
+          var key = toggle.getAttribute("data-layer");
+          var markers = layers[key];
+          if (!markers) return;
+          toggle.addEventListener("change", function(){
+            var show = toggle.checked;
+            for (var i = 0; i < markers.length; i++){
+              markers[i].setMap(show ? map : null);
+            }
+          });
+        });
+
+        var fallbackLocation = new google.maps.LatLng(45.43389, 12.33806);
+        addPointLayer(poiPoints, "poi", "#2b7a78");
+        addPointLayer(parkingPoints, "parking", "#f4b942");
+        addPointLayer(restaurantPoints, "restaurants", "#e86f5b");
+        addPointLayer(familyRestaurantPoints, "family", "#4a76c9");
+        addPointLayer(indoorPoints, "indoor", "#7a5ca8");
+        addPointLayer(playgroundPoints, "playgrounds", "#4ba3c3");
+
+        if (markerCount > 0){
+          map.fitBounds(bounds);
+        } else {
+          findPopularCenter(fallbackLocation);
+        }
+        return true;
+      }
+
+      function initLeafletMap(){
+        if (!window.L) return;
+        mapInitialized = true;
+        var map = L.map("trierMap", { scrollWheelZoom: false }).setView([45.43389, 12.33806], 13);
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+        var markerCount = 0;
+
+        function addPin(layer, p, color){
+          var icon = L.divIcon({
+            className: "",
+            html: '<div class="pin" style="background:' + color + ';"></div>',
+            iconSize: [18, 18],
+            iconAnchor: [9, 18],
+            popupAnchor: [0, -16]
+          });
+          var popup = popupHtml(p);
+          L.marker([p.lat, p.lon], { icon: icon }).addTo(layer).bindPopup(popup);
+          markerCount += 1;
+        }
+
+        var poiLayer = L.layerGroup();
+        var parkingLayer = L.layerGroup();
+        var restaurantLayer = L.layerGroup();
+        var familyRestaurantLayer = L.layerGroup();
+        var indoorLayer = L.layerGroup();
+        var playgroundLayer = L.layerGroup();
+
+        poiPoints.forEach(function(p){ addPin(poiLayer, p, "#2b7a78"); });
+        parkingPoints.forEach(function(p){ addPin(parkingLayer, p, "#f4b942"); });
+        restaurantPoints.forEach(function(p){ addPin(restaurantLayer, p, "#e86f5b"); });
+        familyRestaurantPoints.forEach(function(p){ addPin(familyRestaurantLayer, p, "#4a76c9"); });
+        indoorPoints.forEach(function(p){ addPin(indoorLayer, p, "#7a5ca8"); });
+        playgroundPoints.forEach(function(p){ addPin(playgroundLayer, p, "#4ba3c3"); });
+
+        poiLayer.addTo(map);
+        parkingLayer.addTo(map);
+        restaurantLayer.addTo(map);
+        familyRestaurantLayer.addTo(map);
+        indoorLayer.addTo(map);
+        playgroundLayer.addTo(map);
+
+        var toggles = document.querySelectorAll(".layer-toggle input");
+        toggles.forEach(function(toggle){
+          toggle.addEventListener("change", function(){
+            var key = toggle.getAttribute("data-layer");
+            var layer = null;
+            if (key === "poi") layer = poiLayer;
+            if (key === "parking") layer = parkingLayer;
+            if (key === "restaurants") layer = restaurantLayer;
+            if (key === "family") layer = familyRestaurantLayer;
+            if (key === "indoor") layer = indoorLayer;
+            if (key === "playgrounds") layer = playgroundLayer;
+            if (!layer) return;
+            if (toggle.checked) layer.addTo(map); else map.removeLayer(layer);
+          });
+        });
+
+        if (markerCount > 0){
+          var all = L.featureGroup([poiLayer, parkingLayer, restaurantLayer, familyRestaurantLayer, indoorLayer, playgroundLayer]);
+          map.fitBounds(all.getBounds().pad(0.15));
+        } else {
+          map.setView([45.43389, 12.33806], 13);
+        }
+      }
+
+      function initDestMapFallback(){
+        if (mapInitialized) return;
+        mapEl.innerHTML = "";
+        initLeafletMap();
+      }
+
+      var allowGoogle = hasGoogle && window.location.protocol !== "file:";
+      if (!allowGoogle){
+        initLeafletMap();
+        return;
+      }
+
+      window.initDestMap = function(){
+        if (mapInitialized) return;
+        if (!initGoogleMap()){
+          initLeafletMap();
+        }
+      };
+
+      window.initDestMapFallback = initDestMapFallback;
+      window.gm_authFailure = initDestMapFallback;
+
+      setTimeout(function(){
+        if (!mapInitialized){
+          initLeafletMap();
+        }
+      }, 2000);
+    })();
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-tcTdDg6bGpjcrc9QQWLKAZWGwgsYyE&libraries=places&callback=initDestMap" async defer onerror="initDestMapFallback()"></script>
+
   <script>
     (function(){
       var section = document.querySelector(".notes");
